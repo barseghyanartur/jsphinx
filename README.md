@@ -87,7 +87,8 @@ This markup does a couple of things:
   The provided ``download_adapter.js`` ensures that files are downloaded and 
   shown in-line.
 
-See the [faker-file documentation][faker-file documentation] as a demo.
+See the [faker-file documentation][faker-file documentation] as a demo. Click
+on any ``See the full example`` link to see how it works.
 
 ## License
 
