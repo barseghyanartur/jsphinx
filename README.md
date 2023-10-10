@@ -4,6 +4,7 @@
 [sphinx-rtd-theme]: https://github.com/readthedocs/sphinx_rtd_theme "sphinx-rtd-theme"
 [PrismJS]: https://github.com/PrismJS/prism "PrismJS"
 [GitHub issues]: https://github.com/barseghyanartur/prismjs-sphinx/issues "GitHub issues"
+[faker-file documentation]: https://faker-file.readthedocs.io/en/latest/creating_pdf.html#building-pdfs-with-text-using-reportlab "faker-file documentation"
 
 [Sphinx][Sphinx] adapter for [PrismJS][PrismJS].
 
@@ -44,20 +45,49 @@ To use both the theme and adapter in your HTML:
 
 ## Sphinx integration
 
+### Configuration
+
 To integrate both into your [Sphinx][Sphinx] project, add the following in 
 your ``conf.py``:
 
 ```python
 html_css_files = [
+    # ...
     "https://cdn.jsdelivr.net/gh/barseghyanartur/prismjs-sphinx/src/css/sphinx_rtd_theme.css",
-    # other CSS files
+    # ...
 ]
 
 html_js_files = [
+    # ...
     "https://cdn.jsdelivr.net/gh/YourGitHubUsername/prismjs-sphinx/src/js/download_adapter.js",
-    # other JS files
+    # ...
 ]
 ```
+
+### Markup
+
+In your Sphinx RST (reStructuredText) files, you can define code snippets and 
+download links as follows:
+
+```rst
+.. literalinclude:: _static/examples/creating_pdf/reportlab_1.py
+    :language: python
+    :lines: 4-7, 11-
+
+*See the full example*
+:download:`here <_static/examples/creating_pdf/reportlab_1.py>`
+```
+
+This markup does a couple of things:
+
+- The ``literalinclude`` directive embeds a portion of the code (lines 4-7 
+  and lines from 11 to the end) from a file located 
+  at ``_static/examples/creating_pdf/reportlab_1.py``.
+- The ``:download:`` directive allows the user to download the entire file.
+  The provided ``download_adapter.js`` ensures that files are downloaded and 
+  shown in-line.
+
+See the [faker-file documentation][faker-file documentation] as a demo.
 
 ## License
 
