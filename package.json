@@ -1,22 +1,23 @@
 {
-  "name": "prismjs-sphinx-rtd-theme",
+  "name": "prismjs-sphinx",
   "version": "1.0.0",
-  "description": "Sphinx RTD theme for PrismJS",
-  "main": "src/css/prismjs_sphinx_rtd_theme.css",
+  "description": "PrismJS integration with Sphinx",
+  "main": "src/css/sphinx_rtd_theme.css",
   "scripts": {
     "test": "echo \"No tests\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/barseghyanartur/prismjs-sphinx-rtd-theme.git"
+    "url": "git+https://github.com/barseghyanartur/prismjs-sphinx.git"
   },
   "author": "Artur Barseghyan",
   "license": "MIT",
   "files": [
-    "src/css/prismjs_sphinx_rtd_theme.css"
+    "src/css/sphinx_rtd_theme.css",
+    "src/js/download_adapter.js"
   ],
   "bugs": {
-    "url": "https://github.com/barseghyanartur/prismjs-sphinx-rtd-theme/issues"
+    "url": "https://github.com/barseghyanartur/prismjs-sphinx/issues"
   },
-  "homepage": "https://github.com/barseghyanartur/prismjs-sphinx-rtd-theme"
+  "homepage": "https://github.com/barseghyanartur/prismjs-sphinx"
 }
