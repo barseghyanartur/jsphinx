@@ -59,7 +59,7 @@ html_css_files = [
 
 html_js_files = [
     # ...
-    "https://cdn.jsdelivr.net/gh/YourGitHubUsername/prismjs-sphinx/src/js/download_adapter.js",
+    "https://cdn.jsdelivr.net/gh/barseghyanartur/prismjs-sphinx/src/js/download_adapter.js",
     # ...
 ]
 ```
