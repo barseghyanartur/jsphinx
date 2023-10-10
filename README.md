@@ -64,6 +64,28 @@ html_js_files = [
 ]
 ```
 
+A complete configuration example, together with loaded [PrismJS][PrismJS] and 
+the toolbar with plugins, would look as follows:
+
+```python
+prismjs_base = "//cdnjs.cloudflare.com/ajax/libs/prism/1.29.0"
+
+html_css_files = [
+    f"{prismjs_base}/themes/prism.min.css",
+    f"{prismjs_base}/plugins/toolbar/prism-toolbar.min.css",
+    f"{prismjs_base}/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css",
+    "https://cdn.jsdelivr.net/gh/barseghyanartur/prismjs-sphinx/src/css/sphinx_rtd_theme.css",
+]
+
+html_js_files = [
+    f"{prismjs_base}/prism.min.js",
+    f"{prismjs_base}/plugins/autoloader/prism-autoloader.min.js",
+    f"{prismjs_base}/plugins/toolbar/prism-toolbar.min.js",
+    f"{prismjs_base}/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js",
+    "https://cdn.jsdelivr.net/gh/barseghyanartur/prismjs-sphinx/src/js/download_adapter.js",
+]
+```
+
 ### Markup
 
 In your Sphinx RST (reStructuredText) files, you can define code snippets and 
