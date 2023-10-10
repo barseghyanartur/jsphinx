@@ -3,7 +3,7 @@
 [Sphinx]: https://github.com/sphinx-doc/sphinx "Sphinx"
 [sphinx-rtd-theme]: https://github.com/readthedocs/sphinx_rtd_theme "sphinx-rtd-theme"
 [PrismJS]: https://github.com/PrismJS/prism "PrismJS"
-[GitHub issues]: https://github.com/barseghyanartur/faker-file/issues "GitHub issues"
+[GitHub issues]: https://github.com/barseghyanartur/prismjs-sphinx/issues "GitHub issues"
 
 [Sphinx][Sphinx] adapter for [PrismJS][PrismJS].
 
