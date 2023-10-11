@@ -39,3 +39,6 @@ clean:
 	rm -rf .pytest_cache/
 	rm -rf .mypy_cache/
 	rm -rf .ruff_cache/
+
+pip-compile:
+	python -m piptools compile -o docs/requirements.txt pyproject.toml
