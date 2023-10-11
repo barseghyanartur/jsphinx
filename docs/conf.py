@@ -8,7 +8,7 @@ import os
 # Check if we're running on Read the Docs' servers
 on_rtd = os.environ.get("READTHEDOCS", None) == "True"
 branch_name = os.environ.get("READTHEDOCS_VERSION", "sphinx_rtd_theme")
-if branch_name in {"main", "dev"}:
+if branch_name in {"main", "dev", "latest"}:
     branch_name = "sphinx_rtd_theme"
 
 # -- Project information -----------------------------------------------------
