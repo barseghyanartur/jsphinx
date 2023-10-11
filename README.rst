@@ -2,16 +2,27 @@
 prismjs-sphinx
 ==============
 
-.. References
+.. Dependencies
 
 .. _Sphinx: https://github.com/sphinx-doc/sphinx
 .. _PrismJS: https://github.com/PrismJS/prism
-.. _GitHub issues: https://github.com/barseghyanartur/prismjs-sphinx/issues
 .. _sphinx-rtd-theme: https://github.com/readthedocs/sphinx_rtd_theme
 .. _alabaster: https://github.com/sphinx-doc/alabaster
-.. _sphinx-bootstrap-theme: https://pypi.org/project/sphinx-bootstrap-theme/
 .. _sphinx-material: https://github.com/bashtage/sphinx-material
+.. _sphinx-bootstrap-theme: https://pypi.org/project/sphinx-bootstrap-theme/
 .. _furo: https://github.com/pradyunsg/furo
+
+.. Project
+
+.. _GitHub issues: https://github.com/barseghyanartur/prismjs-sphinx/issues
+
+.. Demos
+
+.. _sphinx-rtd-theme-demo: https://prismjs-sphinx.readthedocs.io/en/sphinx_rtd_theme/examples.html
+.. _alabaster-demo: https://prismjs-sphinx.readthedocs.io/en/alabaster/examples.html
+.. _sphinx-material-demo: https://prismjs-sphinx.readthedocs.io/en/sphinx_material/examples.html
+.. _sphinx-bootstrap-demo: https://prismjs-sphinx.readthedocs.io/en/bootstrap/examples.html
+.. _furo-demo: https://prismjs-sphinx.readthedocs.io/en/furo/examples.html
 .. _faker-file documentation: https://faker-file.readthedocs.io/en/latest/creating_pdf.html#building-pdfs-with-text-using-reportlab
 
 `Sphinx`_ adapter for `PrismJS`_.
@@ -172,8 +183,19 @@ This markup does a couple of things:
   The provided ``download_adapter.js`` ensures that files are downloaded and
   shown in-line.
 
-See the `faker-file documentation`_ as a demo. Click on
-any ``See the full example`` link to see how it works.
+Demos
+=====
+
+The following demos are available:
+
+- `sphinx-rtd-theme-demo`_
+- `alabaster-demo`_
+- `sphinx-material-demo`_
+- `sphinx-bootstrap-demo`_
+- `furo-demo`_
+- `faker-file documentation`_
+
+Click on any ``See the full example`` link to see how it works.
 
 License
 =======
