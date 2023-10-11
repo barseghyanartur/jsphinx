@@ -1,6 +1,6 @@
 {
   "name": "prismjs-sphinx",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "PrismJS integration with Sphinx",
   "main": "src/css/sphinx_rtd_theme.css",
   "scripts": {
@@ -13,6 +13,10 @@
   "author": "Artur Barseghyan",
   "license": "MIT",
   "files": [
+    "src/css/alabaster.css",
+    "src/css/bootstrap.css",
+    "src/css/furo.css",
+    "src/css/sphinx_material.css",
     "src/css/sphinx_rtd_theme.css",
     "src/js/download_adapter.js"
   ],

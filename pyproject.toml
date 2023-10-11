@@ -1,0 +1,17 @@
+[project]
+name = "prismjs-sphinx"
+version = "1.0.3"
+
+dependencies = [
+    "sphinx",
+]
+
+[project.optional-dependencies]
+all = ["prismjs-sphinx[themes,dev]"]
+themes = [
+    "sphinx_rtd_theme",
+    "sphinx-bootstrap-theme",
+    "sphinx-material",
+    "furo",
+]
+dev = ["black", "isort", "ruff", "ipython"]
