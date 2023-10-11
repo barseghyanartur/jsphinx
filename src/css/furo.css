@@ -1,10 +1,7 @@
 /**
- * Python Sphinx RTD theme for PrismJs.
+ * furo theme for PrismJs.
  *
- * The original sphinx-rtd-theme (https://github.com/readthedocs/sphinx_rtd_theme).
- *
- * Adapted from PrismJS prism-themes (https://github.com/PrismJS/prism-themes),
- * specifically prism-gruvbox-light.css theme.
+ * Adapted from `sphinx_rtd_theme.css`.
  *
  * @author Artur Barseghyan (https://github.com/barseghyanartur)
  * @url https://github.com/barseghyanartur/prismjs-sphinx
@@ -165,11 +162,11 @@ code {
 }
 
 pre[class*="language-"] {
-	border: 1px solid #e1e4e5!important;
+	border: none;
 }
 code[class*="language-"],
 pre[class*="language-"] {
-    font-size: 12px;
+    font-size: 90%;
 }
 
 pre[class*="language-"] > code:first-child {
