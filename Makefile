@@ -42,3 +42,11 @@ clean:
 
 pip-compile:
 	python -m piptools compile -o docs/requirements.txt pyproject.toml
+
+TAGS = sphinx_rtd_theme alabaster sphinx_material bootstrap furo
+
+tags:
+	for tag in $(TAGS); do \
+		git tag -f $$tag; \
+	done
+	git push --tags --force
