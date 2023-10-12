@@ -93,8 +93,8 @@ The above mentioned snippet will be rendered as follows:
    :lines: 3-11
 
 However, we also understand the importance of the broader context. For that
-we the ``:download:`` directive, which allows us to create a downloadable link
-to a file (the same file we already included into the documentation
+we use the ``:download:`` directive, which allows us to create a downloadable
+link to a file (the same file we already included into the documentation
 using ``:literalinclude:``). By that we ensure that those interested in the
 complete code can easily access it.
 
