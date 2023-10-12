@@ -40,7 +40,7 @@ clean:
 	rm -rf .mypy_cache/
 	rm -rf .ruff_cache/
 
-pip-compile:
+compile-requirements:
 	python -m piptools compile -o docs/requirements.txt pyproject.toml
 
 TAGS = sphinx_rtd_theme alabaster sphinx_material bootstrap furo

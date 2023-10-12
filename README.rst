@@ -18,11 +18,11 @@ prismjs-sphinx
 
 .. Demos
 
-.. _sphinx-rtd-theme-demo: https://prismjs-sphinx.readthedocs.io/en/sphinx_rtd_theme/examples.html
-.. _alabaster-demo: https://prismjs-sphinx.readthedocs.io/en/alabaster/examples.html
-.. _sphinx-material-demo: https://prismjs-sphinx.readthedocs.io/en/sphinx_material/examples.html
-.. _sphinx-bootstrap-demo: https://prismjs-sphinx.readthedocs.io/en/bootstrap/examples.html
-.. _furo-demo: https://prismjs-sphinx.readthedocs.io/en/furo/examples.html
+.. _sphinx-rtd-theme demo: https://prismjs-sphinx.readthedocs.io/en/sphinx_rtd_theme/examples.html
+.. _alabaster demo: https://prismjs-sphinx.readthedocs.io/en/alabaster/examples.html
+.. _sphinx-material demo: https://prismjs-sphinx.readthedocs.io/en/sphinx_material/examples.html
+.. _sphinx-bootstrap demo: https://prismjs-sphinx.readthedocs.io/en/bootstrap/examples.html
+.. _furo demo: https://prismjs-sphinx.readthedocs.io/en/furo/examples.html
 .. _faker-file documentation: https://faker-file.readthedocs.io/en/latest/creating_pdf.html#building-pdfs-with-text-using-reportlab
 
 `Sphinx`_ adapter for `PrismJS`_.
@@ -42,11 +42,11 @@ Standalone `PrismJS`_ themes based on `Sphinx`_'s aesthetics.
 
 Included themes:
 
-- `sphinx-rtd-theme`_ (key: ``sphinx_rtd_theme``)
-- `alabaster`_ (key: ``alabaster``)
-- `sphinx-material`_ (key: ``sphinx_material``)
-- `sphinx-bootstrap-theme`_ (key: ``bootstrap``)
-- `furo`_ (key: ``furo``)
+- `sphinx-rtd-theme`_ (key: ``sphinx_rtd_theme``, `sphinx-rtd-theme demo`_)
+- `alabaster`_ (key: ``alabaster``, `alabaster demo`_)
+- `sphinx-material`_ (key: ``sphinx_material``, `sphinx-material demo`_)
+- `sphinx-bootstrap-theme`_ (key: ``bootstrap``, `sphinx-bootstrap demo`_)
+- `furo`_ (key: ``furo``, `furo demo`_)
 
 PrismJS Sphinx adapter
 ----------------------
@@ -186,13 +186,13 @@ This markup does a couple of things:
 Demos
 =====
 
-The following demos are available:
+Available demos:
 
-- `sphinx-rtd-theme-demo`_
-- `alabaster-demo`_
-- `sphinx-material-demo`_
-- `sphinx-bootstrap-demo`_
-- `furo-demo`_
+- `sphinx-rtd-theme demo`_
+- `alabaster demo`_
+- `sphinx-material demo`_
+- `sphinx-bootstrap demo`_
+- `furo demo`_
 - `faker-file documentation`_
 
 Click on any ``See the full example`` link to see how it works.
