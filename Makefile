@@ -47,7 +47,7 @@ clean:
 	rm -rf .ruff_cache/
 
 compile-requirements:
-	source $(VENV) && python -m piptools compile -o docs/requirements.txt pyproject.toml
+	source $(VENV) && python -m piptools compile --extra all -o docs/requirements.txt pyproject.toml
 
 TAGS = sphinx_rtd_theme alabaster sphinx_material bootstrap furo
 
