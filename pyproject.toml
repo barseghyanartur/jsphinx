@@ -1,13 +1,13 @@
 [project]
 name = "prismjs-sphinx"
-version = "1.0.3"
+version = "1.0.4"
 
 dependencies = [
     "sphinx",
 ]
 
 [project.optional-dependencies]
-all = ["prismjs-sphinx[themes,dev]"]
+all = ["prismjs-sphinx[themes,dev,test]"]
 themes = [
     "sphinx_rtd_theme",
     "sphinx-bootstrap-theme",
@@ -15,6 +15,7 @@ themes = [
     "furo",
 ]
 dev = ["black", "isort", "ruff", "ipython", "pip-tools"]
+test = ["pytest", "faker-file", "python-docx"]
 
 [tool.black]
 line-length = 80

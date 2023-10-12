@@ -1,17 +1,19 @@
 Examples
 ========
 
-See the following full functional snippet for generating DOCX.
+See the following full functional snippet for generating a ``DOCX`` file.
 
 .. literalinclude:: _static/py/faker_file_docx_1.py
     :language: python
+    :lines: 3-11
 
 *See the full example*
 :download:`here <_static/py/faker_file_docx_1.py>`
 
-The generated DOCX will have 10,000 characters of text, which is about 5 pages.
+The generated file will have 10,000 characters of text, which is about 5
+pages.
 
-If you want DOCX with more pages, you could either:
+If you want a file with more pages, you could either:
 
 - Increase the value of ``max_nb_chars`` accordingly.
 - Set value of ``wrap_chars_after`` to 80 characters to force longer pages.
@@ -41,12 +43,14 @@ See the example below for ``wrap_chars_after`` tweak:
 
 ----
 
-As mentioned above, it's possible to diversify the generated context with
-images, paragraphs, tables, manual text break and pretty much everything that
-is supported by DOCX format specification, although currently only images,
-paragraphs, tables and manual text breaks are supported out of the box. In
-order to customise the blocks DOCX file is built from, the ``DynamicTemplate``
-class is used. See the example below for usage examples:
+It's possible to diversify the generated context with images, paragraphs,
+tables, manual text break and pretty much everything that is supported by
+``DOCX`` format specification, although currently only images, paragraphs,
+tables and manual text breaks are supported out of the box.
+
+In order to customise the blocks ``DOCX`` file is built from,
+the ``DynamicTemplate`` class is used. See the example below for usage
+examples:
 
 .. literalinclude:: _static/py/faker_file_docx_4.py
     :language: python
