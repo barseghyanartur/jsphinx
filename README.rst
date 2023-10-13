@@ -74,25 +74,31 @@ reducing cognitive load for the reader.
 Consider the following code example stored in a
 file ``_static/py/faker_file_docx_1.py``:
 
-.. code-block:: python
-   :linenos:
+.. raw:: html
 
-   import os
-
-   # Required imports
-   from faker import Faker
-   from faker_file.providers.docx_file import DocxFileProvider
-
-   FAKER = Faker()  # Initialize Faker
-   FAKER.add_provider(DocxFileProvider)  # Register DocxFileProvider
-
-   # Generate DOCX file
-   docx_file = FAKER.docx_file()
-
-   # Test things out
-   print(docx_file)
-   print(docx_file.data["filename"])
-   assert os.path.exists(docx_file.data["filename"])
+   <div class="highlight-python notranslate">
+     <div class="highlight">
+       <pre>
+         <span></span>
+         <span class="linenos"> 1</span> <span class="kn">import</span> <span class="nn">os</span>
+         <span class="linenos"> 2</span>
+         <span class="linenos"> 3</span> <span class="c1"># Required imports</span>
+         <span class="linenos"> 4</span> <span class="kn">from</span> <span class="nn">faker</span> <span class="kn">import</span> <span class="n">Faker</span>
+         <span class="linenos"> 5</span> <span class="kn">from</span> <span class="nn">faker_file.providers.docx_file</span> <span class="kn">import</span> <span class="n">DocxFileProvider</span>
+         <span class="linenos"> 6</span>
+         <span class="linenos"> 7</span> <span class="n">FAKER</span> <span class="o">=</span> <span class="n">Faker</span><span class="p">()</span>  <span class="c1"># Initialize Faker</span>
+         <span class="linenos"> 8</span> <span class="n">FAKER</span><span class="o">.</span><span class="n">add_provider</span><span class="p">(</span><span class="n">DocxFileProvider</span><span class="p">)</span>  <span class="c1"># Register DocxFileProvider</span>
+         <span class="linenos"> 9</span>
+         <span class="linenos">10</span> <span class="c1"># Generate DOCX file</span>
+         <span class="linenos">11</span> <span class="n">docx_file</span> <span class="o">=</span> <span class="n">FAKER</span><span class="o">.</span><span class="n">docx_file</span><span class="p">()</span>
+         <span class="linenos">12</span>
+         <span class="linenos">13</span> <span class="c1"># Test things out</span>
+         <span class="linenos">14</span> <span class="nb">print</span><span class="p">(</span><span class="n">docx_file</span><span class="p">)</span>
+         <span class="linenos">15</span> <span class="nb">print</span><span class="p">(</span><span class="n">docx_file</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"filename"</span><span class="p">])</span>
+         <span class="linenos">16</span> <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">docx_file</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"filename"</span><span class="p">])</span>
+       </pre>
+     </div>
+   </div>
 
 See the following snippet:
 
