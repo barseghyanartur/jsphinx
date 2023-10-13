@@ -8,13 +8,13 @@
  *
  * @author Artur Barseghyan (https://github.com/barseghyanartur)
  * @url https://github.com/barseghyanartur/prismjs-sphinx
- * @version 1.0.4
+ * @version 1.0.5
  */
 
 code[class*="language-"],
 pre[class*="language-"] {
-	color: #3c3836;
-	font-family: Consolas, Monaco, "Andale Mono", monospace;
+	color: #404040;
+	font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, Courier, monospace;
 	direction: ltr;
 	text-align: left;
 	white-space: pre;
@@ -67,10 +67,10 @@ pre[class*="language-"] {
 }
 
 .token.comment {
+	color: #408090;
 	font-style: italic;
 }
 
-.token.comment,
 .token.prolog,
 .token.cdata {
 	color: #7c6f64;
@@ -89,6 +89,10 @@ pre[class*="language-"] {
 	color: #9d0006;
 }
 
+.token.operator {
+	color: #666666;
+	background-color: #eeffcc;
+}
 .token.operator,
 .token.punctuation,
 .token.attr-name {
