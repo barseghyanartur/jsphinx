@@ -77,22 +77,22 @@ file ``_static/py/faker_file_docx_1.py``:
 .. code-block:: python
    :linenos:
 
-    import os
+   import os
 
-    # Required imports
-    from faker import Faker
-    from faker_file.providers.docx_file import DocxFileProvider
+   # Required imports
+   from faker import Faker
+   from faker_file.providers.docx_file import DocxFileProvider
 
-    FAKER = Faker()  # Initialize Faker
-    FAKER.add_provider(DocxFileProvider)  # Register DocxFileProvider
+   FAKER = Faker()  # Initialize Faker
+   FAKER.add_provider(DocxFileProvider)  # Register DocxFileProvider
 
-    # Generate DOCX file
-    docx_file = FAKER.docx_file()
+   # Generate DOCX file
+   docx_file = FAKER.docx_file()
 
-    # Test things out
-    print(docx_file)
-    print(docx_file.data["filename"])
-    assert os.path.exists(docx_file.data["filename"])
+   # Test things out
+   print(docx_file)
+   print(docx_file.data["filename"])
+   assert os.path.exists(docx_file.data["filename"])
 
 See the following snippet:
 
