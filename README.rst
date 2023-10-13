@@ -76,8 +76,7 @@ file ``_static/py/faker_file_docx_1.py``:
 
 .. raw:: html
 
-   <div class="highlight-python notranslate">
-     <div class="highlight">
+   <div>
        <pre>
          <span></span>
          <span class="linenos"> 1</span> <span class="kn">import</span> <span class="nn">os</span>
@@ -97,7 +96,6 @@ file ``_static/py/faker_file_docx_1.py``:
          <span class="linenos">15</span> <span class="nb">print</span><span class="p">(</span><span class="n">docx_file</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"filename"</span><span class="p">])</span>
          <span class="linenos">16</span> <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">docx_file</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"filename"</span><span class="p">])</span>
        </pre>
-     </div>
    </div>
 
 See the following snippet:
