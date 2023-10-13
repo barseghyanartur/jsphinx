@@ -11,7 +11,7 @@
 code[class*="language-"],
 pre[class*="language-"] {
 	color: #3c3836;
-	font-family: Consolas, Monaco, "Andale Mono", monospace;
+	font-family: "Roboto Mono", "Courier New", Courier, monospace;
 	direction: ltr;
 	text-align: left;
 	white-space: pre;
@@ -65,9 +65,9 @@ pre[class*="language-"] {
 
 .token.comment {
 	font-style: italic;
+	color: #408090;
 }
 
-.token.comment,
 .token.prolog,
 .token.cdata {
 	color: #7c6f64;
