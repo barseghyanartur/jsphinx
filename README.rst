@@ -272,8 +272,6 @@ All code snippets of this repository can be tested with `pytest`_ as follows:
 
     pytest
 
-This is how it's done:
-
 The `pytest`_ test-runner finds tests in the ``docs/test_docs.py`` module.
 
 Given, that our snippets are localed in the ``docs/_static/py/`` directory,
