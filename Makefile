@@ -15,6 +15,9 @@ black:
 isort:
 	source $(VENV) && isort . --overwrite-in-place
 
+doc8:
+	source $(VENV) && doc8
+
 # Run ruff on the codebase
 ruff:
 	source $(VENV) && ruff .
