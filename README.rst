@@ -13,6 +13,7 @@ Write better docs. Stay concise. Never miss a detail.
 .. _sphinx-material: https://github.com/bashtage/sphinx-material
 .. _sphinx-bootstrap-theme: https://pypi.org/project/sphinx-bootstrap-theme/
 .. _furo: https://github.com/pradyunsg/furo
+.. _pytest: https://github.com/pytest-dev/pytest/
 
 .. Project
 
@@ -261,6 +262,42 @@ Finally, make sure to specify correct path to the desired theme:
        # ...
        f"https://cdn.jsdelivr.net/gh/barseghyanartur/prismjs-sphinx/src/css/{html_theme}.css",
    ]
+
+Testing your documentation
+==========================
+
+All code snippets of this repository can be tested with `pytest`_ as follows:
+
+.. code-block:: sh
+
+    pytest
+
+This is how it's done:
+
+The `pytest`_ test-runner finds tests in the ``docs/test_docs.py`` module.
+
+Given, that our snippets are localed in the ``docs/_static/py/`` directory,
+the ``docs/test_docs.py`` could look as follows:
+
+.. code-block:: python
+
+    from pathlib import Path
+    import pytest
+
+    # Walk through the directory and all subdirectories for .py files
+    example_dir = Path("docs/_static/py")
+    py_files = sorted([str(p) for p in example_dir.rglob("*.py")])
+
+    def execute_file(file_path):
+        """Dynamic test function."""
+        global_vars = {}
+        with open(file_path, "r") as f:
+            code = f.read()
+        exec(code, global_vars)
+
+    @pytest.mark.parametrize("file_path", py_files)
+    def test_dynamic_files(file_path):
+        execute_file(file_path)
 
 License
 =======
