@@ -14,8 +14,21 @@ themes = [
     "sphinx-material",
     "furo",
 ]
-dev = ["black", "isort", "ruff", "ipython", "pip-tools"]
-test = ["pytest", "faker-file", "python-docx"]
+dev = [
+    "black",
+    "isort",
+    "ruff",
+    "doc8",
+    "ipython",
+    "pip-tools",
+    "detect-secrets",
+]
+test = [
+    "pytest",
+    "faker-file",
+    "python-docx",
+    "Pillow",
+]
 
 [tool.black]
 line-length = 80
@@ -87,3 +100,9 @@ dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
 # Assume Python 3.10.
 target-version = "py310"
+
+[tool.doc8]
+ignore-path = [
+    "docs/requirements.txt",
+    "src/prismjs_sphinx.egg-info/SOURCES.txt",
+]

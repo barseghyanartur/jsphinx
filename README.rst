@@ -182,7 +182,8 @@ Sphinx integration
 Configuration
 -------------
 
-To integrate both into your `Sphinx`_ project, add the following in your ``conf.py``:
+To integrate both into your `Sphinx`_ project, add the following in
+your ``conf.py``:
 
 .. code-block:: python
 
@@ -230,8 +231,8 @@ toolbar with plugins, would look as follows:
 
 ----
 
-You can also use other `Sphinx`_ themes, such as `alabaster`_, `sphinx-bootstrap-theme`_,
-`sphinx-material`_ or `furo`_.
+You can also use other `Sphinx`_ themes, such as `alabaster`_,
+`sphinx-bootstrap-theme`_, `sphinx-material`_ or `furo`_.
 
 `alabaster`_, `furo`_, `sphinx-bootstrap-theme`_ and `sphinx-material`_ do
 require loading jQuery in the ``html_js_files``.
@@ -272,10 +273,11 @@ All code snippets of this repository can be tested with `pytest`_ as follows:
 
     pytest
 
-The `pytest`_ test-runner finds tests in the ``docs/test_docs.py`` module.
+The `pytest`_ test-runner finds tests in the ``docs/test_docs.py`` module,
+which is responsible for dynamical execution of Python files located in the
+``docs/_static/py/`` directory.
 
-Given, that our snippets are localed in the ``docs/_static/py/`` directory,
-the ``docs/test_docs.py`` could look as follows:
+This is how ``docs/test_docs.py`` could look:
 
 .. code-block:: python
 

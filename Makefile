@@ -15,6 +15,9 @@ black:
 isort:
 	source $(VENV) && isort . --overwrite-in-place
 
+doc8:
+	source $(VENV) && doc8
+
 # Run ruff on the codebase
 ruff:
 	source $(VENV) && ruff .
@@ -29,6 +32,12 @@ install:
 
 test:
 	source $(VENV) && pytest -vrx -s
+
+create-secrets:
+	source $(VENV) && detect-secrets scan > .secrets.baseline
+
+detect-secrets:
+	source $(VENV) && detect-secrets scan --baseline .secrets.baseline
 
 # Clean up generated files
 clean:
