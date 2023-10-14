@@ -30,6 +30,12 @@ install:
 test:
 	source $(VENV) && pytest -vrx -s
 
+create-secrets:
+	source $(VENV) && detect-secrets scan > .secrets.baseline
+
+detect-secrets:
+	source $(VENV) && detect-secrets scan --baseline .secrets.baseline
+
 # Clean up generated files
 clean:
 	find . -name "*.pyc" -exec rm -rf {} \;
