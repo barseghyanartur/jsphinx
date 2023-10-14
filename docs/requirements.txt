@@ -86,6 +86,8 @@ pexpect==4.8.0
     # via ipython
 pickleshare==0.7.5
     # via ipython
+pillow==10.0.1
+    # via prismjs-sphinx
 pip-tools==7.3.0
     # via prismjs-sphinx
 platformdirs==3.11.0

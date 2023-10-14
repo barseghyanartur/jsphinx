@@ -15,7 +15,7 @@ themes = [
     "furo",
 ]
 dev = ["black", "isort", "ruff", "ipython", "pip-tools", "detect-secrets"]
-test = ["pytest", "faker-file", "python-docx"]
+test = ["pytest", "faker-file", "python-docx", "Pillow"]
 
 [tool.black]
 line-length = 80
