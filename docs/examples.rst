@@ -3,12 +3,14 @@ Examples
 
 See the following full functional snippet for generating a ``DOCX`` file.
 
-.. literalinclude:: _static/py/faker_file_docx_1.py
-    :language: python
-    :lines: 3-11
+.. container:: prismjs-sphinx
 
-*See the full example*
-:download:`here <_static/py/faker_file_docx_1.py>`
+    .. literalinclude:: _static/py/faker_file_docx_1.py
+        :language: python
+        :lines: 3-11
+
+    *See the full example*
+    :download:`here <_static/py/faker_file_docx_1.py>`
 
 The generated file will have 10,000 characters of text, which is about 5
 pages.
@@ -23,23 +25,27 @@ If you want a file with more pages, you could either:
 
 See the example below for ``max_nb_chars`` tweak:
 
-.. literalinclude:: _static/py/faker_file_docx_2.py
-    :language: python
-    :lines: 8-
+.. container:: prismjs-sphinx
 
-*See the full example*
-:download:`here <_static/py/faker_file_docx_2.py>`
+    .. literalinclude:: _static/py/faker_file_docx_2.py
+        :language: python
+        :lines: 8-
+
+    *See the full example*
+    :download:`here <_static/py/faker_file_docx_2.py>`
 
 ----
 
 See the example below for ``wrap_chars_after`` tweak:
 
-.. literalinclude:: _static/py/faker_file_docx_3.py
-    :language: python
-    :lines: 8-
+.. container:: prismjs-sphinx
 
-*See the full example*
-:download:`here <_static/py/faker_file_docx_3.py>`
+    .. literalinclude:: _static/py/faker_file_docx_3.py
+        :language: python
+        :lines: 8-
+
+    *See the full example*
+    :download:`here <_static/py/faker_file_docx_3.py>`
 
 ----
 
@@ -52,9 +58,11 @@ In order to customise the blocks ``DOCX`` file is built from,
 the ``DynamicTemplate`` class is used. See the example below for usage
 examples:
 
-.. literalinclude:: _static/py/faker_file_docx_4.py
-    :language: python
-    :lines: 3-9, 14-
+.. container:: prismjs-sphinx
 
-*See the full example*
-:download:`here <_static/py/faker_file_docx_4.py>`
+    .. literalinclude:: _static/py/faker_file_docx_4.py
+        :language: python
+        :lines: 3-9, 14-31
+
+    *See the full example*
+    :download:`here <_static/py/faker_file_docx_4.py>`
