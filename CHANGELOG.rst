@@ -17,6 +17,22 @@ Release history and notes
   1.0.4 to 1.1.0).
 - All backwards incompatible changes are mentioned in this document.
 
+1.1.0
+-----
+*2023-10-15*
+
+- The PrismJS-Sphinx adapter JavaScript now only hooks on links wrapped with
+  ``prismjs-sphinx`` class (easily achieved by nesting the ``:download:``
+  or entire block under ``.. container:: prismjs-sphinx`` block). See the
+  example below:
+
+   .. code-block:: rst
+
+      .. container:: prismjs-sphinx
+
+         *See the full example*
+         :download:`here <_static/py/faker_file_docx_1.py>`
+
 1.0.5
 -----
 *2023-10-13*

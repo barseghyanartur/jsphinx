@@ -1,7 +1,7 @@
 {
   "name": "prismjs-sphinx",
-  "version": "1.0.5",
-  "description": "PrismJS integration with Sphinx",
+  "version": "1.1.0",
+  "description": "PrismJS integration for Sphinx",
   "main": "src/css/sphinx_rtd_theme.css",
   "scripts": {
     "test": "echo \"No tests\" && exit 1"

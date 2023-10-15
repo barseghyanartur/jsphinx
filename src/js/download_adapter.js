@@ -23,12 +23,12 @@
  *
  * @author Artur Barseghyan (https://github.com/barseghyanartur)
  * @url https://github.com/barseghyanartur/prismjs-sphinx
- * @version 1.0.5
+ * @version 1.1.0
  */
 
 $(document).ready(function() {
     // Find all download links by their class
-    $("a.reference.download.internal").each(function(index) {
+    $(".prismjs-sphinx a.reference.download.internal").each(function(index) {
         // Create a unique id for the additional content div
         let contentID = 'additional-content-' + index;
 
