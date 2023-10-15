@@ -26,12 +26,12 @@ Release history and notes
   or entire block under ``.. container:: prismjs-sphinx`` block). See the
   example below:
 
-   .. code-block:: rst
+  .. code-block:: rst
 
-      .. container:: prismjs-sphinx
+     .. container:: prismjs-sphinx
 
-         *See the full example*
-         :download:`here <_static/py/faker_file_docx_1.py>`
+        *See the full example*
+        :download:`here <_static/py/faker_file_docx_1.py>`
 
 1.0.5
 -----
