@@ -65,3 +65,11 @@ tags:
 		git tag -f $$tag; \
 	done
 	git push --tags --force
+
+VERSION := 1.1.0
+
+update-version:
+	sed -i 's/"version": "[0-9.]\+"/"version": "$(VERSION)"/' package.json
+	sed -i 's/version = "[0-9.]\+"/version = "$(VERSION)"/' pyproject.toml
+	find src/ -type f -name '*.css' -exec sed -i 's/@version [0-9.]\+/@version $(VERSION)/' {} \;
+	find src/ -type f -name '*.js' -exec sed -i 's/@version [0-9.]\+/@version $(VERSION)/' {} \;
