@@ -7,14 +7,13 @@
  * @url https://github.com/barseghyanartur/prismjs-sphinx
  * @version 1.1.1
  */
-
 code[class*="language-"],
 pre[class*="language-"] {
-	color: #3E4349;
+	color: #545454;
 	background: none;
 	text-shadow: 0 1px white;
-	font-family: 'Consolas', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
-	font-size: 0.95em;
+	font-family: "SFMono-Regular", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+	font-size: .95em;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
@@ -51,14 +50,14 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 
 /* Code blocks */
 pre[class*="language-"] {
-	padding: 7px 30px;
+	padding: 1em;
 	margin: .5em 0;
 	overflow: auto;
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: #eee;
+	background: #f3f4f5;
 }
 
 /* Inline code */
@@ -68,9 +67,9 @@ pre[class*="language-"] {
 	white-space: normal;
 }
 
+
 .token.comment {
-	font-style: italic;
-	color: #408090;
+    color: #797129;
 }
 
 .token.prolog,
@@ -106,11 +105,7 @@ pre[class*="language-"] {
 	color: #690;
 }
 
-.token.operator {
-	color: #666666;
-	background-color: #eee;
-}
-
+.token.operator,
 .token.entity,
 .token.url,
 .language-css .token.string,
@@ -120,15 +115,10 @@ pre[class*="language-"] {
 	background: hsla(0, 0%, 100%, .5);
 }
 
-
-.token.keyword {
-	color: #007020;
-	font-weight: bold;
-}
-
 .token.atrule,
-.token.attr-value {
-	color: #07a;
+.token.attr-value,
+.token.keyword {
+	color: #7928a1;
 }
 
 .token.function,

@@ -17,6 +17,12 @@ Release history and notes
   1.0.4 to 1.1.0).
 - All backwards incompatible changes are mentioned in this document.
 
+1.1.1
+-----
+*2023-10-17*
+
+- Added `sphinx_book_theme`.
+
 1.1.0
 -----
 *2023-10-15*

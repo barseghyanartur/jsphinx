@@ -66,7 +66,7 @@ tags:
 	done
 	git push --tags --force
 
-VERSION := 1.1.0
+VERSION := 1.1.1
 
 update-version:
 	sed -i 's/"version": "[0-9.]\+"/"version": "$(VERSION)"/' package.json
