@@ -4,6 +4,26 @@ prismjs-sphinx
 **Improve developer experience**:
 Write better docs. Stay concise. Never miss a detail.
 
+.. image:: https://img.shields.io/github/v/release/barseghyanartur/prismjs-sphinx?label=Version&color=blue
+   :target: https://github.com/barseghyanartur/prismjs-sphinx/releases
+   :alt: jsDelivr version
+
+.. image:: https://data.jsdelivr.com/v1/package/gh/barseghyanartur/prismjs-sphinx/badge
+   :target: https://github.com/barseghyanartur/prismjs-sphinx/releases
+   :alt: jsDelivr stats
+
+.. image:: https://github.com/barseghyanartur/prismjs-sphinx/actions/workflows/test.yml/badge.svg?branch=main
+   :target: https://github.com/barseghyanartur/prismjs-sphinx/actions
+   :alt: Build Status
+
+.. image:: https://readthedocs.org/projects/prismjs-sphinx/badge/?version=sphinx_rtd_theme
+    :target: http://prismjs-sphinx.readthedocs.io/
+    :alt: Documentation Status
+
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
+   :target: https://github.com/barseghyanartur/prismjs-sphinx/#License
+   :alt: MIT
+
 .. Dependencies
 
 .. _Sphinx: https://github.com/sphinx-doc/sphinx
