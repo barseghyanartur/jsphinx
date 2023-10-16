@@ -58,7 +58,7 @@ clean:
 compile-requirements:
 	source $(VENV) && python -m piptools compile --extra all -o docs/requirements.txt pyproject.toml
 
-TAGS = sphinx_rtd_theme alabaster sphinx_material bootstrap furo
+TAGS = sphinx_rtd_theme alabaster sphinx_material bootstrap furo sphinx_book_theme
 
 tags:
 	for tag in $(TAGS); do \
@@ -66,7 +66,7 @@ tags:
 	done
 	git push --tags --force
 
-VERSION := 1.1.0
+VERSION := 1.1.1
 
 update-version:
 	sed -i 's/"version": "[0-9.]\+"/"version": "$(VERSION)"/' package.json

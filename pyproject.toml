@@ -1,6 +1,6 @@
 [project]
 name = "prismjs-sphinx"
-version = "1.1.0"
+version = "1.1.1"
 
 dependencies = [
     "sphinx",
@@ -9,25 +9,26 @@ dependencies = [
 [project.optional-dependencies]
 all = ["prismjs-sphinx[themes,dev,test]"]
 themes = [
-    "sphinx_rtd_theme",
+    "furo",
+    "sphinx-book-theme",
     "sphinx-bootstrap-theme",
     "sphinx-material",
-    "furo",
+    "sphinx_rtd_theme",
 ]
 dev = [
     "black",
-    "isort",
-    "ruff",
+    "detect-secrets",
     "doc8",
     "ipython",
+    "isort",
     "pip-tools",
-    "detect-secrets",
+    "ruff",
 ]
 test = [
-    "pytest",
-    "faker-file",
-    "python-docx",
     "Pillow",
+    "faker-file",
+    "pytest",
+    "python-docx",
 ]
 
 [tool.black]

@@ -38,11 +38,10 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # branch_name = "sphinx_material"
 # branch_name = "bootstrap"
 # branch_name = "furo"
+# branch_name = "sphinx_book_theme"
 
 html_theme = branch_name
 html_static_path = ["_static"]
-
-# For alabaster theme, jQuery would need to be included in the conf.py:
 
 prismjs_base = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0"
 
@@ -63,7 +62,16 @@ html_js_files = [
     "scripts/download_adapter.js",
 ]
 
-if branch_name in {"alabaster", "furo", "bootstrap", "sphinx_material"}:
+# For some themes, jQuery would need to be included in the conf.py:
+_themes_requiring_jquery = {
+    "alabaster",
+    "bootstrap",
+    "furo",
+    "sphinx_book_theme",
+    "sphinx_material",
+}
+
+if branch_name in _themes_requiring_jquery:
     html_js_files.insert(
         0,
         "//cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js",
