@@ -17,11 +17,18 @@ Release history and notes
   1.0.4 to 1.1.0).
 - All backwards incompatible changes are mentioned in this document.
 
+1.1.2
+-----
+*2023-10-18*
+
+- Remove ``jQuery`` requirement.
+- Add ``pydata_sphinx_theme`` theme.
+
 1.1.1
 -----
 *2023-10-17*
 
-- Added `sphinx_book_theme`.
+- Added ``sphinx_book_theme``.
 
 1.1.0
 -----

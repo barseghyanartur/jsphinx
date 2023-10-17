@@ -39,6 +39,7 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # branch_name = "bootstrap"
 # branch_name = "furo"
 # branch_name = "sphinx_book_theme"
+# branch_name = "pydata_sphinx_theme"
 
 html_theme = branch_name
 html_static_path = ["_static"]
@@ -48,7 +49,6 @@ prismjs_base = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0"
 html_css_files = [
     f"{prismjs_base}/themes/prism.min.css",
     f"{prismjs_base}/plugins/toolbar/prism-toolbar.min.css",
-    f"{prismjs_base}/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css",
     # f"https://cdn.jsdelivr.net/gh/barseghyanartur/prismjs-sphinx/src/css/{branch_name}.css",
     f"themes/{branch_name}.css",
 ]
@@ -62,17 +62,8 @@ html_js_files = [
     "scripts/download_adapter.js",
 ]
 
-# For some themes, jQuery would need to be included in the conf.py:
-_themes_requiring_jquery = {
-    "alabaster",
-    "bootstrap",
-    "furo",
-    "sphinx_book_theme",
-    "sphinx_material",
-}
-
-if branch_name in _themes_requiring_jquery:
-    html_js_files.insert(
-        0,
-        "//cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js",
-    )
+# # For some themes, jQuery would need to be included in the conf.py:
+# html_js_files.insert(
+#     0,
+#     "//cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js",
+# )

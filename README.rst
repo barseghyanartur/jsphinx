@@ -28,13 +28,16 @@ Write better docs. Stay concise. Never miss a detail.
 
 .. _Sphinx: https://github.com/sphinx-doc/sphinx
 .. _PrismJS: https://github.com/PrismJS/prism
-.. _sphinx-rtd-theme: https://github.com/readthedocs/sphinx_rtd_theme
-.. _alabaster: https://github.com/sphinx-doc/alabaster
-.. _sphinx-material: https://github.com/bashtage/sphinx-material
-.. _sphinx-bootstrap-theme: https://pypi.org/project/sphinx-bootstrap-theme/
-.. _sphinx-book-theme: https://pypi.org/project/sphinx-book-theme/
-.. _furo: https://github.com/pradyunsg/furo
 .. _pytest: https://github.com/pytest-dev/pytest/
+
+.. Themes
+
+.. _alabaster: https://github.com/sphinx-doc/alabaster
+.. _furo: https://github.com/pradyunsg/furo
+.. _sphinx-book-theme: https://pypi.org/project/sphinx-book-theme/
+.. _sphinx-bootstrap-theme: https://pypi.org/project/sphinx-bootstrap-theme/
+.. _sphinx-material: https://github.com/bashtage/sphinx-material
+.. _sphinx-rtd-theme: https://github.com/readthedocs/sphinx_rtd_theme
 
 .. Project
 
@@ -42,13 +45,15 @@ Write better docs. Stay concise. Never miss a detail.
 
 .. Demos
 
-.. _sphinx-rtd-theme demo: https://prismjs-sphinx.readthedocs.io/en/sphinx_rtd_theme/examples.html
 .. _alabaster demo: https://prismjs-sphinx.readthedocs.io/en/alabaster/examples.html
-.. _sphinx-material demo: https://prismjs-sphinx.readthedocs.io/en/sphinx_material/examples.html
-.. _sphinx-bootstrap demo: https://prismjs-sphinx.readthedocs.io/en/bootstrap/examples.html
-.. _sphinx-book-theme demo: https://prismjs-sphinx.readthedocs.io/en/sphinx_book_theme/examples.html
 .. _furo demo: https://prismjs-sphinx.readthedocs.io/en/furo/examples.html
+.. _sphinx-book-theme demo: https://prismjs-sphinx.readthedocs.io/en/sphinx_book_theme/examples.html
+.. _sphinx-bootstrap demo: https://prismjs-sphinx.readthedocs.io/en/bootstrap/examples.html
+.. _sphinx-material demo: https://prismjs-sphinx.readthedocs.io/en/sphinx_material/examples.html
+.. _sphinx-rtd-theme demo: https://prismjs-sphinx.readthedocs.io/en/sphinx_rtd_theme/examples.html
 .. _faker-file documentation: https://faker-file.readthedocs.io/en/latest/creating_pdf.html#building-pdfs-with-text-using-reportlab
+
+----
 
 ``prismjs-sphinx`` helps you to achieve what's mentioned above.
 You could see it as a mix of loosely coupled software components and
@@ -73,12 +78,12 @@ Demos
 See the list of available demos below. Pick a demo and from within the example
 page, click on any ``See the full example`` link to see how it works.
 
-- `sphinx-rtd-theme demo`_
 - `alabaster demo`_
-- `sphinx-material demo`_
-- `sphinx-bootstrap demo`_
-- `sphinx-book-theme demo`_
 - `furo demo`_
+- `sphinx-book-theme demo`_
+- `sphinx-bootstrap demo`_
+- `sphinx-material demo`_
+- `sphinx-rtd-theme demo`_
 - `faker-file documentation`_
 
 Impressed? Want to learn and understand how does that work?
@@ -184,12 +189,12 @@ Themes
 
 `PrismJS`_ themes based on `Sphinx`_'s aesthetics:
 
-- `sphinx-rtd-theme`_ (key: ``sphinx_rtd_theme``, `sphinx-rtd-theme demo`_)
 - `alabaster`_ (key: ``alabaster``, `alabaster demo`_)
-- `sphinx-material`_ (key: ``sphinx_material``, `sphinx-material demo`_)
-- `sphinx-bootstrap-theme`_ (key: ``bootstrap``, `sphinx-bootstrap demo`_)
-- `sphinx-book-theme`_ (key: ``sphinx_book_theme``, `sphinx-book-theme demo`_)
 - `furo`_ (key: ``furo``, `furo demo`_)
+- `sphinx-book-theme`_ (key: ``sphinx_book_theme``, `sphinx-book-theme demo`_)
+- `sphinx-bootstrap-theme`_ (key: ``bootstrap``, `sphinx-bootstrap demo`_)
+- `sphinx-material`_ (key: ``sphinx_material``, `sphinx-material demo`_)
+- `sphinx-rtd-theme`_ (key: ``sphinx_rtd_theme``, `sphinx-rtd-theme demo`_)
 
 Installation
 ============
@@ -249,7 +254,6 @@ toolbar with plugins, would look as follows:
    html_css_files = [
        f"{prismjs_base}/themes/prism.min.css",
        f"{prismjs_base}/plugins/toolbar/prism-toolbar.min.css",
-       f"{prismjs_base}/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css",
        "https://cdn.jsdelivr.net/gh/barseghyanartur/prismjs-sphinx/src/css/sphinx_rtd_theme.css",
    ]
 
@@ -266,27 +270,18 @@ toolbar with plugins, would look as follows:
 You can also use other `Sphinx`_ themes, such as `alabaster`_,
 `sphinx-bootstrap-theme`_, `sphinx-material`_ or `furo`_.
 
-`alabaster`_, `furo`_, `sphinx-bootstrap-theme`_ and `sphinx-material`_ do
-require loading jQuery in the ``html_js_files``.
-
-.. code-block:: python
-
-   html_js_files.insert(
-       0,
-       "//cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js",
-   )
-
 Make sure to specify appropriate value (theme key) in ``html_theme``,
 as follows (pick one):
 
 .. code-block:: python
 
    html_theme = "alabaster"
-   html_theme = "sphinx_rtd_theme"
-   html_theme = "sphinx_material"
    html_theme = "bootstrap"
    html_theme = "furo"
+   html_theme = "pydata_sphinx_theme"
    html_theme = "sphinx_book_theme"
+   html_theme = "sphinx_material"
+   html_theme = "sphinx_rtd_theme"
 
 Finally, make sure to specify correct path to the desired theme:
 

@@ -113,7 +113,9 @@ ptyprocess==0.7.0
 pure-eval==0.2.2
     # via stack-data
 pydata-sphinx-theme==0.4.3
-    # via sphinx-book-theme
+    # via
+    #   prismjs-sphinx
+    #   sphinx-book-theme
 pygments==2.16.1
     # via
     #   doc8
