@@ -58,7 +58,7 @@ clean:
 compile-requirements:
 	source $(VENV) && python -m piptools compile --extra all -o docs/requirements.txt pyproject.toml
 
-TAGS = sphinx_rtd_theme alabaster sphinx_material bootstrap furo sphinx_book_theme
+TAGS = sphinx_rtd_theme alabaster sphinx_material bootstrap furo sphinx_book_theme pydata_sphinx_theme
 
 tags:
 	for tag in $(TAGS); do \
