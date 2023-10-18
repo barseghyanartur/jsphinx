@@ -34,6 +34,7 @@ Write better docs. Stay concise. Never miss a detail.
 
 .. _alabaster: https://github.com/sphinx-doc/alabaster
 .. _furo: https://github.com/pradyunsg/furo
+.. _pydata-sphinx-theme: https://pypi.org/project/pydata-sphinx-theme/
 .. _sphinx-book-theme: https://pypi.org/project/sphinx-book-theme/
 .. _sphinx-bootstrap-theme: https://pypi.org/project/sphinx-bootstrap-theme/
 .. _sphinx-material: https://github.com/bashtage/sphinx-material
@@ -47,6 +48,7 @@ Write better docs. Stay concise. Never miss a detail.
 
 .. _alabaster demo: https://prismjs-sphinx.readthedocs.io/en/alabaster/examples.html
 .. _furo demo: https://prismjs-sphinx.readthedocs.io/en/furo/examples.html
+.. _pydata-sphinx-theme demo: https://prismjs-sphinx.readthedocs.io/en/pydata_sphinx_theme/examples.html
 .. _sphinx-book-theme demo: https://prismjs-sphinx.readthedocs.io/en/sphinx_book_theme/examples.html
 .. _sphinx-bootstrap demo: https://prismjs-sphinx.readthedocs.io/en/bootstrap/examples.html
 .. _sphinx-material demo: https://prismjs-sphinx.readthedocs.io/en/sphinx_material/examples.html
@@ -80,6 +82,7 @@ page, click on any ``See the full example`` link to see how it works.
 
 - `alabaster demo`_
 - `furo demo`_
+- `pydata-sphinx-theme demo`_
 - `sphinx-book-theme demo`_
 - `sphinx-bootstrap demo`_
 - `sphinx-material demo`_
@@ -191,6 +194,8 @@ Themes
 
 - `alabaster`_ (key: ``alabaster``, `alabaster demo`_)
 - `furo`_ (key: ``furo``, `furo demo`_)
+- `pydata-sphinx-theme`_ (key: ``pydata_sphinx_theme``,
+  `pydata-sphinx-theme demo`_)
 - `sphinx-book-theme`_ (key: ``sphinx_book_theme``, `sphinx-book-theme demo`_)
 - `sphinx-bootstrap-theme`_ (key: ``bootstrap``, `sphinx-bootstrap demo`_)
 - `sphinx-material`_ (key: ``sphinx_material``, `sphinx-material demo`_)
@@ -267,8 +272,9 @@ toolbar with plugins, would look as follows:
 
 ----
 
-You can also use other `Sphinx`_ themes, such as `alabaster`_,
-`sphinx-bootstrap-theme`_, `sphinx-material`_ or `furo`_.
+You can also use other `Sphinx`_ themes, such as `alabaster`_, `furo`_,
+`pydata-sphinx-theme`_, `sphinx-book-theme`_, `sphinx-bootstrap-theme`_,
+`sphinx-material`_ or `sphinx-rtd-theme`_.
 
 Make sure to specify appropriate value (theme key) in ``html_theme``,
 as follows (pick one):
