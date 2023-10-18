@@ -13,12 +13,15 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-LOGGER = logging.getLogger(__name__)
-
+__author__ = "Artur Barseghyan <artur.barseghyan@gmail.com>"
+__copyright__ = "2023 Artur Barseghyan"
+__license__ = "MIT"
 __all__ = (
     "is_valid_python_code",
     "DocumentationTest",
 )
+
+LOGGER = logging.getLogger(__name__)
 
 
 def is_valid_python_code(text) -> bool:

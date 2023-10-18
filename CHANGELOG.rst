@@ -17,6 +17,12 @@ Release history and notes
   1.0.4 to 1.1.0).
 - All backwards incompatible changes are mentioned in this document.
 
+1.2.0
+-----
+*2023-10-18*
+
+- Test rendered documentation.
+
 1.1.2
 -----
 *2023-10-18*
