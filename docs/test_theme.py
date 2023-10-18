@@ -23,6 +23,7 @@ __all__ = (
 )
 
 LOGGER = logging.getLogger(__name__)
+DOCS_DIR = "testdocs"
 
 
 def build_documentation() -> None:
@@ -30,7 +31,7 @@ def build_documentation() -> None:
     try:
         # Invoke the sphinx-build command
         subprocess.check_call(
-            ["sphinx-build", "-n", "-a", "-b", "html", "docs", "builddocs"],
+            ["sphinx-build", "-n", "-a", "-b", "html", "docs", DOCS_DIR],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
         )
@@ -74,7 +75,7 @@ class DocumentationTest(unittest.TestCase):
         # Start the HTTP server in the background
         cls.server_process = subprocess.Popen(
             ["python", "-m", "http.server", str(cls.port)],
-            cwd="builddocs",
+            cwd=DOCS_DIR,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             universal_newlines=True,
