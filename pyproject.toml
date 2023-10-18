@@ -30,6 +30,8 @@ test = [
     "faker-file",
     "pytest",
     "python-docx",
+    "selenium",
+    "get-chromedriver-py",
 ]
 
 [tool.black]

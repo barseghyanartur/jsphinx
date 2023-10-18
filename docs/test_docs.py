@@ -4,6 +4,14 @@ from pathlib import Path
 import pytest
 from faker_file.registry import FILE_REGISTRY
 
+__author__ = "Artur Barseghyan <artur.barseghyan@gmail.com>"
+__copyright__ = "2023 Artur Barseghyan"
+__license__ = "MIT"
+__all__ = (
+    "execute_file",
+    "test_dynamic_files",
+)
+
 # Walk through the directory and all subdirectories for .py files
 example_dir = Path("docs/_static/py")
 py_files = sorted([str(p) for p in example_dir.rglob("*.py")])
