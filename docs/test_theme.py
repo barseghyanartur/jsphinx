@@ -25,7 +25,8 @@ __all__ = (
 LOGGER = logging.getLogger(__name__)
 
 
-def build_documentation(cls) -> None:
+def build_documentation() -> None:
+    """Build documentation."""
     try:
         # Invoke the sphinx-build command
         subprocess.check_call(
