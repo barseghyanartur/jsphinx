@@ -22,12 +22,12 @@
  *
  * @author Artur Barseghyan (https://github.com/barseghyanartur)
  * @url https://github.com/barseghyanartur/prismjs-sphinx
- * @version 1.1.2
+ * @version 1.2.0
  */
 
 document.addEventListener('DOMContentLoaded', function() {
     // Find all download links by their class
-    let downloadLinks = document.querySelectorAll('.prismjs-sphinx a.reference.download.internal');
+    let downloadLinks = document.querySelectorAll('.prismjs-sphinx-download a.reference.download.internal');
 
     downloadLinks.forEach(function(link, index) {
         // Create a unique id for the additional content div

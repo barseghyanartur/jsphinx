@@ -1,6 +1,6 @@
 {
   "name": "prismjs-sphinx",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "PrismJS integration for Sphinx",
   "main": "src/css/sphinx_rtd_theme.css",
   "scripts": {

@@ -3,11 +3,11 @@ Examples
 
 See the following full functional snippet for generating a ``DOCX`` file.
 
-.. container:: prismjs-sphinx
+.. literalinclude:: _static/py/faker_file_docx_1.py
+    :language: python
+    :lines: 3-11
 
-    .. literalinclude:: _static/py/faker_file_docx_1.py
-        :language: python
-        :lines: 3-11
+.. container:: prismjs-sphinx-download
 
     *See the full example*
     :download:`here <_static/py/faker_file_docx_1.py>`
@@ -25,11 +25,11 @@ If you want a file with more pages, you could either:
 
 See the example below for ``max_nb_chars`` tweak:
 
-.. container:: prismjs-sphinx
+.. literalinclude:: _static/py/faker_file_docx_2.py
+    :language: python
+    :lines: 8-
 
-    .. literalinclude:: _static/py/faker_file_docx_2.py
-        :language: python
-        :lines: 8-
+.. container:: prismjs-sphinx-download
 
     *See the full example*
     :download:`here <_static/py/faker_file_docx_2.py>`
@@ -38,11 +38,11 @@ See the example below for ``max_nb_chars`` tweak:
 
 See the example below for ``wrap_chars_after`` tweak:
 
-.. container:: prismjs-sphinx
+.. literalinclude:: _static/py/faker_file_docx_3.py
+    :language: python
+    :lines: 8-
 
-    .. literalinclude:: _static/py/faker_file_docx_3.py
-        :language: python
-        :lines: 8-
+.. container:: prismjs-sphinx-download
 
     *See the full example*
     :download:`here <_static/py/faker_file_docx_3.py>`
@@ -58,11 +58,11 @@ In order to customise the blocks ``DOCX`` file is built from,
 the ``DynamicTemplate`` class is used. See the example below for usage
 examples:
 
-.. container:: prismjs-sphinx
+.. literalinclude:: _static/py/faker_file_docx_4.py
+    :language: python
+    :lines: 3-9, 14-31
 
-    .. literalinclude:: _static/py/faker_file_docx_4.py
-        :language: python
-        :lines: 3-9, 14-31
+.. container:: prismjs-sphinx-download
 
     *See the full example*
     :download:`here <_static/py/faker_file_docx_4.py>`

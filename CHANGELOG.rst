@@ -21,7 +21,11 @@ Release history and notes
 -----
 *2023-10-18*
 
+- Documentation improvements.
 - Test rendered documentation.
+- Change ``.. container:: prismjs-sphinx``
+  to ``.. container:: prismjs-sphinx-download``. Update your documentation
+  accordingly.
 
 1.1.2
 -----
