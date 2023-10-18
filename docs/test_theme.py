@@ -17,11 +17,25 @@ __author__ = "Artur Barseghyan <artur.barseghyan@gmail.com>"
 __copyright__ = "2023 Artur Barseghyan"
 __license__ = "MIT"
 __all__ = (
+    "build_documentation",
     "is_valid_python_code",
     "DocumentationTest",
 )
 
 LOGGER = logging.getLogger(__name__)
+
+
+def build_documentation(cls) -> None:
+    try:
+        # Invoke the sphinx-build command
+        subprocess.check_call(
+            ["sphinx-build", "-n", "-a", "-b", "html", "docs", "builddocs"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+    except subprocess.CalledProcessError as err:
+        LOGGER.error(f"Error building documentation: {err}")
+        raise err
 
 
 def is_valid_python_code(text) -> bool:
@@ -51,6 +65,7 @@ class DocumentationTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
+        build_documentation()
         get_chromedriver()
         # Find an available port dynamically
         cls.port = cls.find_available_port()
