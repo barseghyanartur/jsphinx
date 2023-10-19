@@ -25,6 +25,10 @@
  * @version 1.2.0
  */
 
+// ****************************************************
+// ***************** Download listener ****************
+// ****************************************************
+
 document.addEventListener('DOMContentLoaded', function() {
     // Find all download links by their class
     let downloadLinks = document.querySelectorAll('.prismjs-sphinx-download a.reference.download.internal');
@@ -94,4 +98,79 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+});
+
+// ****************************************************
+// ******************* Toggle listener ****************
+// ****************************************************
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if the HTML is under the 'prismjs-sphinx-toggle-emphasis' class
+    const container = document.querySelector('.prismjs-sphinx-toggle-emphasis');
+
+    if (container) {
+        // Function to create a new div.highlight element with content from 'span.hll' elements
+        function createNewCodeBlock(originalCodeBlock) {
+            const spanElements = originalCodeBlock.querySelectorAll('span.hll');
+            const newCodeBlock = document.createElement('div');
+            newCodeBlock.classList.add('highlight');
+
+            // Create a new pre element to hold the 'span.hll' elements
+            const newPreElement = document.createElement('pre');
+
+            spanElements.forEach((span) => {
+                // Clone the 'span' element and its content
+                const spanClone = span.cloneNode(true);
+                newPreElement.appendChild(spanClone);
+            });
+
+            newCodeBlock.appendChild(newPreElement);
+            return newCodeBlock;
+        }
+
+        // Function to toggle visibility of code blocks
+        function toggleCodeBlocks(codeBlock1, codeBlock2, toggleLink) {
+            const codeBlock1Style = getComputedStyle(codeBlock1);
+
+            if (codeBlock1Style.display === 'none') {
+                codeBlock1.style.display = '';
+                codeBlock2.style.display = 'none';
+                toggleLink.querySelector('em').textContent = 'Hide the full example'; // Update the text within <em>
+            } else {
+                codeBlock1.style.display = 'none';
+                codeBlock2.style.display = '';
+                toggleLink.querySelector('em').textContent = 'Show the full example'; // Update the text within <em>
+            }
+        }
+
+        // Add toggle links and create a new div.highlight element for each code block
+        const codeBlocks = container.querySelectorAll('.highlight-python');
+
+        codeBlocks.forEach((originalCodeBlock) => {
+            // Create a new div.highlight element with content from 'span.hll' elements
+            const newCodeBlock = createNewCodeBlock(originalCodeBlock);
+
+            // Hide the original code block and show the new one
+            originalCodeBlock.style.display = 'none';
+
+            // Create the "See the full example" link with updated text within <em>
+            const toggleLink = document.createElement('p');
+            toggleLink.href = 'javascript:;';
+            toggleLink.classList.add('toggle-link');
+            toggleLink.innerHTML = '<em>Show the full example</em>&nbsp;<a href="javascript:;" class="reference download internal"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>';
+
+            // Add a click event listener to the link to toggle code blocks
+            toggleLink.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent the link from navigating
+                toggleCodeBlocks(originalCodeBlock, newCodeBlock, toggleLink);
+            });
+
+            // Wrap the link in a <p> element
+            const linkContainer = document.createElement('p');
+            linkContainer.appendChild(toggleLink);
+
+            // Insert the link and the new code block as siblings
+            originalCodeBlock.parentNode.insertBefore(linkContainer, originalCodeBlock.nextSibling);
+            originalCodeBlock.parentNode.insertBefore(newCodeBlock, originalCodeBlock.nextSibling);
+        });
+    }
 });
