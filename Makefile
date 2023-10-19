@@ -1,3 +1,4 @@
+VERSION := 1.2.1  # Update version ONLY here
 SHELL := /bin/bash
 # Makefile for project
 VENV := ~/.virtualenvs/prismjs-sphinx/bin/activate
@@ -65,8 +66,6 @@ tags:
 		git tag -f $$tag; \
 	done
 	git push --tags --force
-
-VERSION := 1.2.0
 
 update-version:
 	sed -i 's/"version": "[0-9.]\+"/"version": "$(VERSION)"/' package.json
