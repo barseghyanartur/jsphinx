@@ -22,7 +22,7 @@
  *
  * @author Artur Barseghyan (https://github.com/barseghyanartur)
  * @url https://github.com/barseghyanartur/prismjs-sphinx
- * @version 1.2.0
+ * @version 1.2.1
  */
 
 $(document).ready(function() {

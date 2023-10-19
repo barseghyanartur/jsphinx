@@ -64,6 +64,7 @@ def is_valid_python_code(text) -> bool:
 class DocumentationTest(unittest.TestCase):
     server_process: "Popen"
     driver: "WebDriver"
+    port: int
 
     @classmethod
     def setUpClass(cls) -> None:
@@ -98,7 +99,7 @@ class DocumentationTest(unittest.TestCase):
         cls.driver.quit()
 
     @staticmethod
-    def find_available_port() -> None:
+    def find_available_port() -> int:
         """Find available port by binding to a socket and then releasing it."""
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.bind(("localhost", 0))
@@ -116,8 +117,8 @@ class DocumentationTest(unittest.TestCase):
             ".prismjs-sphinx-download a.reference.download.internal",
         )
         for link in link_elements:
-            LOGGER.exception(link.get_attribute("href"))
-            print(link.get_attribute("href"))
+            LOGGER.info(link.get_attribute("href"))
+            # print(link.get_attribute("href"))
             link.click()
 
             wait = WebDriverWait(self.driver, 10)
@@ -132,8 +133,8 @@ class DocumentationTest(unittest.TestCase):
                     )
                 )
             )
-            LOGGER.exception(fetched_div.text)
-            print(fetched_div.text)
+            LOGGER.info(fetched_div.text)
+            # print(fetched_div.text)
             self.assertTrue(fetched_div.is_displayed())
             # Check if the code is a valid Python code
             self.assertTrue(is_valid_python_code(fetched_div.text))
