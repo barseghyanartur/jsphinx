@@ -95,3 +95,66 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if the HTML is under the 'prismjs-sphinx-toggle-emphasis' class
+    const container = document.querySelector('.prismjs-sphinx-toggle-emphasis');
+
+    if (container) {
+        // Function to create a new div.highlight element with content from 'span.hll' elements
+        function createNewCodeBlock(originalCodeBlock) {
+            const spanElements = originalCodeBlock.querySelectorAll('span.hll');
+            const newCodeBlock = document.createElement('div');
+            newCodeBlock.classList.add('highlight');
+
+            // Create a new pre element to hold the 'span.hll' elements
+            const newPreElement = document.createElement('pre');
+
+            spanElements.forEach((span) => {
+                // Clone the 'span' element and its content
+                const spanClone = span.cloneNode(true);
+                newPreElement.appendChild(spanClone);
+            });
+
+            newCodeBlock.appendChild(newPreElement);
+            return newCodeBlock;
+        }
+
+        // Function to toggle visibility of code blocks
+        function toggleCodeBlocks(codeBlock1, codeBlock2, toggleButton) {
+            const showAllBlocks = toggleButton.textContent === 'Show All Lines';
+
+            if (showAllBlocks) {
+                codeBlock1.style.display = 'none';
+                codeBlock2.style.display = '';
+            } else {
+                codeBlock1.style.display = '';
+                codeBlock2.style.display = 'none';
+            }
+
+            toggleButton.textContent = showAllBlocks ? 'Show Only Emphasized Lines' : 'Show All Lines';
+        }
+
+        // Add toggle buttons and create a new div.highlight element for each code block
+        const codeBlocks = container.querySelectorAll('.highlight-python');
+
+        codeBlocks.forEach((originalCodeBlock) => {
+            // Create a new div.highlight element with content from 'span.hll' elements
+            const newCodeBlock = createNewCodeBlock(originalCodeBlock);
+
+            // Hide the original code block and show the new one
+            originalCodeBlock.style.display = 'none';
+
+            // Create a button element
+            const toggleButton = document.createElement('button');
+            toggleButton.textContent = 'Show Only Emphasized Lines';
+            toggleButton.addEventListener('click', () => {
+                toggleCodeBlocks(originalCodeBlock, newCodeBlock, toggleButton);
+            });
+
+            // Insert the button and the new code block as siblings
+            originalCodeBlock.parentNode.insertBefore(toggleButton, originalCodeBlock.nextSibling);
+            originalCodeBlock.parentNode.insertBefore(newCodeBlock, originalCodeBlock.nextSibling);
+        });
+    }
+});
