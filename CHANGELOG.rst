@@ -17,6 +17,13 @@ Release history and notes
   1.0.4 to 1.1.0).
 - All backwards incompatible changes are mentioned in this document.
 
+1.2.1
+-----
+*2023-10-19*
+
+- Add `toggle emphasized lines` functionality for toggling emphasized lines,
+  inside ``.. container:: prismjs-sphinx-toggle-emphasis`` blocks.
+
 1.2.0
 -----
 *2023-10-18*

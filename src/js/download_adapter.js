@@ -25,6 +25,10 @@
  * @version 1.2.0
  */
 
+// ****************************************************
+// ***************** Download listener ****************
+// ****************************************************
+
 document.addEventListener('DOMContentLoaded', function() {
     // Find all download links by their class
     let downloadLinks = document.querySelectorAll('.prismjs-sphinx-download a.reference.download.internal');
@@ -96,6 +100,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// ****************************************************
+// ******************* Toggle listener ****************
+// ****************************************************
 document.addEventListener('DOMContentLoaded', function() {
     // Check if the HTML is under the 'prismjs-sphinx-toggle-emphasis' class
     const container = document.querySelector('.prismjs-sphinx-toggle-emphasis');
