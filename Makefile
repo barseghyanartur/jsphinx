@@ -1,4 +1,5 @@
-VERSION := 1.2.1  # Update version ONLY here
+# Update version ONLY here
+VERSION := 1.2.1
 SHELL := /bin/bash
 # Makefile for project
 VENV := ~/.virtualenvs/prismjs-sphinx/bin/activate
