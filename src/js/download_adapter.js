@@ -121,21 +121,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Function to toggle visibility of code blocks
-        function toggleCodeBlocks(codeBlock1, codeBlock2, toggleButton) {
-            const showAllBlocks = toggleButton.textContent === 'Show All Lines';
+        function toggleCodeBlocks(codeBlock1, codeBlock2, toggleLink) {
+            const codeBlock1Style = getComputedStyle(codeBlock1);
 
-            if (showAllBlocks) {
-                codeBlock1.style.display = 'none';
-                codeBlock2.style.display = '';
-            } else {
+            if (codeBlock1Style.display === 'none') {
                 codeBlock1.style.display = '';
                 codeBlock2.style.display = 'none';
+                toggleLink.querySelector('em').textContent = 'Hide the full example'; // Update the text within <em>
+            } else {
+                codeBlock1.style.display = 'none';
+                codeBlock2.style.display = '';
+                toggleLink.querySelector('em').textContent = 'Show the full example'; // Update the text within <em>
             }
-
-            toggleButton.textContent = showAllBlocks ? 'Show Only Emphasized Lines' : 'Show All Lines';
         }
 
-        // Add toggle buttons and create a new div.highlight element for each code block
+        // Add toggle links and create a new div.highlight element for each code block
         const codeBlocks = container.querySelectorAll('.highlight-python');
 
         codeBlocks.forEach((originalCodeBlock) => {
@@ -145,15 +145,24 @@ document.addEventListener('DOMContentLoaded', function() {
             // Hide the original code block and show the new one
             originalCodeBlock.style.display = 'none';
 
-            // Create a button element
-            const toggleButton = document.createElement('button');
-            toggleButton.textContent = 'Show Only Emphasized Lines';
-            toggleButton.addEventListener('click', () => {
-                toggleCodeBlocks(originalCodeBlock, newCodeBlock, toggleButton);
+            // Create the "See the full example" link with updated text within <em>
+            const toggleLink = document.createElement('p');
+            toggleLink.href = 'javascript:;';
+            toggleLink.classList.add('toggle-link');
+            toggleLink.innerHTML = '<em>Show the full example</em>&nbsp;<a href="javascript:;" class="reference download internal"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>';
+
+            // Add a click event listener to the link to toggle code blocks
+            toggleLink.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent the link from navigating
+                toggleCodeBlocks(originalCodeBlock, newCodeBlock, toggleLink);
             });
 
-            // Insert the button and the new code block as siblings
-            originalCodeBlock.parentNode.insertBefore(toggleButton, originalCodeBlock.nextSibling);
+            // Wrap the link in a <p> element
+            const linkContainer = document.createElement('p');
+            linkContainer.appendChild(toggleLink);
+
+            // Insert the link and the new code block as siblings
+            originalCodeBlock.parentNode.insertBefore(linkContainer, originalCodeBlock.nextSibling);
             originalCodeBlock.parentNode.insertBefore(newCodeBlock, originalCodeBlock.nextSibling);
         });
     }
