@@ -1,5 +1,5 @@
 {
-  "name": "prismjs-sphinx",
+  "name": "jsphinx",
   "version": "1.2.1",
   "description": "PrismJS integration for Sphinx",
   "main": "src/css/sphinx_rtd_theme.css",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/barseghyanartur/prismjs-sphinx.git"
+    "url": "git+https://github.com/barseghyanartur/jsphinx.git"
   },
   "author": "Artur Barseghyan",
   "license": "MIT",
@@ -21,7 +21,7 @@
     "src/js/download_adapter.js"
   ],
   "bugs": {
-    "url": "https://github.com/barseghyanartur/prismjs-sphinx/issues"
+    "url": "https://github.com/barseghyanartur/jsphinx/issues"
   },
-  "homepage": "https://github.com/barseghyanartur/prismjs-sphinx"
+  "homepage": "https://github.com/barseghyanartur/jsphinx"
 }

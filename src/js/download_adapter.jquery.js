@@ -9,7 +9,7 @@
  *   html_css_files = [
  *       f"{prismjs_base}/themes/prism.min.css",
  *       f"{prismjs_base}/plugins/toolbar/prism-toolbar.min.css",
- *       "https://cdn.jsdelivr.net/gh/barseghyanartur/prismjs-sphinx/src/css/sphinx_rtd_theme.css",
+ *       "https://cdn.jsdelivr.net/gh/barseghyanartur/jsphinx/src/css/sphinx_rtd_theme.css",
  *   ]
  *
  *   html_js_files = [
@@ -17,17 +17,17 @@
  *       f"{prismjs_base}/plugins/autoloader/prism-autoloader.min.js",
  *       f"{prismjs_base}/plugins/toolbar/prism-toolbar.min.js",
  *       f"{prismjs_base}/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js",
- *       "https://cdn.jsdelivr.net/gh/barseghyanartur/prismjs-sphinx/src/js/download_adapter.jquery.js",
+ *       "https://cdn.jsdelivr.net/gh/barseghyanartur/jsphinx/src/js/download_adapter.jquery.js",
  *   ]
  *
  * @author Artur Barseghyan (https://github.com/barseghyanartur)
- * @url https://github.com/barseghyanartur/prismjs-sphinx
+ * @url https://github.com/barseghyanartur/jsphinx
  * @version 1.2.1
  */
 
 $(document).ready(function() {
     // Find all download links by their class
-    $(".prismjs-sphinx-download a.reference.download.internal").each(function(index) {
+    $(".jsphinx-download a.reference.download.internal").each(function(index) {
         // Create a unique id for the additional content div
         let contentID = 'additional-content-' + index;
 
