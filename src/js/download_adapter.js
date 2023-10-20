@@ -22,7 +22,7 @@
  *
  * @author Artur Barseghyan (https://github.com/barseghyanartur)
  * @url https://github.com/barseghyanartur/jsphinx
- * @version 1.3.0
+ * @version 1.3.1
  */
 
 // ****************************************************
@@ -105,9 +105,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // ****************************************************
 document.addEventListener('DOMContentLoaded', function() {
     // Check if the HTML is under the 'jsphinx-toggle-emphasis' class
-    const container = document.querySelector('.jsphinx-toggle-emphasis');
+    const containers = document.querySelectorAll('.jsphinx-toggle-emphasis');
 
-    if (container) {
+    containers.forEach((container) => {
         // Function to create a new div.highlight element with content from 'span.hll' elements
         function createNewCodeBlock(originalCodeBlock) {
             const spanElements = originalCodeBlock.querySelectorAll('span.hll');
@@ -172,5 +172,5 @@ document.addEventListener('DOMContentLoaded', function() {
             originalCodeBlock.parentNode.insertBefore(linkContainer, originalCodeBlock.nextSibling);
             originalCodeBlock.parentNode.insertBefore(newCodeBlock, originalCodeBlock.nextSibling);
         });
-    }
+    });
 });
