@@ -52,6 +52,7 @@ clean:
 	rm -rf .cache/
 	rm -rf htmlcov/
 	rm -rf buiddocs/
+	rm -rf testdocs/
 	rm -rf .coverage
 	rm -rf .pytest_cache/
 	rm -rf .mypy_cache/

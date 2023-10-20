@@ -30,7 +30,7 @@ codebin/
 /builddocs.zip
 /build/
 /dist/
-faker_file.egg-info
+jsphinx.egg-info
 matyan.log*
 db.sqlite3
 sample_db.sqlite
@@ -39,4 +39,4 @@ local_settings.py
 *.cast
 .ipynb_checkpoints/
 .scannerwork/
-src/prismjs_sphinx.egg-info/
+src/jsphinx.egg-info/
