@@ -14,7 +14,7 @@ if branch_name in {"main", "dev", "latest"}:
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "prismjs-sphinx"
+project = "jsphinx"
 copyright = "2023, Artur Barseghyan"
 author = "Artur Barseghyan"
 
@@ -49,7 +49,7 @@ prismjs_base = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0"
 html_css_files = [
     f"{prismjs_base}/themes/prism.min.css",
     f"{prismjs_base}/plugins/toolbar/prism-toolbar.min.css",
-    # f"https://cdn.jsdelivr.net/gh/barseghyanartur/prismjs-sphinx/src/css/{branch_name}.css",
+    # f"https://cdn.jsdelivr.net/gh/barseghyanartur/jsphinx/src/css/{branch_name}.css",
     f"themes/{branch_name}.css",
 ]
 
@@ -58,7 +58,7 @@ html_js_files = [
     f"{prismjs_base}/plugins/autoloader/prism-autoloader.min.js",
     f"{prismjs_base}/plugins/toolbar/prism-toolbar.min.js",
     f"{prismjs_base}/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js",
-    # "//cdn.jsdelivr.net/gh/barseghyanartur/prismjs-sphinx/src/js/download_adapter.js",
+    # "//cdn.jsdelivr.net/gh/barseghyanartur/jsphinx/src/js/download_adapter.js",
     "scripts/download_adapter.js",
 ]
 

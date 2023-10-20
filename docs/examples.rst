@@ -1,6 +1,6 @@
 Examples
 ========
-prismjs-sphinx-download usage
+jsphinx-download usage
 -----------------------------
 
 See the following full functional snippet for generating a ``DOCX`` file.
@@ -9,7 +9,7 @@ See the following full functional snippet for generating a ``DOCX`` file.
     :language: python
     :lines: 3-11
 
-.. container:: prismjs-sphinx-download
+.. container:: jsphinx-download
 
     *See the full example*
     :download:`here <_static/py/faker_file_docx_1.py>`
@@ -31,7 +31,7 @@ See the example below for ``max_nb_chars`` tweak:
     :language: python
     :lines: 8-
 
-.. container:: prismjs-sphinx-download
+.. container:: jsphinx-download
 
     *See the full example*
     :download:`here <_static/py/faker_file_docx_2.py>`
@@ -44,7 +44,7 @@ See the example below for ``wrap_chars_after`` tweak:
     :language: python
     :lines: 8-
 
-.. container:: prismjs-sphinx-download
+.. container:: jsphinx-download
 
     *See the full example*
     :download:`here <_static/py/faker_file_docx_3.py>`
@@ -64,14 +64,14 @@ examples:
     :language: python
     :lines: 3-9, 14-31
 
-.. container:: prismjs-sphinx-download
+.. container:: jsphinx-download
 
     *See the full example*
     :download:`here <_static/py/faker_file_docx_4.py>`
 
-prismjs-sphinx-toggle-emphasis usage
+jsphinx-toggle-emphasis usage
 ------------------------------------
-.. container:: prismjs-sphinx-toggle-emphasis
+.. container:: jsphinx-toggle-emphasis
 
     .. code-block:: python
         :emphasize-lines: 3,6,8

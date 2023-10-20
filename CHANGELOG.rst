@@ -17,12 +17,19 @@ Release history and notes
   1.0.4 to 1.1.0).
 - All backwards incompatible changes are mentioned in this document.
 
+1.3.0
+-----
+*2023-10-20*
+
+- Project renamed to ``jsphinx``. Rename ``prismjs-sphinx`` to ``jsphinx``
+  everywhere you used it (CDN, documentation).
+
 1.2.1
 -----
 *2023-10-19*
 
 - Add `toggle emphasized lines` functionality for toggling emphasized lines,
-  inside ``.. container:: prismjs-sphinx-toggle-emphasis`` blocks.
+  inside ``.. container:: jsphinx-toggle-emphasis`` blocks.
 
 1.2.0
 -----
@@ -30,8 +37,8 @@ Release history and notes
 
 - Documentation improvements.
 - Test rendered documentation.
-- Change ``.. container:: prismjs-sphinx``
-  to ``.. container:: prismjs-sphinx-download``. Update your documentation
+- Change ``.. container:: jsphinx``
+  to ``.. container:: jsphinx-download``. Update your documentation
   accordingly.
 
 1.1.2
@@ -51,14 +58,14 @@ Release history and notes
 -----
 *2023-10-15*
 
-- The PrismJS-Sphinx adapter JavaScript now only hooks on links wrapped with
-  ``prismjs-sphinx`` class (easily achieved by nesting the ``:download:``
-  or entire block under ``.. container:: prismjs-sphinx`` block). See the
+- The jsphinx adapter JavaScript now only hooks on links wrapped with
+  ``jsphinx`` class (easily achieved by nesting the ``:download:``
+  or entire block under ``.. container:: jsphinx`` block). See the
   example below:
 
   .. code-block:: rst
 
-     .. container:: prismjs-sphinx
+     .. container:: jsphinx
 
         *See the full example*
         :download:`here <_static/py/faker_file_docx_1.py>`
