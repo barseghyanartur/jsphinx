@@ -17,9 +17,9 @@ __author__ = "Artur Barseghyan <artur.barseghyan@gmail.com>"
 __copyright__ = "2023 Artur Barseghyan"
 __license__ = "MIT"
 __all__ = (
+    "DocumentationTest",
     "build_documentation",
     "is_valid_python_code",
-    "DocumentationTest",
 )
 
 LOGGER = logging.getLogger(__name__)

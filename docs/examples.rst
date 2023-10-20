@@ -1,7 +1,7 @@
 Examples
 ========
 jsphinx-download usage
------------------------------
+----------------------
 
 See the following full functional snippet for generating a ``DOCX`` file.
 
@@ -70,7 +70,7 @@ examples:
     :download:`here <_static/py/faker_file_docx_4.py>`
 
 jsphinx-toggle-emphasis usage
-------------------------------------
+-----------------------------
 .. container:: jsphinx-toggle-emphasis
 
     .. code-block:: python

@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to jsphinx's documentation!
-==========================================
+===================================
 
 .. toctree::
    :maxdepth: 20
