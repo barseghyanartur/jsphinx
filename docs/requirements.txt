@@ -18,7 +18,7 @@ beautifulsoup4==4.12.2
     #   sphinx-book-theme
     #   sphinx-material
 black==23.9.1
-    # via prismjs-sphinx
+    # via jsphinx
 build==1.0.3
     # via pip-tools
 certifi==2023.7.22
@@ -35,9 +35,9 @@ css-html-js-minify==2.5.5
 decorator==5.1.1
     # via ipython
 detect-secrets==1.4.0
-    # via prismjs-sphinx
+    # via jsphinx
 doc8==1.1.1
-    # via prismjs-sphinx
+    # via jsphinx
 docutils==0.20.1
     # via
     #   doc8
@@ -53,9 +53,9 @@ executing==2.0.0
 faker==19.10.0
     # via faker-file
 faker-file==0.17.9
-    # via prismjs-sphinx
+    # via jsphinx
 furo==2023.9.10
-    # via prismjs-sphinx
+    # via jsphinx
 idna==3.4
     # via requests
 imagesize==1.4.1
@@ -63,9 +63,9 @@ imagesize==1.4.1
 iniconfig==2.0.0
     # via pytest
 ipython==8.16.1
-    # via prismjs-sphinx
+    # via jsphinx
 isort==5.12.0
-    # via prismjs-sphinx
+    # via jsphinx
 jedi==0.19.1
     # via ipython
 jinja2==3.1.2
@@ -97,15 +97,15 @@ pexpect==4.8.0
 pickleshare==0.7.5
     # via ipython
 pillow==10.0.1
-    # via prismjs-sphinx
+    # via jsphinx
 pip-tools==7.3.0
-    # via prismjs-sphinx
+    # via jsphinx
 platformdirs==3.11.0
     # via black
 pluggy==1.3.0
     # via pytest
-prismjs-sphinx[dev,test,themes] @ file:///home/delusionalinsanity/repos/prismjs-sphinx
-    # via prismjs-sphinx (pyproject.toml)
+jsphinx[dev,test,themes] @ file:///home/delusionalinsanity/repos/jsphinx
+    # via jsphinx (pyproject.toml)
 prompt-toolkit==3.0.39
     # via ipython
 ptyprocess==0.7.0
@@ -114,7 +114,7 @@ pure-eval==0.2.2
     # via stack-data
 pydata-sphinx-theme==0.4.3
     # via
-    #   prismjs-sphinx
+    #   jsphinx
     #   sphinx-book-theme
 pygments==2.16.1
     # via
@@ -125,11 +125,11 @@ pygments==2.16.1
 pyproject-hooks==1.0.0
     # via build
 pytest==7.4.2
-    # via prismjs-sphinx
+    # via jsphinx
 python-dateutil==2.8.2
     # via faker
 python-docx==1.0.0
-    # via prismjs-sphinx
+    # via jsphinx
 python-slugify[unidecode]==8.0.1
     # via sphinx-material
 pyyaml==6.0.1
@@ -143,7 +143,7 @@ requests==2.31.0
 restructuredtext-lint==1.4.0
     # via doc8
 ruff==0.0.292
-    # via prismjs-sphinx
+    # via jsphinx
 six==1.16.0
     # via
     #   asttokens
@@ -155,8 +155,8 @@ soupsieve==2.5
 sphinx==7.2.6
     # via
     #   furo
-    #   prismjs-sphinx
-    #   prismjs-sphinx (pyproject.toml)
+    #   jsphinx
+    #   jsphinx (pyproject.toml)
     #   pydata-sphinx-theme
     #   sphinx-basic-ng
     #   sphinx-book-theme
@@ -170,13 +170,13 @@ sphinx==7.2.6
 sphinx-basic-ng==1.0.0b2
     # via furo
 sphinx-book-theme==0.0.39
-    # via prismjs-sphinx
+    # via jsphinx
 sphinx-bootstrap-theme==0.8.1
-    # via prismjs-sphinx
+    # via jsphinx
 sphinx-material==0.0.36
-    # via prismjs-sphinx
+    # via jsphinx
 sphinx-rtd-theme==0.5.1
-    # via prismjs-sphinx
+    # via jsphinx
 sphinxcontrib-applehelp==1.0.7
     # via sphinx
 sphinxcontrib-devhelp==1.0.5

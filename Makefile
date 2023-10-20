@@ -2,7 +2,7 @@
 VERSION := 1.2.1
 SHELL := /bin/bash
 # Makefile for project
-VENV := ~/.virtualenvs/prismjs-sphinx/bin/activate
+VENV := ~/.virtualenvs/jsphinx/bin/activate
 
 # Build documentation using Sphinx and zip it
 build_docs:

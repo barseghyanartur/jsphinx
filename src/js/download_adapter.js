@@ -9,7 +9,7 @@
  *   html_css_files = [
  *       f"{prismjs_base}/themes/prism.min.css",
  *       f"{prismjs_base}/plugins/toolbar/prism-toolbar.min.css",
- *       "https://cdn.jsdelivr.net/gh/barseghyanartur/prismjs-sphinx/src/css/sphinx_rtd_theme.css",
+ *       "https://cdn.jsdelivr.net/gh/barseghyanartur/jsphinx/src/css/sphinx_rtd_theme.css",
  *   ]
  *
  *   html_js_files = [
@@ -17,11 +17,11 @@
  *       f"{prismjs_base}/plugins/autoloader/prism-autoloader.min.js",
  *       f"{prismjs_base}/plugins/toolbar/prism-toolbar.min.js",
  *       f"{prismjs_base}/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js",
- *       "https://cdn.jsdelivr.net/gh/barseghyanartur/prismjs-sphinx/src/js/download_adapter.js",
+ *       "https://cdn.jsdelivr.net/gh/barseghyanartur/jsphinx/src/js/download_adapter.js",
  *   ]
  *
  * @author Artur Barseghyan (https://github.com/barseghyanartur)
- * @url https://github.com/barseghyanartur/prismjs-sphinx
+ * @url https://github.com/barseghyanartur/jsphinx
  * @version 1.2.1
  */
 
@@ -31,7 +31,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Find all download links by their class
-    let downloadLinks = document.querySelectorAll('.prismjs-sphinx-download a.reference.download.internal');
+    let downloadLinks = document.querySelectorAll('.jsphinx-download a.reference.download.internal');
 
     downloadLinks.forEach(function(link, index) {
         // Create a unique id for the additional content div
@@ -104,8 +104,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // ******************* Toggle listener ****************
 // ****************************************************
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if the HTML is under the 'prismjs-sphinx-toggle-emphasis' class
-    const container = document.querySelector('.prismjs-sphinx-toggle-emphasis');
+    // Check if the HTML is under the 'jsphinx-toggle-emphasis' class
+    const container = document.querySelector('.jsphinx-toggle-emphasis');
 
     if (container) {
         // Function to create a new div.highlight element with content from 'span.hll' elements

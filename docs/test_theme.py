@@ -114,7 +114,7 @@ class DocumentationTest(unittest.TestCase):
         # Find and click the links
         link_elements = self.driver.find_elements(
             By.CSS_SELECTOR,
-            ".prismjs-sphinx-download a.reference.download.internal",
+            ".jsphinx-download a.reference.download.internal",
         )
         for link in link_elements:
             LOGGER.info(link.get_attribute("href"))
