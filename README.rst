@@ -162,14 +162,14 @@ See the following snippet:
         *See the full example*
         :download:`here <_static/py/faker_file_docx_1.py>`
 
-The above mentioned snippet will be rendered as follows (the link is
-clickable):
+The above mentioned snippet will be rendered as follows:
 
-.. raw:: html
+.. code-block:: html
 
    <p class="jsphinx-download">
      <em>See the full example</em>
-     <a class="reference download internal" href="https://raw.githubusercontent.com/barseghyanartur/jsphinx/main/docs/_static/py/faker_file_docx_1.py">
+     <a class="reference download internal"
+        href="https://raw.githubusercontent.com/barseghyanartur/jsphinx/main/docs/_static/py/faker_file_docx_1.py">
        <span class="pre">here</span>
      </a>
    </p>
