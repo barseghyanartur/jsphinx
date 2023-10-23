@@ -1,5 +1,5 @@
 # Update version ONLY here
-VERSION := 1.3.1
+VERSION := 1.3.2
 SHELL := /bin/bash
 # Makefile for project
 VENV := ~/.virtualenvs/jsphinx/bin/activate
@@ -74,6 +74,7 @@ tags:
 update-version:
 	sed -i 's/"version": "[0-9.]\+"/"version": "$(VERSION)"/' package.json
 	sed -i 's/version = "[0-9.]\+"/version = "$(VERSION)"/' pyproject.toml
+	sed -i 's/__version__ = "[0-9.]\+"/__version__ = "$(VERSION)"/' src/jsphinx/__init__.py
 	find src/ -type f -name '*.css' -exec sed -i 's/@version [0-9.]\+/@version $(VERSION)/' {} \;
 	find src/ -type f -name '*.js' -exec sed -i 's/@version [0-9.]\+/@version $(VERSION)/' {} \;
 
