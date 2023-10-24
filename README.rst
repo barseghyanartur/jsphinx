@@ -62,8 +62,8 @@ Write better docs. Stay concise. Never miss a detail.
 .. _sphinx-material demo: https://jsphinx.readthedocs.io/en/sphinx_material/examples.html
 .. _sphinx-rtd-theme demo: https://jsphinx.readthedocs.io/en/sphinx_rtd_theme/examples.html
 .. _faker-file documentation: https://faker-file.readthedocs.io/en/latest/creating_pdf.html#building-pdfs-with-text-using-reportlab
-.. _jsphinx-download demo: https://jsphinx.readthedocs.io/en/sphinx_rtd_theme/examples.html#jsphinx-download-usage
-.. _jsphinx-toggle-emphasis demo: https://jsphinx.readthedocs.io/en/sphinx_rtd_theme/examples.html#jsphinx-toggle-emphasis-usage
+.. _jsphinx-download demo: https://jsphinx.readthedocs.io/en/sphinx_rtd_theme/examples.html#jsphinx-download-directive-usage
+.. _jsphinx-toggle-emphasis demo: https://jsphinx.readthedocs.io/en/sphinx_rtd_theme/examples.html#jsphinx-toggle-emphasis-directive-usage
 
 ----
 
