@@ -85,7 +85,7 @@ check-python-build:
 	source $(VENV) && twine check dist/*
 
 release-python:
-	source $(VENV) && twine upload dist/*
+	source $(VENV) && twine upload dist/* --verbose
 
 test-release-python:
 	source $(VENV) && twine upload --repository testpypi dist/*
