@@ -6,11 +6,11 @@ Write better docs. Stay concise. Never miss a detail.
 
 .. image:: https://img.shields.io/github/v/release/barseghyanartur/jsphinx?label=jsDelivr version&color=blue
    :target: https://github.com/barseghyanartur/jsphinx/releases
-   :alt: jsDelivr version
+   :alt: jsDelivr
 
 .. image:: https://data.jsdelivr.com/v1/package/gh/barseghyanartur/jsphinx/badge
    :target: https://github.com/barseghyanartur/jsphinx/releases
-   :alt: jsDelivr stats
+   :alt: CDN stats
 
 .. image:: https://img.shields.io/pypi/v/jsphinx.svg
    :target: https://pypi.python.org/pypi/jsphinx
