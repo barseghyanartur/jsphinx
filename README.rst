@@ -176,8 +176,7 @@ The above mentioned snippet will be rendered as follows:
 
    <p class="jsphinx-download">
      <em>See the full example</em>
-     <a class="reference download internal"
-        href="_static/py/faker_file_docx_1.py">
+     <a class="reference download internal" href="_static/py/faker_file_docx_1.py">
        <span class="pre">here</span>
      </a>
    </p>
