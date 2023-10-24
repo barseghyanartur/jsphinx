@@ -1,16 +1,24 @@
-==============
+=======
 jsphinx
-==============
+=======
 **Improve developer experience**:
 Write better docs. Stay concise. Never miss a detail.
 
-.. image:: https://img.shields.io/github/v/release/barseghyanartur/jsphinx?label=Version&color=blue
+.. image:: https://img.shields.io/github/v/release/barseghyanartur/jsphinx?label=jsDelivr version&color=blue
    :target: https://github.com/barseghyanartur/jsphinx/releases
    :alt: jsDelivr version
 
 .. image:: https://data.jsdelivr.com/v1/package/gh/barseghyanartur/jsphinx/badge
    :target: https://github.com/barseghyanartur/jsphinx/releases
    :alt: jsDelivr stats
+
+.. image:: https://img.shields.io/pypi/v/jsphinx.svg
+   :target: https://pypi.python.org/pypi/jsphinx
+   :alt: PyPI Version
+
+.. image:: https://img.shields.io/pypi/pyversions/jsphinx.svg
+    :target: https://pypi.python.org/pypi/jsphinx/
+    :alt: Supported Python versions
 
 .. image:: https://github.com/barseghyanartur/jsphinx/actions/workflows/test.yml/badge.svg?branch=main
    :target: https://github.com/barseghyanartur/jsphinx/actions
@@ -169,7 +177,7 @@ The above mentioned snippet will be rendered as follows:
    <p class="jsphinx-download">
      <em>See the full example</em>
      <a class="reference download internal"
-        href="https://raw.githubusercontent.com/barseghyanartur/jsphinx/main/docs/_static/py/faker_file_docx_1.py">
+        href="_static/py/faker_file_docx_1.py">
        <span class="pre">here</span>
      </a>
    </p>
@@ -212,7 +220,8 @@ To use both the theme and adapter in your HTML:
 .. code-block:: html
 
    <!-- CSS for PrismJS Sphinx RTD theme -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/barseghyanartur/jsphinx/src/css/sphinx_rtd_theme.css">
+   <link href="https://cdn.jsdelivr.net/gh/barseghyanartur/jsphinx/src/css/sphinx_rtd_theme.css"
+         rel="stylesheet">
 
    <!-- JS for PrismJS Sphinx Adapter -->
    <script src="https://cdn.jsdelivr.net/gh/barseghyanartur/jsphinx/src/js/download_adapter.js">
