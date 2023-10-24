@@ -33,15 +33,15 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-# branch_name = "sphinx_rtd_theme"
-# branch_name = "alabaster"
-# branch_name = "sphinx_material"
-# branch_name = "bootstrap"
-# branch_name = "furo"
-# branch_name = "sphinx_book_theme"
-# branch_name = "pydata_sphinx_theme"
-
 html_theme = branch_name
+# html_theme = "sphinx_rtd_theme"
+# html_theme = "alabaster"
+# html_theme = "sphinx_material"
+# html_theme = "bootstrap"
+# html_theme = "furo"
+# html_theme = "sphinx_book_theme"
+# html_theme = "pydata_sphinx_theme"
+
 html_static_path = ["_static"]
 
 prismjs_base = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0"
@@ -49,8 +49,8 @@ prismjs_base = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0"
 html_css_files = [
     f"{prismjs_base}/themes/prism.min.css",
     f"{prismjs_base}/plugins/toolbar/prism-toolbar.min.css",
-    # f"https://cdn.jsdelivr.net/gh/barseghyanartur/jsphinx/src/css/{branch_name}.css",
-    f"themes/{branch_name}.css",
+    # f"https://cdn.jsdelivr.net/gh/barseghyanartur/jsphinx/src/css/{html_theme}.css",
+    f"themes/{html_theme}.css",
 ]
 
 html_js_files = [
