@@ -1,7 +1,7 @@
 Examples
 ========
-jsphinx-download usage
-----------------------
+``jsphinx-download`` directive usage
+------------------------------------
 
 See the following full functional snippet for generating a ``DOCX`` file.
 
@@ -69,8 +69,8 @@ examples:
     *See the full example*
     :download:`here <_static/py/faker_file_docx_4.py>`
 
-jsphinx-toggle-emphasis usage
------------------------------
+``jsphinx-toggle-emphasis`` directive usage
+-------------------------------------------
 Generate a TXT file.
 
 .. container:: jsphinx-toggle-emphasis
