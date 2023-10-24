@@ -4,13 +4,13 @@ jsphinx
 **Improve developer experience**:
 Write better docs. Stay concise. Never miss a detail.
 
-.. image:: https://img.shields.io/github/v/release/barseghyanartur/jsphinx?label=jsDelivr version&color=blue
+.. image:: https://img.shields.io/github/v/release/barseghyanartur/jsphinx?label=Version&color=blue
    :target: https://github.com/barseghyanartur/jsphinx/releases
-   :alt: jsDelivr
+   :alt: jsDelivr version
 
 .. image:: https://data.jsdelivr.com/v1/package/gh/barseghyanartur/jsphinx/badge
    :target: https://github.com/barseghyanartur/jsphinx/releases
-   :alt: CDN stats
+   :alt: jsDelivr stats
 
 .. image:: https://img.shields.io/pypi/v/jsphinx.svg
    :target: https://pypi.python.org/pypi/jsphinx
