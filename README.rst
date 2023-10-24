@@ -4,7 +4,7 @@ jsphinx
 **Improve developer experience**:
 Write better docs. Stay concise. Never miss a detail.
 
-.. image:: https://img.shields.io/github/v/release/barseghyanartur/jsphinx?label=jsDelivr version&color=blue
+.. image:: https://img.shields.io/github/v/release/barseghyanartur/jsphinx?label=Version&color=blue
    :target: https://github.com/barseghyanartur/jsphinx/releases
    :alt: jsDelivr version
 
