@@ -1,5 +1,5 @@
 # Update version ONLY here
-VERSION := 1.3.2
+VERSION := 1.3.3
 SHELL := /bin/bash
 # Makefile for project
 VENV := ~/.virtualenvs/jsphinx/bin/activate

@@ -12,6 +12,14 @@ Write better docs. Stay concise. Never miss a detail.
    :target: https://github.com/barseghyanartur/jsphinx/releases
    :alt: jsDelivr stats
 
+.. image:: https://img.shields.io/pypi/v/jssphinx.svg
+   :target: https://pypi.python.org/pypi/jssphinx
+   :alt: PyPI Version
+
+.. image:: https://img.shields.io/pypi/pyversions/jssphinx.svg
+    :target: https://pypi.python.org/pypi/jssphinx/
+    :alt: Supported Python versions
+
 .. image:: https://github.com/barseghyanartur/jsphinx/actions/workflows/test.yml/badge.svg?branch=main
    :target: https://github.com/barseghyanartur/jsphinx/actions
    :alt: Build Status
