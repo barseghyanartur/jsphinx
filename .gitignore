@@ -40,3 +40,4 @@ local_settings.py
 .ipynb_checkpoints/
 .scannerwork/
 src/jsphinx.egg-info/
+src/jssphinx.egg-info/
