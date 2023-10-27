@@ -17,6 +17,17 @@ Release history and notes
   1.0.4 to 1.1.0).
 - All backwards incompatible changes are mentioned in this document.
 
+1.3.3
+-----
+*2023-10-28*
+
+.. note::
+
+    Release dedicated to my daughter Ani, who turned 4 yesterday.
+    Happy birthday, my dear girl!
+
+- Python package released on PyPI.
+
 1.3.2
 -----
 *2023-10-24*

@@ -2,7 +2,7 @@
 name = "jssphinx"
 description = "Improve developer experience"
 readme = "README.rst"
-version = "1.3.2"
+version = "1.3.3"
 dependencies = [
     "sphinx",
 ]
