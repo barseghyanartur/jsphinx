@@ -99,7 +99,7 @@ page, click on any ``See the full example`` link to see how it works.
 - `sphinx-rtd-theme demo`_
 - `faker-file documentation`_
 
-Impressed? Want to learn and understand how does that work?
+Impressed? Want to know how it works?
 
 Under the hood
 ==============
@@ -110,9 +110,9 @@ the ``.. literalinclude::``, which allows us to include content of a file
 directly into your documentation.
 
 ``.. literalinclude::`` itself has a ``:lines:`` option, which allows us to
-specify which parts of the code to show. That's what we do and that's what
-allows us to keep the primary focus on the most important parts of the code,
-reducing cognitive load for the reader.
+specify which parts of the code to show. That's what we use to keep the
+primary focus on the most important parts of the code, reducing cognitive
+load for the reader.
 
 Consider the following code example stored in a
 file ``_static/py/faker_file_docx_1.py``:
@@ -192,9 +192,9 @@ of downloading the content, show it in-line, right in place.
 
 Note, that although ``.. container:: jsphinx-download`` technically
 isn't strictly required, it wraps our link into an element with
-``jsphinx`` class and that's what allows us to safely hook to all
-underlying download links without a risk to cause unwanted behavior for other
-places where you might have used ``:download:`` directive for other purposes.
+``jsphinx-download`` class so that we can safely hook to all underlying
+download links without a risk to cause unwanted behavior for other places
+where you might have used ``:download:`` directive for other purposes.
 
 Finally, `PrismJS`_ syntax highlighter is used to beautify the code and make
 it look close to the code highlighting of your `Sphinx`_ theme of choice.
