@@ -17,6 +17,15 @@ Release history and notes
   1.0.4 to 1.1.0).
 - All backwards incompatible changes are mentioned in this document.
 
+1.3.4
+-----
+*2023-10-31*
+
+- Slightly change the behaviour of the ``jsphinx-toggle-emphasis`` directive.
+  Instead of replacing the original block with it, we toggle visibility of the
+  full code under the link. Old behaviour could still be achieved by using
+  ``jsphinx-toggle-emphasis-replace`` instead.
+
 1.3.3
 -----
 *2023-10-28*
