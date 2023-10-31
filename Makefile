@@ -1,6 +1,7 @@
 # Update version ONLY here
 VERSION := 1.3.4
 SHELL := /bin/bash
+READTHEDOCS_WEBHOOK = https://readthedocs.org/api/v2/webhook/jsphinx/252546/
 # Makefile for project
 VENV := ~/.virtualenvs/jsphinx/bin/activate
 
@@ -89,3 +90,9 @@ release-python:
 
 test-release-python:
 	source $(VENV) && twine upload --repository testpypi dist/*
+
+trigger-readthedocs-build:
+	@for tag in $(TAGS); do \
+#		echo "Triggering ReadTheDocs build for tag: $$tag"; \
+		curl -X POST "$(READTHEDOCS_WEBHOOK)" -H "Content-Type: application/json" -d '{"ref": "'$$tag'"}' || exit 1; \
+	done
