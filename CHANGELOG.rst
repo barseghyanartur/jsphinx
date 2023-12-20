@@ -17,6 +17,13 @@ Release history and notes
   1.0.4 to 1.1.0).
 - All backwards incompatible changes are mentioned in this document.
 
+2.0
+---
+*2023-12-20*
+
+- Change project's Python name to ``sphinxjs``.
+- Add ``no-pragma`` Sphinx plugin for stripping out pragma comments from docs.
+
 1.3.4
 -----
 *2023-10-31*

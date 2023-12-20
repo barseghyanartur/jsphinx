@@ -31,6 +31,7 @@ codebin/
 /build/
 /dist/
 jsphinx.egg-info
+sphinxjs.egg-info
 matyan.log*
 db.sqlite3
 sample_db.sqlite
@@ -41,3 +42,4 @@ local_settings.py
 .scannerwork/
 src/jsphinx.egg-info/
 src/jssphinx.egg-info/
+src/sphinxjs.egg-info/
