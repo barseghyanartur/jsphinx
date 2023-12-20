@@ -86,7 +86,6 @@ Move on to the `demos`_ section to see it in action.
 
 Demos
 =====
-
 See the list of available demos below. Pick a demo and from within the example
 page, click on any ``See the full example`` link to see how it works.
 
@@ -234,7 +233,6 @@ block for toggling the visibility of non-emphasized elements.
 
 Themes
 ======
-
 `PrismJS`_ themes based on `Sphinx`_'s aesthetics:
 
 - `alabaster`_ (key: ``alabaster``, `alabaster demo`_)
@@ -248,7 +246,6 @@ Themes
 
 Installation
 ============
-
 Via CDN (jsDelivr)
 ------------------
 
@@ -266,7 +263,6 @@ To use both the theme and adapter in your HTML:
 
 Sphinx integration
 ==================
-
 Configuration
 -------------
 
@@ -346,7 +342,6 @@ Finally, make sure to specify correct path to the desired theme:
 
 Testing your documentation
 ==========================
-
 All code snippets of this repository can be tested with `pytest`_ as follows:
 
 .. code-block:: sh
@@ -381,18 +376,15 @@ This is how ``docs/test_docs.py`` could look:
 
 License
 =======
-
 MIT
 
 Support
 =======
-
 For security issues contact me at the e-mail given in the `Author`_ section.
 
 For overall issues, go to `GitHub issues`_.
 
 Author
 ======
-
 Artur Barseghyan
 `artur.barseghyan@gmail.com <artur.barseghyan@gmail.com>`__.

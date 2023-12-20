@@ -10,8 +10,10 @@ Welcome to jsphinx's documentation!
    :maxdepth: 20
    :caption: Contents:
 
-   readme
+   index
    examples
+   no_pragma
+   no_pragma_demo
    changelog
 
 Indices and tables
