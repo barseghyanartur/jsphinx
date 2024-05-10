@@ -10,6 +10,9 @@ build_docs:
 	source $(VENV) && sphinx-build -n -a -b html docs builddocs
 	cd builddocs && zip -r ../builddocs.zip . -x ".*" && cd ..
 
+pre-commit:
+	pre-commit run --all-files
+
 # Format code using Black
 black:
 	source $(VENV) && black .
