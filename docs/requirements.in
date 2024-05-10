@@ -5,3 +5,4 @@ sphinx-book-theme
 sphinx-bootstrap-theme
 sphinx-material
 sphinx_rtd_theme
+sphinx-no-pragma

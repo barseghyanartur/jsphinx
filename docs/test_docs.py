@@ -13,7 +13,7 @@ __all__ = (
 )
 
 # Walk through the directory and all subdirectories for .py files
-example_dir = Path("docs/_static/py")
+example_dir = Path("docs/examples/simple")
 py_files = sorted([str(p) for p in example_dir.rglob("*.py")])
 
 
