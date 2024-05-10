@@ -35,6 +35,7 @@ classifiers = [
 [project.optional-dependencies]
 all = ["jssphinx[themes,dev,test]"]
 themes = [
+    "sphinx-no-pragma",
     "furo",
     "pydata-sphinx-theme",
     "sphinx-book-theme",
