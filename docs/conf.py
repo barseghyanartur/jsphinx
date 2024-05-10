@@ -24,6 +24,7 @@ author = "Artur Barseghyan"
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.viewcode",
+    "sphinx_no_pragma",
 ]
 pygments_style = "sphinx"
 templates_path = ["_templates"]
