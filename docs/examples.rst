@@ -158,7 +158,7 @@ Generate a TXT file.
 .. container:: jsphinx-toggle-emphasis
 
     .. code-block:: python
-        :emphasize-lines: 3,6,8
+        :emphasize-lines: 3-4,6,8
 
         from faker import Faker
         # Import the file provider we want to use
@@ -189,7 +189,7 @@ The documentation snippet, the above (`Example 5`_) code was rendered from:
     .. container:: jsphinx-toggle-emphasis
 
         .. code-block:: python
-            :emphasize-lines: 3,6,8
+            :emphasize-lines: 3-4,6,8
 
             from faker import Faker
             # Import the file provider we want to use
@@ -261,7 +261,7 @@ Generate a TXT file.
 .. container:: jsphinx-toggle-emphasis-replace
 
     .. code-block:: python
-        :emphasize-lines: 3,6,8
+        :emphasize-lines: 3-4,6,8
 
         from faker import Faker
         # Import the file provider we want to use
@@ -292,7 +292,7 @@ The documentation snippet, the above (`Example 7`_) code was rendered from:
     .. container:: jsphinx-toggle-emphasis-replace
 
         .. code-block:: python
-            :emphasize-lines: 3,6,8
+            :emphasize-lines: 3-6,6,8
 
             from faker import Faker
             # Import the file provider we want to use
