@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!codeBlocks || codeBlocks.length < 1) {
             return;
         }
-        // The short snippet (literalinclude) is the first code block.
+        // The short snippet (literalinclude) is assumed to be the first code block.
         let shortSnippet = codeBlocks[0];
 
         // Find the container holding the download link.
@@ -288,13 +288,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create a new div to hold the full snippet; it is initially hidden.
         let fullSnippetDiv = document.createElement('div');
         fullSnippetDiv.style.display = 'none';
-        // Insert the full snippet div after the download container.
-        downloadContainer.parentNode.insertBefore(fullSnippetDiv, downloadContainer.nextSibling);
+        // Insert the full snippet div at the location of the short snippet.
+        shortSnippet.parentNode.insertBefore(fullSnippetDiv, shortSnippet);
 
         // When the download link is clicked, toggle between the short and full snippet.
         downloadLink.addEventListener('click', function(event) {
             event.preventDefault();
-            // If full snippet hasn't been fetched, do so.
+            // If full snippet hasn't been fetched yet, fetch it.
             if (!fullSnippetDiv.classList.contains('fetched')) {
                 let url = downloadLink.getAttribute('href');
                 let xhr = new XMLHttpRequest();
@@ -316,11 +316,11 @@ document.addEventListener('DOMContentLoaded', function() {
                             preElement.appendChild(codeElement);
                             fullSnippetDiv.appendChild(preElement);
 
-                            // If Prism is available, highlight the fetched code.
+                            // Highlight the fetched code if Prism is available.
                             if (window.Prism) {
                                 Prism.highlightElement(codeElement);
                             }
-                            // Mark as fetched and show the full snippet.
+                            // Mark as fetched and display the full snippet.
                             fullSnippetDiv.classList.add('fetched');
                             shortSnippet.style.display = 'none';
                             fullSnippetDiv.style.display = 'block';
@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
                 xhr.send();
             } else {
-                // Already fetched: toggle between showing full snippet and short snippet.
+                // Toggle between showing the full snippet and the short snippet.
                 if (fullSnippetDiv.style.display === 'none') {
                     shortSnippet.style.display = 'none';
                     fullSnippetDiv.style.display = 'block';

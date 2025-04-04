@@ -369,7 +369,7 @@ See the following full functional snippet for generating a ``DOCX`` file.
 
     .. container:: jsphinx-download
 
-        *See the full example*
+        *Toggle the full example*
         :download:`here <examples/simple/snippet_1.py>`
 
 ----
@@ -390,7 +390,7 @@ The documentation snippet, the above (`Example 1`_) code was rendered from:
 
         .. container:: jsphinx-download
 
-            *See the full example*
+            *Toggle the full example*
             :download:`here <examples/simple/snippet_1.py>`
 
 ----

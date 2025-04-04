@@ -63,6 +63,7 @@ Write better docs. Stay concise. Never miss a detail.
 .. _sphinx-rtd-theme demo: https://jsphinx.readthedocs.io/en/sphinx_rtd_theme/examples.html
 .. _faker-file documentation: https://faker-file.readthedocs.io/en/latest/creating_pdf.html#building-pdfs-with-text-using-reportlab
 .. _jsphinx-download demo: https://jsphinx.readthedocs.io/en/sphinx_rtd_theme/examples.html#jsphinx-download-directive-usage
+.. _jsphinx-download-replace demo: https://jsphinx.readthedocs.io/en/sphinx_rtd_theme/examples.html#jsphinx-download-replace-directive-usage
 .. _jsphinx-toggle-emphasis demo: https://jsphinx.readthedocs.io/en/sphinx_rtd_theme/examples.html#jsphinx-toggle-emphasis-directive-usage
 
 .. Additionally
@@ -241,6 +242,32 @@ tools (linters, type checkers) on your documentation code snippets, the answer
 is - yes! Furthermore, if you are worried that your pragma comments might
 appear in the generated documentation, please, go check the
 `sphinx-no-pragma`_ project.
+
+----
+
+``.. container:: jsphinx-download-replace`` directive
+-----------------------------------------------------
+Works similar to ``.. container:: jsphinx-download`` directive, except
+that it replaces the compact code snippet with a full one.
+
+Consider the following documentation snippet:
+
+*Filename: example.rst*
+
+.. code-block:: rst
+
+    .. container:: jsphinx-download-replace
+
+        .. literalinclude:: examples/simple/snippet_1.py
+            :language: python
+            :lines: 3-11
+
+        .. container:: jsphinx-download
+
+            *Toggle the full example*
+            :download:`here <examples/simple/snippet_1.py>`
+
+*See the* `jsphinx-download-replace demo`_ *to see how it's rendered.*
 
 ----
 
