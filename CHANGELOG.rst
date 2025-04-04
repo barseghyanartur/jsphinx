@@ -17,6 +17,13 @@ Release history and notes
   1.0.4 to 1.1.0).
 - All backwards incompatible changes are mentioned in this document.
 
+1.3.5
+-----
+*2025-04-04*
+
+- Added ``jsphinx-download-replace`` directive. Instead of adding a new block,
+  it simply replaces the current one.
+
 1.3.4
 -----
 *2023-10-31*

@@ -15,7 +15,7 @@ if branch_name in {"main", "dev", "latest"}:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "jsphinx"
-copyright = "2023, Artur Barseghyan"
+copyright = "2023-2025, Artur Barseghyan"
 author = "Artur Barseghyan"
 
 # -- General configuration ---------------------------------------------------
