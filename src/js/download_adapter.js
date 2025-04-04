@@ -25,15 +25,20 @@
  * @version 1.3.4
  */
 
-// ****************************************************
-// ***************** Download listener ****************
-// ****************************************************
+// ----------------------------------------------------------------------------
+// jsphinx-download listener (standalone)
+// ----------------------------------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', function() {
     // Find all download links by their class
     let downloadLinks = document.querySelectorAll('.jsphinx-download a.reference.download.internal');
 
     downloadLinks.forEach(function(link, index) {
+        // Skip links inside a jsphinx-download-replace container
+        if (link.closest('.jsphinx-download-replace')) {
+            return;
+        }
+
         // Create a unique id for the additional content div
         let contentID = 'additional-content-' + index;
 
@@ -100,9 +105,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// ****************************************************
-// ****************** Toggle listeners ****************
-// ****************************************************
+// ----------------------------------------------------------------------------
+// jsphinx-toggle-emphasis listeners
+// ----------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', function() {
     // Check if the HTML is under the 'jsphinx-toggle-emphasis' class
     const containers = document.querySelectorAll('.jsphinx-toggle-emphasis');
@@ -179,9 +184,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// ****************************************************
-// ******************* Toggle listener ****************
-// ****************************************************
+// ----------------------------------------------------------------------------
+// jsphinx-toggle-emphasis-replace listener
+// ----------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', function() {
     // Check if the HTML is under the 'jsphinx-toggle-emphasis-replace' class
     const containers = document.querySelectorAll('.jsphinx-toggle-emphasis-replace');
@@ -250,6 +255,92 @@ document.addEventListener('DOMContentLoaded', function() {
             // Insert the link and the new code block as siblings
             originalCodeBlock.parentNode.insertBefore(linkContainer, originalCodeBlock.nextSibling);
             originalCodeBlock.parentNode.insertBefore(newCodeBlock, originalCodeBlock.nextSibling);
+        });
+    });
+});
+
+// ----------------------------------------------------------------------------
+// jsphinx-download-replace listener
+// ----------------------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', function() {
+    // Process each container that should have toggling behavior.
+    const replaceContainers = document.querySelectorAll('.jsphinx-download-replace');
+
+    replaceContainers.forEach(function(container) {
+        // Assume the literalinclude code block is rendered as a .highlight element.
+        let codeBlocks = container.querySelectorAll('.highlight');
+        if (!codeBlocks || codeBlocks.length < 1) {
+            return;
+        }
+        // The short snippet (literalinclude) is the first code block.
+        let shortSnippet = codeBlocks[0];
+
+        // Find the container holding the download link.
+        let downloadContainer = container.querySelector('.jsphinx-download');
+        if (!downloadContainer) {
+            return;
+        }
+        let downloadLink = downloadContainer.querySelector('a');
+        if (!downloadLink) {
+            return;
+        }
+
+        // Create a new div to hold the full snippet; it is initially hidden.
+        let fullSnippetDiv = document.createElement('div');
+        fullSnippetDiv.style.display = 'none';
+        // Insert the full snippet div after the download container.
+        downloadContainer.parentNode.insertBefore(fullSnippetDiv, downloadContainer.nextSibling);
+
+        // When the download link is clicked, toggle between the short and full snippet.
+        downloadLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            // If full snippet hasn't been fetched, do so.
+            if (!fullSnippetDiv.classList.contains('fetched')) {
+                let url = downloadLink.getAttribute('href');
+                let xhr = new XMLHttpRequest();
+                xhr.open('GET', url, true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            // Determine language based on file extension.
+                            let fileExtension = url.split('.').pop();
+                            let langClass = fileExtension === 'py' ? 'language-python' :
+                                            fileExtension === 'js' ? 'language-javascript' :
+                                            'language-plaintext';
+
+                            // Build the full snippet code block.
+                            let preElement = document.createElement('pre');
+                            let codeElement = document.createElement('code');
+                            codeElement.classList.add(langClass);
+                            codeElement.textContent = xhr.responseText;
+                            preElement.appendChild(codeElement);
+                            fullSnippetDiv.appendChild(preElement);
+
+                            // If Prism is available, highlight the fetched code.
+                            if (window.Prism) {
+                                Prism.highlightElement(codeElement);
+                            }
+                            // Mark as fetched and show the full snippet.
+                            fullSnippetDiv.classList.add('fetched');
+                            shortSnippet.style.display = 'none';
+                            fullSnippetDiv.style.display = 'block';
+                        } else {
+                            fullSnippetDiv.textContent = 'Error fetching content.';
+                            fullSnippetDiv.style.display = 'block';
+                        }
+                    }
+                };
+                xhr.send();
+            } else {
+                // Already fetched: toggle between showing full snippet and short snippet.
+                if (fullSnippetDiv.style.display === 'none') {
+                    shortSnippet.style.display = 'none';
+                    fullSnippetDiv.style.display = 'block';
+                } else {
+                    fullSnippetDiv.style.display = 'none';
+                    shortSnippet.style.display = '';
+                }
+            }
         });
     });
 });
