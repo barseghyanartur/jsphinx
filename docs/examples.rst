@@ -352,3 +352,84 @@ The documentation snippet, the above (`Example 8`_) code was rendered from:
             FAKER.add_provider(TxtFileProvider)  # Register the TXT file provider
 
             raw = FAKER.txt_file(raw=True)  # Generate a TXT file
+
+``jsphinx-download-replace`` directive usage
+--------------------------------------------
+
+Example 9
+~~~~~~~~~
+
+See the following full functional snippet for generating a ``DOCX`` file.
+
+.. container:: jsphinx-download-replace
+
+    .. literalinclude:: examples/simple/snippet_1.py
+        :language: python
+        :lines: 3-11
+
+    .. container:: jsphinx-download
+
+        *Toggle the full example*
+        :download:`here <examples/simple/snippet_1.py>`
+
+----
+
+The documentation snippet, the above (`Example 1`_) code was rendered from:
+
+*Filename: example.rst*
+
+.. code-block:: rst
+
+    See the following full functional snippet for generating a ``DOCX`` file.
+
+    .. container:: jsphinx-download-replace
+
+        .. literalinclude:: examples/simple/snippet_1.py
+            :language: python
+            :lines: 3-11
+
+        .. container:: jsphinx-download
+
+            *Toggle the full example*
+            :download:`here <examples/simple/snippet_1.py>`
+
+----
+
+Example 10
+~~~~~~~~~~
+
+See the example below for ``max_nb_chars`` tweak:
+
+.. container:: jsphinx-download-replace
+
+    .. literalinclude:: examples/simple/snippet_2.py
+        :language: python
+        :lines: 8-
+
+    .. container:: jsphinx-download
+
+        *Toggle the full example*
+        :download:`here <examples/simple/snippet_2.py>`
+
+----
+
+The documentation snippet, the above (`Example 2`_) code was rendered from:
+
+*Filename: example.rst*
+
+.. code-block:: rst
+
+    See the example below for ``max_nb_chars`` tweak:
+
+    .. container:: jsphinx-download-replace
+
+        .. literalinclude:: examples/simple/snippet_2.py
+            :language: python
+            :lines: 8-
+
+        .. container:: jsphinx-download
+
+            *Toggle the full example*
+            :download:`here <examples/simple/snippet_2.py>`
+
+----
