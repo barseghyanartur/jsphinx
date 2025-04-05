@@ -22,13 +22,12 @@
  *
  * @author Artur Barseghyan (https://github.com/barseghyanartur)
  * @url https://github.com/barseghyanartur/jsphinx
- * @version 1.3.4
+ * @version 1.4.0
  */
 
 // ----------------------------------------------------------------------------
 // jsphinx-download listener (standalone)
 // ----------------------------------------------------------------------------
-
 document.addEventListener('DOMContentLoaded', function() {
     // Find all download links by their class
     let downloadLinks = document.querySelectorAll('.jsphinx-download a.reference.download.internal');
@@ -258,6 +257,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
 // ----------------------------------------------------------------------------
 // jsphinx-download-replace listener
 // ----------------------------------------------------------------------------
@@ -355,4 +355,89 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+});
+
+// ----------------------------------------------------------------------------
+// jsphinx-eye-icon
+// ----------------------------------------------------------------------------
+// Helper: add the eye icon to a code container and bind it to the toggle link.
+function addEyeIconToCodeContainer(codeContainer, toggleLink) {
+  // Avoid duplicate icons
+  if (codeContainer.querySelector('.jsphinx-eye-icon')) return;
+
+  // Ensure the container is positioned relatively so the icon can be absolutely positioned.
+  if (window.getComputedStyle(codeContainer).position === 'static') {
+    codeContainer.style.position = 'relative';
+  }
+
+  // Create the eye icon element.
+  const eyeIcon = document.createElement('span');
+  // You can replace the innerHTML with an SVG or image if you prefer.
+  eyeIcon.innerHTML = '👁';
+  eyeIcon.classList.add('jsphinx-eye-icon');
+
+  // Style the icon so it sits at the top right of the container.
+  eyeIcon.style.position = 'absolute';
+  eyeIcon.style.top = '5px';
+  eyeIcon.style.right = '5px';
+  eyeIcon.style.cursor = 'pointer';
+  // (Optional: adjust font size, color, or add a hover effect via CSS)
+
+  // When clicked, simulate clicking the toggle/download link.
+  eyeIcon.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleLink.click();
+  });
+
+  codeContainer.appendChild(eyeIcon);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Find all containers where jsphinx directives are used.
+  const containers = document.querySelectorAll(
+    '.jsphinx-download, .jsphinx-download-replace, .jsphinx-toggle-emphasis, .jsphinx-toggle-emphasis-replace'
+  );
+
+  containers.forEach(container => {
+    // Determine the toggle link.
+    // For jsphinx-download and jsphinx-download-replace, it's the <a class="reference download internal">
+    // For jsphinx-toggle-emphasis* it's the element with class "toggle-link".
+    let toggleLink = container.querySelector('.toggle-link') ||
+                     container.querySelector('a.reference.download.internal');
+    if (!toggleLink) return;
+
+    // Look for any code snippet container:
+    // - In jsphinx-download, the additional content div (with id starting with "additional-content-")
+    // - In others, the code block usually has the "highlight" class.
+    let codeContainers = container.querySelectorAll('.highlight, [id^="additional-content-"]');
+    codeContainers.forEach(codeContainer => {
+      addEyeIconToCodeContainer(codeContainer, toggleLink);
+    });
+  });
+
+  // Use a MutationObserver to catch code containers that are added dynamically (e.g. when content is fetched).
+  const observer = new MutationObserver((mutationsList) => {
+    for (const mutation of mutationsList) {
+      mutation.addedNodes.forEach(node => {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+          if (node.matches('.highlight') || (node.id && node.id.startsWith('additional-content-'))) {
+            // Look upward to find the jsphinx container
+            let container = node.closest(
+              '.jsphinx-download, .jsphinx-download-replace, .jsphinx-toggle-emphasis, .jsphinx-toggle-emphasis-replace'
+            );
+            if (container) {
+              let toggleLink = container.querySelector('.toggle-link') ||
+                               container.querySelector('a.reference.download.internal');
+              if (toggleLink) {
+                addEyeIconToCodeContainer(node, toggleLink);
+              }
+            }
+          }
+        }
+      });
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
 });
