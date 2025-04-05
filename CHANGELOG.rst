@@ -28,6 +28,7 @@ Release history and notes
   ``:download:`` under ``jsphinx-download``. In past, this wasn't needed
   for ``.. literalinclude::``.
 - Add eye-icon functionality.
+- Removed the deprecated jQuery based code.
 
 1.3.5
 -----
