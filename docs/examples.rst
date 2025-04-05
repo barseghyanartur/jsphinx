@@ -8,11 +8,11 @@ Example 1
 
 See the following full functional snippet for generating a ``DOCX`` file.
 
-.. literalinclude:: examples/simple/snippet_1.py
-    :language: python
-    :lines: 3-11
-
 .. container:: jsphinx-download
+
+    .. literalinclude:: examples/simple/snippet_1.py
+        :language: python
+        :lines: 3-11
 
     *See the full example*
     :download:`here <examples/simple/snippet_1.py>`
@@ -27,11 +27,11 @@ The documentation snippet, the above (`Example 1`_) code was rendered from:
 
     See the following full functional snippet for generating a ``DOCX`` file.
 
-    .. literalinclude:: examples/simple/snippet_1.py
-        :language: python
-        :lines: 3-11
-
     .. container:: jsphinx-download
+
+        .. literalinclude:: examples/simple/snippet_1.py
+            :language: python
+            :lines: 3-11
 
         *See the full example*
         :download:`here <examples/simple/snippet_1.py>`
@@ -43,11 +43,11 @@ Example 2
 
 See the example below for ``max_nb_chars`` tweak:
 
-.. literalinclude:: examples/simple/snippet_2.py
-    :language: python
-    :lines: 8-
-
 .. container:: jsphinx-download
+
+    .. literalinclude:: examples/simple/snippet_2.py
+        :language: python
+        :lines: 8-
 
     *See the full example*
     :download:`here <examples/simple/snippet_2.py>`
@@ -62,11 +62,11 @@ The documentation snippet, the above (`Example 2`_) code was rendered from:
 
     See the example below for ``max_nb_chars`` tweak:
 
-    .. literalinclude:: examples/simple/snippet_2.py
-        :language: python
-        :lines: 8-
-
     .. container:: jsphinx-download
+
+        .. literalinclude:: examples/simple/snippet_2.py
+            :language: python
+            :lines: 8-
 
         *See the full example*
         :download:`here <examples/simple/snippet_2.py>`
@@ -78,11 +78,11 @@ Example 3
 
 See the example below for ``wrap_chars_after`` tweak:
 
-.. literalinclude:: examples/simple/snippet_3.py
-    :language: python
-    :lines: 8-
-
 .. container:: jsphinx-download
+
+    .. literalinclude:: examples/simple/snippet_3.py
+        :language: python
+        :lines: 8-
 
     *See the full example*
     :download:`here <examples/simple/snippet_3.py>`
@@ -97,11 +97,11 @@ The documentation snippet, the above (`Example 3`_) code was rendered from:
 
     See the example below for ``wrap_chars_after`` tweak:
 
-    .. literalinclude:: examples/simple/snippet_3.py
-        :language: python
-        :lines: 8-
-
     .. container:: jsphinx-download
+
+        .. literalinclude:: examples/simple/snippet_3.py
+            :language: python
+            :lines: 8-
 
         *See the full example*
         :download:`here <examples/simple/snippet_3.py>`
@@ -115,11 +115,11 @@ In order to customise the blocks ``DOCX`` file is built from,
 the ``DynamicTemplate`` class is used. See the example below for usage
 examples:
 
-.. literalinclude:: examples/simple/snippet_4.py
-    :language: python
-    :lines: 3-9, 14-31
-
 .. container:: jsphinx-download
+
+    .. literalinclude:: examples/simple/snippet_4.py
+        :language: python
+        :lines: 3-9, 14-31
 
     *See the full example*
     :download:`here <examples/simple/snippet_4.py>`
@@ -136,11 +136,11 @@ The documentation snippet, the above (`Example 4`_) code was rendered from:
     the ``DynamicTemplate`` class is used. See the example below for usage
     examples:
 
-    .. literalinclude:: examples/simple/snippet_4.py
-        :language: python
-        :lines: 3-9, 14-31
-
     .. container:: jsphinx-download
+
+        .. literalinclude:: examples/simple/snippet_4.py
+            :language: python
+            :lines: 3-9, 14-31
 
         *See the full example*
         :download:`here <examples/simple/snippet_4.py>`
@@ -367,10 +367,8 @@ See the following full functional snippet for generating a ``DOCX`` file.
         :language: python
         :lines: 3-11
 
-    .. container:: jsphinx-download
-
-        *Toggle the full example*
-        :download:`here <examples/simple/snippet_1.py>`
+    *Toggle the full example*
+    :download:`here <examples/simple/snippet_1.py>`
 
 ----
 
@@ -388,10 +386,8 @@ The documentation snippet, the above (`Example 1`_) code was rendered from:
             :language: python
             :lines: 3-11
 
-        .. container:: jsphinx-download
-
-            *Toggle the full example*
-            :download:`here <examples/simple/snippet_1.py>`
+        *Toggle the full example*
+        :download:`here <examples/simple/snippet_1.py>`
 
 ----
 
@@ -406,10 +402,8 @@ See the example below for ``max_nb_chars`` tweak:
         :language: python
         :lines: 8-
 
-    .. container:: jsphinx-download
-
-        *Toggle the full example*
-        :download:`here <examples/simple/snippet_2.py>`
+    *Toggle the full example*
+    :download:`here <examples/simple/snippet_2.py>`
 
 ----
 
@@ -427,9 +421,7 @@ The documentation snippet, the above (`Example 2`_) code was rendered from:
             :language: python
             :lines: 8-
 
-        .. container:: jsphinx-download
-
-            *Toggle the full example*
-            :download:`here <examples/simple/snippet_2.py>`
+        *Toggle the full example*
+        :download:`here <examples/simple/snippet_2.py>`
 
 ----
