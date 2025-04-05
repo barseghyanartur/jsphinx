@@ -360,84 +360,88 @@ document.addEventListener('DOMContentLoaded', function() {
 // ----------------------------------------------------------------------------
 // jsphinx-eye-icon
 // ----------------------------------------------------------------------------
-// Helper: add the eye icon to a code container and bind it to the toggle link.
-function addEyeIconToCodeContainer(codeContainer, toggleLink) {
-  // Avoid duplicate icons
-  if (codeContainer.querySelector('.jsphinx-eye-icon')) return;
-
-  // Ensure the container is positioned relatively so the icon can be absolutely positioned.
-  if (window.getComputedStyle(codeContainer).position === 'static') {
-    codeContainer.style.position = 'relative';
+// Determine the current toggle state of the directive container.
+function getToggleState(container) {
+  // Check for the additional content div used in jsphinx-download.
+  const additional = container.querySelector('[id^="additional-content-"]');
+  if (additional) {
+    return additional.style.display === 'block' ? 'expanded' : 'collapsed';
   }
+  // Check for two code blocks (compact and full) used in jsphinx-download-replace.
+  const highlights = container.querySelectorAll('.highlight');
+  if (highlights.length === 2) {
+    // Assume the second highlight is the full code block.
+    const full = highlights[1];
+    return full.style.display === 'block' ? 'expanded' : 'collapsed';
+  }
+  // Fallback: try to use the toggle link's text.
+  const toggleLink = container.querySelector('.toggle-link') ||
+                     container.querySelector('a.reference.download.internal');
+  if (toggleLink) {
+    const em = toggleLink.querySelector('em');
+    if (em && em.textContent.indexOf('Hide') !== -1) {
+      return 'expanded';
+    }
+  }
+  return 'collapsed';
+}
 
-  // Create the eye icon element.
-  const eyeIcon = document.createElement('span');
-  // You can replace the innerHTML with an SVG or image if you prefer.
-  eyeIcon.innerHTML = '👁';
-  eyeIcon.classList.add('jsphinx-eye-icon');
-
-  // Style the icon so it sits at the top right of the container.
-  eyeIcon.style.position = 'absolute';
-  eyeIcon.style.top = '5px';
-  eyeIcon.style.right = '5px';
-  eyeIcon.style.cursor = 'pointer';
-  // (Optional: adjust font size, color, or add a hover effect via CSS)
-
-  // When clicked, simulate clicking the toggle/download link.
-  eyeIcon.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    toggleLink.click();
-  });
-
-  codeContainer.appendChild(eyeIcon);
+// Update the icon in the container based on its current state.
+function updateContainerIcon(container, iconElement, collapsedIcon, expandedIcon) {
+  const state = getToggleState(container);
+  iconElement.innerHTML = state === 'expanded' ? expandedIcon : collapsedIcon;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Find all containers where jsphinx directives are used.
+  // Define icons for the two states.
+  const collapsedIcon = '👁';    // When code is collapsed.
+  const expandedIcon  = '👁‍🗨';   // When code is expanded.
+
+  // Select all jsphinx directive containers.
   const containers = document.querySelectorAll(
     '.jsphinx-download, .jsphinx-download-replace, .jsphinx-toggle-emphasis, .jsphinx-toggle-emphasis-replace'
   );
 
   containers.forEach(container => {
-    // Determine the toggle link.
-    // For jsphinx-download and jsphinx-download-replace, it's the <a class="reference download internal">
-    // For jsphinx-toggle-emphasis* it's the element with class "toggle-link".
-    let toggleLink = container.querySelector('.toggle-link') ||
-                     container.querySelector('a.reference.download.internal');
-    if (!toggleLink) return;
+    // Ensure the container is positioned relatively.
+    if (window.getComputedStyle(container).position === 'static') {
+      container.style.position = 'relative';
+    }
 
-    // Look for any code snippet container:
-    // - In jsphinx-download, the additional content div (with id starting with "additional-content-")
-    // - In others, the code block usually has the "highlight" class.
-    let codeContainers = container.querySelectorAll('.highlight, [id^="additional-content-"]');
-    codeContainers.forEach(codeContainer => {
-      addEyeIconToCodeContainer(codeContainer, toggleLink);
-    });
-  });
+    // Avoid creating duplicate icons.
+    if (!container.querySelector('.jsphinx-eye-icon')) {
+      const icon = document.createElement('span');
+      icon.classList.add('jsphinx-eye-icon');
+      icon.style.position = 'absolute';
+      icon.style.top = '5px';
+      icon.style.right = '5px';
+      icon.style.cursor = 'pointer';
 
-  // Use a MutationObserver to catch code containers that are added dynamically (e.g. when content is fetched).
-  const observer = new MutationObserver((mutationsList) => {
-    for (const mutation of mutationsList) {
-      mutation.addedNodes.forEach(node => {
-        if (node.nodeType === Node.ELEMENT_NODE) {
-          if (node.matches('.highlight') || (node.id && node.id.startsWith('additional-content-'))) {
-            // Look upward to find the jsphinx container
-            let container = node.closest(
-              '.jsphinx-download, .jsphinx-download-replace, .jsphinx-toggle-emphasis, .jsphinx-toggle-emphasis-replace'
-            );
-            if (container) {
-              let toggleLink = container.querySelector('.toggle-link') ||
-                               container.querySelector('a.reference.download.internal');
-              if (toggleLink) {
-                addEyeIconToCodeContainer(node, toggleLink);
-              }
-            }
-          }
-        }
-      });
+      // Initial icon update.
+      updateContainerIcon(container, icon, collapsedIcon, expandedIcon);
+
+      // Determine the toggle link within the container.
+      const toggleLink = container.querySelector('.toggle-link') ||
+                         container.querySelector('a.reference.download.internal');
+      if (toggleLink) {
+        // When the icon is clicked, simulate a click on the toggle link.
+        icon.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleLink.click();
+          // Wait a short time for the toggle action to complete, then update the icon.
+          setTimeout(() => {
+            updateContainerIcon(container, icon, collapsedIcon, expandedIcon);
+          }, 100);
+        });
+        // Also update the icon when the toggle link is clicked.
+        toggleLink.addEventListener('click', function() {
+          setTimeout(() => {
+            updateContainerIcon(container, icon, collapsedIcon, expandedIcon);
+          }, 100);
+        });
+      }
+      container.appendChild(icon);
     }
   });
-
-  observer.observe(document.body, { childList: true, subtree: true });
 });
