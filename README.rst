@@ -243,6 +243,20 @@ is - yes! Furthermore, if you are worried that your pragma comments might
 appear in the generated documentation, please, go check the
 `sphinx-no-pragma`_ project.
 
+For clarity, you should nest both ``.. literalinclude::`` and ``:download:``
+under ``.. container:: jsphinx-download`` container as shown below:
+
+.. code-block:: rst
+
+    .. container:: jsphinx-download
+
+        .. literalinclude:: examples/simple/snippet_1.py
+           :language: python
+           :lines: 3-11
+
+        *See the full example*
+        :download:`here <examples/simple/snippet_1.py>`
+
 ----
 
 ``.. container:: jsphinx-download-replace`` directive
@@ -262,10 +276,8 @@ Consider the following documentation snippet:
             :language: python
             :lines: 3-11
 
-        .. container:: jsphinx-download
-
-            *Toggle the full example*
-            :download:`here <examples/simple/snippet_1.py>`
+        *Toggle the full example*
+        :download:`here <examples/simple/snippet_1.py>`
 
 *See the* `jsphinx-download-replace demo`_ *to see how it's rendered.*
 

@@ -17,6 +17,19 @@ Release history and notes
   1.0.4 to 1.1.0).
 - All backwards incompatible changes are mentioned in this document.
 
+1.4.0
+-----
+*2025-04-05*
+
+- Rewrite JavaScript code for ``jsphinx-download-replace`` directive.
+- Slight changes in ``jsphinx-download`` directive. Everything is
+  backwards compatible so far, but in order to stay updated with
+  upcoming changes, you should nest both ``.. literalinclude::`` and
+  ``:download:`` under ``jsphinx-download``. In past, this wasn't needed
+  for ``.. literalinclude::``.
+- Add eye-icon functionality.
+- Removed the deprecated jQuery based code.
+
 1.3.5
 -----
 *2025-04-04*

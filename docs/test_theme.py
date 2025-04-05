@@ -55,7 +55,7 @@ def is_valid_python_code(text) -> bool:
         print(is_valid_python_code(text))
     """
     try:
-        compile(text, "<string>", "exec")
+        compile(text.replace("👁", ""), "<string>", "exec")
         return True
     except SyntaxError:
         return False
@@ -133,7 +133,7 @@ class DocumentationTest(unittest.TestCase):
                     )
                 )
             )
-            LOGGER.info(fetched_div.text)
+            LOGGER.exception(fetched_div.text)
             # print(fetched_div.text)
             self.assertTrue(fetched_div.is_displayed())
             # Check if the code is a valid Python code
