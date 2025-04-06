@@ -24,9 +24,33 @@
  * @url https://github.com/barseghyanartur/jsphinx
  * @version 1.4.0
  */
+// ----------------------------------------------------------------------------
+// Inject CSS to show the eye icon only on hover
+// ----------------------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', function() {
+    let css = `
+        /* Hide the eye icon by default */
+        .jsphinx-eye-icon {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 9999;
+        }
+        /* Show the eye icon when hovering over any jsphinx container */
+        .jsphinx-download:hover .jsphinx-eye-icon,
+        .jsphinx-download-replace:hover .jsphinx-eye-icon,
+        .jsphinx-toggle-emphasis:hover .jsphinx-eye-icon,
+        .jsphinx-toggle-emphasis-replace:hover .jsphinx-eye-icon {
+            opacity: 1;
+        }
+    `;
+    let style = document.createElement('style');
+    style.type = 'text/css';
+    style.appendChild(document.createTextNode(css));
+    document.head.appendChild(style);
+});
 
 // ----------------------------------------------------------------------------
-// jsphinx-download listener (standalone)
+// jsphinx `:download:` directive integration with PrismJS.
 // ----------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', function() {
     // Find all download links by their class
@@ -181,7 +205,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
 
 // ----------------------------------------------------------------------------
 // jsphinx-toggle-emphasis-replace listener
@@ -358,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ----------------------------------------------------------------------------
-// jsphinx-eye-icon
+// jsphinx-eye-icon functionality
 // ----------------------------------------------------------------------------
 // Determine the current toggle state of the directive container.
 function getToggleState(container) {
