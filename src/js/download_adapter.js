@@ -25,25 +25,30 @@
  * @version 1.4.0
  */
 // ----------------------------------------------------------------------------
-// Inject CSS to show the eye icon only on hover
+// Inject CSS to show the eye and copy icons only on hover
 // ----------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', function() {
-    let css = `
-        /* Hide the eye icon by default */
-        .jsphinx-eye-icon {
+    var css = `
+        /* Hide the icons by default */
+        .jsphinx-eye-icon,
+        .jsphinx-copy-icon {
             opacity: 0;
             transition: opacity 0.3s ease;
             z-index: 9999;
         }
-        /* Show the eye icon when hovering over any jsphinx container */
+        /* Show the icons when hovering over any jsphinx container */
         .jsphinx-download:hover .jsphinx-eye-icon,
         .jsphinx-download-replace:hover .jsphinx-eye-icon,
         .jsphinx-toggle-emphasis:hover .jsphinx-eye-icon,
-        .jsphinx-toggle-emphasis-replace:hover .jsphinx-eye-icon {
+        .jsphinx-toggle-emphasis-replace:hover .jsphinx-eye-icon,
+        .jsphinx-download:hover .jsphinx-copy-icon,
+        .jsphinx-download-replace:hover .jsphinx-copy-icon,
+        .jsphinx-toggle-emphasis:hover .jsphinx-copy-icon,
+        .jsphinx-toggle-emphasis-replace:hover .jsphinx-copy-icon {
             opacity: 1;
         }
     `;
-    let style = document.createElement('style');
+    var style = document.createElement('style');
     style.type = 'text/css';
     style.appendChild(document.createTextNode(css));
     document.head.appendChild(style);
@@ -381,8 +386,19 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ----------------------------------------------------------------------------
-// jsphinx-eye-icon functionality
+// jsphinx-eye-icon and copy-to-clipboard functionality
 // ----------------------------------------------------------------------------
+// Helper to find the visible <code> element in a container
+function findVisibleCodeElement(container) {
+    const codes = container.querySelectorAll('code');
+    for (let i = 0; i < codes.length; i++) {
+        if (window.getComputedStyle(codes[i]).display !== 'none') {
+            return codes[i];
+        }
+    }
+    return null;
+}
+
 // Determine the current toggle state of the directive container.
 function getToggleState(container) {
   // Check for the additional content div used in jsphinx-download.
@@ -420,6 +436,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const collapsedIcon = '👁';    // When code is collapsed.
   const expandedIcon  = '👁‍🗨';   // When code is expanded.
 
+  // Define the copy icon
+  const copyIconSymbol = '📋';
+
   // Select all jsphinx directive containers.
   const containers = document.querySelectorAll(
     '.jsphinx-download, .jsphinx-download-replace, .jsphinx-toggle-emphasis, .jsphinx-toggle-emphasis-replace'
@@ -432,39 +451,67 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Avoid creating duplicate icons.
-    if (!container.querySelector('.jsphinx-eye-icon')) {
-      const icon = document.createElement('span');
-      icon.classList.add('jsphinx-eye-icon');
-      icon.style.position = 'absolute';
-      icon.style.top = '5px';
-      icon.style.right = '5px';
-      icon.style.cursor = 'pointer';
-
+    // Create or update the eye icon if not already present.
+    let eyeIcon = container.querySelector('.jsphinx-eye-icon');
+    if (!eyeIcon) {
+      eyeIcon = document.createElement('span');
+      eyeIcon.classList.add('jsphinx-eye-icon');
+      eyeIcon.style.position = 'absolute';
+      eyeIcon.style.top = '5px';
+      eyeIcon.style.right = '5px';
+      eyeIcon.style.cursor = 'pointer';
       // Initial icon update.
-      updateContainerIcon(container, icon, collapsedIcon, expandedIcon);
-
+      updateContainerIcon(container, eyeIcon, collapsedIcon, expandedIcon);
       // Determine the toggle link within the container.
       const toggleLink = container.querySelector('.toggle-link') ||
                          container.querySelector('a.reference.download.internal');
       if (toggleLink) {
         // When the icon is clicked, simulate a click on the toggle link.
-        icon.addEventListener('click', function(e) {
+        eyeIcon.addEventListener('click', function(e) {
           e.preventDefault();
           e.stopPropagation();
           toggleLink.click();
           // Wait a short time for the toggle action to complete, then update the icon.
           setTimeout(() => {
-            updateContainerIcon(container, icon, collapsedIcon, expandedIcon);
+            updateContainerIcon(container, eyeIcon, collapsedIcon, expandedIcon);
           }, 100);
         });
         // Also update the icon when the toggle link is clicked.
         toggleLink.addEventListener('click', function() {
           setTimeout(() => {
-            updateContainerIcon(container, icon, collapsedIcon, expandedIcon);
+            updateContainerIcon(container, eyeIcon, collapsedIcon, expandedIcon);
           }, 100);
         });
       }
-      container.appendChild(icon);
+      container.appendChild(eyeIcon);
+    }
+
+    // Create the copy icon if not already present.
+    if (!container.querySelector('.jsphinx-copy-icon')) {
+      const copyIcon = document.createElement('span');
+      copyIcon.classList.add('jsphinx-copy-icon');
+      copyIcon.style.position = 'absolute';
+      copyIcon.style.top = '5px';
+      copyIcon.style.right = '30px'; // Positioned to the left of the eye icon
+      copyIcon.style.cursor = 'pointer';
+      copyIcon.innerHTML = copyIconSymbol;
+      copyIcon.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const visibleCode = findVisibleCodeElement(container);
+          if (visibleCode) {
+              navigator.clipboard.writeText(visibleCode.textContent).then(function() {
+                  const original = copyIcon.innerHTML;
+                  copyIcon.innerHTML = '✅';
+                  setTimeout(() => {
+                      copyIcon.innerHTML = original;
+                  }, 2000);
+              }).catch(function(err) {
+                  console.error('Copy failed: ', err);
+              });
+          }
+      });
+      container.appendChild(copyIcon);
     }
   });
 });
