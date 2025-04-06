@@ -300,6 +300,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // Remove the download attribute so the browser doesn't automatically download the file.
+        downloadLink.removeAttribute('download');
+
         // Find the compact code snippet. We assume it is rendered as a .highlight element.
         let compactCodeBlock = container.querySelector('.highlight');
         if (!compactCodeBlock) {
