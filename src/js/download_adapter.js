@@ -388,12 +388,13 @@ document.addEventListener('DOMContentLoaded', function() {
 // ----------------------------------------------------------------------------
 // jsphinx-eye-icon and copy-to-clipboard functionality
 // ----------------------------------------------------------------------------
-// Helper to find the visible <code> element in a container
+// Helper to find the visible <code> elements that are inside a <pre> block in a container
 function findVisibleCodeElement(container) {
-    const codes = container.querySelectorAll('code');
-    for (let i = 0; i < codes.length; i++) {
-        if (window.getComputedStyle(codes[i]).display !== 'none') {
-            return codes[i];
+    const preElements = container.querySelectorAll('pre');
+    for (let i = 0; i < preElements.length; i++) {
+        if (window.getComputedStyle(preElements[i]).display !== 'none') {
+            const code = preElements[i].querySelector('code');
+            if (code) return code;
         }
     }
     return null;
