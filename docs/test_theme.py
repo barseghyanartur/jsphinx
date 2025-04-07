@@ -55,7 +55,7 @@ def is_valid_python_code(text) -> bool:
         print(is_valid_python_code(text))
     """
     try:
-        compile(text.replace("👁", ""), "<string>", "exec")
+        compile(text, "<string>", "exec")
         return True
     except SyntaxError:
         return False
