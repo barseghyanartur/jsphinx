@@ -419,12 +419,14 @@ function initializeJsphinxFeatures() {
 
     function handleIcons() {
         // Define icons for the two states.
-        // Eye - when code is collapsed.
-        const collapsedIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2.062 12.348a1 1 0 0 1 0-.696a10.75 10.75 0 0 1 19.876 0a1 1 0 0 1 0 .696a10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></g></svg>';
-        // Crossed eye - when code is expanded.
-        const expandedIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575a1 1 0 0 1 0 .696a10.8 10.8 0 0 1-1.444 2.49m-6.41-.679a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151a1 1 0 0 1 0-.696a10.75 10.75 0 0 1 4.446-5.143M2 2l20 20"/></g></svg>';
+        // Eye icon - when code is collapsed.
+        const collapsedIconImage = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2.062 12.348a1 1 0 0 1 0-.696a10.75 10.75 0 0 1 19.876 0a1 1 0 0 1 0 .696a10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></g></svg>';
+        // Crossed eye icon - when code is expanded.
+        const expandedIconImage = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575a1 1 0 0 1 0 .696a10.8 10.8 0 0 1-1.444 2.49m-6.41-.679a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151a1 1 0 0 1 0-.696a10.75 10.75 0 0 1 4.446-5.143M2 2l20 20"/></g></svg>';
         // Copy icon
-        const copyIconSymbol = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M16 4h2a2 2 0 0 1 2 2v4m1 4H11"/><path d="m15 10l-4 4l4 4"/></g></svg>';
+        const copyIconImage = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M16 4h2a2 2 0 0 1 2 2v4m1 4H11"/><path d="m15 10l-4 4l4 4"/></g></svg>';
+        // Checkbox icon
+        const checkIconImage = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 6L9 17l-5-5"/></svg>';
 
         // Select all jsphinx directive containers.
         const containers = document.querySelectorAll(
@@ -448,7 +450,7 @@ function initializeJsphinxFeatures() {
                 eyeIcon.style.right = '5px';
                 eyeIcon.style.cursor = 'pointer';
                 // Initial icon update.
-                updateContainerIcon(container, eyeIcon, collapsedIcon, expandedIcon);
+                updateContainerIcon(container, eyeIcon, collapsedIconImage, expandedIconImage);
                 // Determine the toggle link within the container.
                 const toggleLink = container.querySelector('.toggle-link') ||
                     container.querySelector('a.reference.download.internal');
@@ -460,13 +462,13 @@ function initializeJsphinxFeatures() {
                         toggleLink.click();
                         // Wait a short time for the toggle action to complete, then update the icon.
                         setTimeout(() => {
-                            updateContainerIcon(container, eyeIcon, collapsedIcon, expandedIcon);
+                            updateContainerIcon(container, eyeIcon, collapsedIcon, expandedIconImage);
                         }, 100);
                     });
                     // Also update the icon when the toggle link is clicked.
                     toggleLink.addEventListener('click', function () {
                         setTimeout(() => {
-                            updateContainerIcon(container, eyeIcon, collapsedIcon, expandedIcon);
+                            updateContainerIcon(container, eyeIcon, collapsedIcon, expandedIconImage);
                         }, 100);
                     });
                 }
@@ -481,7 +483,7 @@ function initializeJsphinxFeatures() {
                 copyIcon.style.top = '5px';
                 copyIcon.style.right = '30px'; // Positioned to the left of the eye icon
                 copyIcon.style.cursor = 'pointer';
-                copyIcon.innerHTML = copyIconSymbol;
+                copyIcon.innerHTML = copyIconImage;
                 copyIcon.addEventListener('click', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
@@ -489,7 +491,7 @@ function initializeJsphinxFeatures() {
                     if (visibleCode) {
                         navigator.clipboard.writeText(visibleCode.textContent).then(function () {
                             const original = copyIcon.innerHTML;
-                            copyIcon.innerHTML = '✅';
+                            copyIcon.innerHTML = checkIconImage;
                             setTimeout(() => {
                                 copyIcon.innerHTML = original;
                             }, 2000);
