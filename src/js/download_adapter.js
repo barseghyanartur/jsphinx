@@ -297,96 +297,73 @@ function initializeJsphinxFeatures() {
     // jsphinx-download-replace listener
     // ----------------------------------------------------------------------------
     function handleDownloadReplace() {
-        // Find all containers using the 'jsphinx-download-replace' directive
-        let replaceContainers = document.querySelectorAll('.jsphinx-download-replace');
-
-        replaceContainers.forEach(function (container) {
-            // Find the download link within the container
-            let downloadLink = container.querySelector('a.reference.download.internal');
-            if (!downloadLink) {
-                return;
-            }
-
-            // Find the compact code snippet. We assume it is rendered as a .highlight element.
-            let compactCodeBlock = container.querySelector('.highlight');
-            if (!compactCodeBlock) {
-                return;
-            }
-
-            // Create a new code block element for the full code example.
-            let fullCodeBlock = document.createElement('div');
-            fullCodeBlock.classList.add('highlight');
-            fullCodeBlock.style.display = 'none'; // Initially hidden
-
-            // Create a new <pre> and <code> for the full content.
-            let preElement = document.createElement('pre');
-            let codeElement = document.createElement('code');
-
-            // Use the language class from the compact snippet for consistency.
-            let compactCodeElement = compactCodeBlock.querySelector('code');
-            if (compactCodeElement) {
-                compactCodeElement.classList.forEach(function (cls) {
-                    if (cls.startsWith('language-')) {
-                        codeElement.classList.add(cls);
-                    }
-                });
-            }
-
-            preElement.appendChild(codeElement);
-            fullCodeBlock.appendChild(preElement);
-
-            // Insert the new full code block right after the compact snippet.
-            compactCodeBlock.parentNode.insertBefore(fullCodeBlock, compactCodeBlock.nextSibling);
-
-            // Flag to check if the full code content has already been fetched.
-            let fetched = false;
-
-            downloadLink.addEventListener('click', function (event) {
+        // For each container with class jsphinx-download-replace:
+        document.querySelectorAll('.jsphinx-download-replace').forEach(container => {
+            // Find the download link
+            const link = container.querySelector('a.reference.download.internal');
+            if (!link) return;
+            // Remove the download attribute immediately.
+            link.removeAttribute('download');
+            // Attach a click handler directly.
+            link.addEventListener('click', function(event) {
                 event.preventDefault();
-
-                // Toggle: if the full code block is hidden, show it; if visible, hide it.
-                if (fullCodeBlock.style.display === 'none') {
-                    // If not yet fetched, retrieve the full file content.
-                    if (!fetched) {
-                        let url = downloadLink.getAttribute('href');
-                        let xhr = new XMLHttpRequest();
+                // On first click, create the full code block if not already done.
+                if (!link._jsphinxInitialized) {
+                    // Try to get the compact code block via .highlight; if not found, use the first <pre>
+                    const compact = container.querySelector('.highlight') || container.querySelector('pre');
+                    if (!compact) return;
+                    const full = document.createElement('div');
+                    full.classList.add('highlight');
+                    full.style.display = 'none'; // Initially hidden
+                    const pre = document.createElement('pre');
+                    const code = document.createElement('code');
+                    // Copy language classes from the compact code.
+                    const compactCode = compact.querySelector('code');
+                    if (compactCode) {
+                        compactCode.classList.forEach(cls => {
+                            if (cls.startsWith('language-')) {
+                                code.classList.add(cls);
+                            }
+                        });
+                    }
+                    pre.appendChild(code);
+                    full.appendChild(pre);
+                    compact.parentNode.insertBefore(full, compact.nextSibling);
+                    link._jsphinxInitialized = { compact, full, code, fetched: false };
+                }
+                const initData = link._jsphinxInitialized;
+                if (initData.full.style.display === 'none') {
+                    if (!initData.fetched) {
+                        const url = link.getAttribute('href');
+                        const xhr = new XMLHttpRequest();
                         xhr.open('GET', url, true);
-                        xhr.onreadystatechange = function () {
+                        xhr.onreadystatechange = function() {
                             if (xhr.readyState === 4) {
                                 if (xhr.status === 200) {
-                                    // Set the full content and highlight it using Prism.
-                                    codeElement.textContent = xhr.responseText;
-                                    Prism.highlightElement(codeElement);
-                                    // Show the full version and hide the compact snippet.
-                                    fullCodeBlock.style.display = 'block';
-                                    compactCodeBlock.style.display = 'none';
-                                    fetched = true;
+                                    initData.code.textContent = xhr.responseText;
+                                    Prism.highlightElement(initData.code);
+                                    initData.full.style.display = 'block';
+                                    initData.compact.style.display = 'none';
+                                    initData.fetched = true;
                                 } else {
-                                    codeElement.textContent = 'Error fetching content.';
-                                    fullCodeBlock.style.display = 'block';
-                                    compactCodeBlock.style.display = 'none';
+                                    initData.code.textContent = 'Error fetching content.';
+                                    initData.full.style.display = 'block';
+                                    initData.compact.style.display = 'none';
                                 }
                             }
                         };
                         xhr.send();
                     } else {
-                        // Already fetched: simply toggle visibility.
-                        fullCodeBlock.style.display = 'block';
-                        compactCodeBlock.style.display = 'none';
+                        initData.full.style.display = 'block';
+                        initData.compact.style.display = 'none';
                     }
-                    // Optionally update the toggle text, if the link contains an <em> element.
-                    let emElement = downloadLink.querySelector('em');
-                    if (emElement) {
-                        emElement.textContent = 'Hide the full example';
-                    }
+                    const em = link.querySelector('em');
+                    if (em) em.textContent = 'Hide the full example';
                 } else {
-                    // Hide the full code block and restore the compact snippet.
-                    fullCodeBlock.style.display = 'none';
-                    compactCodeBlock.style.display = 'block';
-                    let emElement = downloadLink.querySelector('em');
-                    if (emElement) {
-                        emElement.textContent = 'Show the full example';
-                    }
+                    initData.full.style.display = 'none';
+                    initData.compact.style.display = 'block';
+                    const em = link.querySelector('em');
+                    if (em) em.textContent = 'Show the full example';
                 }
             });
         });
@@ -441,7 +418,6 @@ function initializeJsphinxFeatures() {
     }
 
     function handleIcons() {
-    // document.addEventListener('DOMContentLoaded', function () {
         // Define icons for the two states.
         const collapsedIcon = '👁';    // When code is collapsed.
         const expandedIcon = '👁‍🗨';   // When code is expanded.
@@ -524,25 +500,9 @@ function initializeJsphinxFeatures() {
                 container.appendChild(copyIcon);
             }
         });
-    // });
     }
     handleIcons();
 }
-
-// If Reveal is defined, hook into its events:
-// if (typeof Reveal !== 'undefined') {
-//   Reveal.addEventListener('ready', function() {
-//     initializeJsphinxFeatures();
-//   });
-//   Reveal.addEventListener('slidechanged', function() {
-//     initializeJsphinxFeatures();
-//   });
-// } else {
-//   // Fallback for non-revealjs themes.
-//   document.addEventListener('DOMContentLoaded', function() {
-//     initializeJsphinxFeatures();
-//   });
-// }
 
 document.addEventListener('DOMContentLoaded', function() {
   initializeJsphinxFeatures();
