@@ -22,13 +22,12 @@
  *
  * @author Artur Barseghyan (https://github.com/barseghyanartur)
  * @url https://github.com/barseghyanartur/jsphinx
- * @version 1.4.0
+ * @version 1.4.1
  */
 function initializeJsphinxFeatures() {
     // ----------------------------------------------------------------------------
     // Inject CSS to show the eye and copy icons only on hover
     // ----------------------------------------------------------------------------
-    // document.addEventListener('DOMContentLoaded', function () {
     function injectCSS() {
         let css = `
         /* Hide the icons by default */
@@ -55,14 +54,12 @@ function initializeJsphinxFeatures() {
         style.appendChild(document.createTextNode(css));
         document.head.appendChild(style);
     }
-    // });
     injectCSS();
 
     // ----------------------------------------------------------------------------
     // jsphinx `:download:` directive integration with PrismJS.
     // ----------------------------------------------------------------------------
     function handleDownload() {
-    // document.addEventListener('DOMContentLoaded', function () {
         // Find all download links by their class
         let downloadLinks = document.querySelectorAll('.jsphinx-download a.reference.download.internal');
 
@@ -138,7 +135,6 @@ function initializeJsphinxFeatures() {
                 }
             });
         });
-        // });
     }
     handleDownload();
 
@@ -146,7 +142,6 @@ function initializeJsphinxFeatures() {
     // jsphinx-toggle-emphasis listeners
     // ----------------------------------------------------------------------------
     function handleToggleEmphasis() {
-    // document.addEventListener('DOMContentLoaded', function () {
         // Check if the HTML is under the 'jsphinx-toggle-emphasis' class
         const containers = document.querySelectorAll('.jsphinx-toggle-emphasis');
 
@@ -219,7 +214,6 @@ function initializeJsphinxFeatures() {
                 originalCodeBlock.parentNode.insertBefore(newCodeBlock, linkContainer);
             });
         });
-        // });
     }
     handleToggleEmphasis();
 
@@ -227,7 +221,6 @@ function initializeJsphinxFeatures() {
     // jsphinx-toggle-emphasis-replace listener
     // ----------------------------------------------------------------------------
     function handleToggleEmphasisReplace() {
-    // document.addEventListener('DOMContentLoaded', function () {
         // Check if the HTML is under the 'jsphinx-toggle-emphasis-replace' class
         const containers = document.querySelectorAll('.jsphinx-toggle-emphasis-replace');
 
@@ -297,7 +290,6 @@ function initializeJsphinxFeatures() {
                 originalCodeBlock.parentNode.insertBefore(newCodeBlock, originalCodeBlock.nextSibling);
             });
         });
-    // });
     }
     handleToggleEmphasisReplace();
 
@@ -305,7 +297,6 @@ function initializeJsphinxFeatures() {
     // jsphinx-download-replace listener
     // ----------------------------------------------------------------------------
     function handleDownloadReplace() {
-    // document.addEventListener('DOMContentLoaded', function () {
         // Find all containers using the 'jsphinx-download-replace' directive
         let replaceContainers = document.querySelectorAll('.jsphinx-download-replace');
 
@@ -399,7 +390,6 @@ function initializeJsphinxFeatures() {
                 }
             });
         });
-        // });
     }
     handleDownloadReplace();
 
@@ -540,17 +530,20 @@ function initializeJsphinxFeatures() {
 }
 
 // If Reveal is defined, hook into its events:
-if (typeof Reveal !== 'undefined') {
-  Reveal.addEventListener('ready', function() {
-    initializeJsphinxFeatures();
-  });
-  Reveal.addEventListener('slidechanged', function() {
-    initializeJsphinxFeatures();
-  });
-} else {
-  // Fallback for non-revealjs themes.
-  document.addEventListener('DOMContentLoaded', function() {
-    initializeJsphinxFeatures();
-  });
-}
-// initializeJsphinxFeatures();
+// if (typeof Reveal !== 'undefined') {
+//   Reveal.addEventListener('ready', function() {
+//     initializeJsphinxFeatures();
+//   });
+//   Reveal.addEventListener('slidechanged', function() {
+//     initializeJsphinxFeatures();
+//   });
+// } else {
+//   // Fallback for non-revealjs themes.
+//   document.addEventListener('DOMContentLoaded', function() {
+//     initializeJsphinxFeatures();
+//   });
+// }
+
+document.addEventListener('DOMContentLoaded', function() {
+  initializeJsphinxFeatures();
+});
