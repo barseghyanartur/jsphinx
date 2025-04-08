@@ -22,7 +22,7 @@ Release history and notes
 *2025-04-08*
 
 - Make ``jsphinx-download-replace`` work outside regular environments,
-  such as RevealJS presentation.
+  such as RevealJS presentation and fix the code highlighting.
 - Rework JavaScript code.
 
 1.4.0

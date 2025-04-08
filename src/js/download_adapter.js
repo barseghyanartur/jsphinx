@@ -24,6 +24,15 @@
  * @url https://github.com/barseghyanartur/jsphinx
  * @version 1.4.1
  */
+
+function getLangClassFromTargetHref(targetLink) {
+    // Get the file extension and set language class
+    let fileExtension = targetLink.getAttribute('href').split('.').pop();
+    return fileExtension === 'py' ? 'language-python' :
+        fileExtension === 'js' ? 'language-javascript' : 'language-plaintext';
+}
+
+
 function initializeJsphinxFeatures() {
     // ----------------------------------------------------------------------------
     // Inject CSS to show the eye and copy icons only on hover
@@ -73,10 +82,7 @@ function initializeJsphinxFeatures() {
             let contentID = 'additional-content-' + index;
 
             // Get the file extension and set language class
-            let fileExtension = link.getAttribute('href').split('.').pop();
-            let langClass = fileExtension === 'py' ? 'language-python' :
-                fileExtension === 'js' ? 'language-javascript' :
-                    'language-plaintext';
+            let langClass = getLangClassFromTargetHref(link);
 
             // Create a new div for the additional content
             let additionalContentDiv = document.createElement('div');
@@ -114,7 +120,9 @@ function initializeJsphinxFeatures() {
                                 if (xhr.readyState === 4) {
                                     if (xhr.status === 200) {
                                         additionalContent.textContent = xhr.responseText;
+                                        console.log(additionalContent);
                                         Prism.highlightElement(additionalContent);
+                                        console.log(additionalContent);
                                         additionalContentDiv.style.display = 'block';
                                         // Add fetched class
                                         additionalContentDiv.classList.add('fetched');
@@ -319,13 +327,17 @@ function initializeJsphinxFeatures() {
                     const code = document.createElement('code');
                     // Copy language classes from the compact code.
                     const compactCode = compact.querySelector('code');
-                    if (compactCode) {
-                        compactCode.classList.forEach(cls => {
-                            if (cls.startsWith('language-')) {
-                                code.classList.add(cls);
-                            }
-                        });
-                    }
+                    // if (compactCode) {
+                    //     compactCode.classList.forEach(cls => {
+                    //         if (cls.startsWith('language-')) {
+                    //             code.classList.add(cls);
+                    //         }
+                    //     });
+                    // }
+                    // Get the file extension and set language class
+                    let langClass = getLangClassFromTargetHref(link);
+                    code.classList.add(langClass);
+
                     pre.appendChild(code);
                     full.appendChild(pre);
                     compact.parentNode.insertBefore(full, compact.nextSibling);
@@ -341,7 +353,9 @@ function initializeJsphinxFeatures() {
                             if (xhr.readyState === 4) {
                                 if (xhr.status === 200) {
                                     initData.code.textContent = xhr.responseText;
+                                    console.log(initData.code);
                                     Prism.highlightElement(initData.code);
+                                    console.log(initData.code);
                                     initData.full.style.display = 'block';
                                     initData.compact.style.display = 'none';
                                     initData.fetched = true;
@@ -419,11 +433,14 @@ function initializeJsphinxFeatures() {
 
     function handleIcons() {
         // Define icons for the two states.
-        const collapsedIcon = '👁';    // When code is collapsed.
-        const expandedIcon = '👁‍🗨';   // When code is expanded.
-
-        // Define the copy icon
-        const copyIconSymbol = '📋';
+        // Eye icon - when code is collapsed.
+        const collapsedIconImage = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2.062 12.348a1 1 0 0 1 0-.696a10.75 10.75 0 0 1 19.876 0a1 1 0 0 1 0 .696a10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></g></svg>';
+        // Crossed eye icon - when code is expanded.
+        const expandedIconImage = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575a1 1 0 0 1 0 .696a10.8 10.8 0 0 1-1.444 2.49m-6.41-.679a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151a1 1 0 0 1 0-.696a10.75 10.75 0 0 1 4.446-5.143M2 2l20 20"/></g></svg>';
+        // Copy icon
+        const copyIconImage = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M16 4h2a2 2 0 0 1 2 2v4m1 4H11"/><path d="m15 10l-4 4l4 4"/></g></svg>';
+        // Checkbox icon
+        const checkIconImage = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 6L9 17l-5-5"/></svg>';
 
         // Select all jsphinx directive containers.
         const containers = document.querySelectorAll(
@@ -447,7 +464,7 @@ function initializeJsphinxFeatures() {
                 eyeIcon.style.right = '5px';
                 eyeIcon.style.cursor = 'pointer';
                 // Initial icon update.
-                updateContainerIcon(container, eyeIcon, collapsedIcon, expandedIcon);
+                updateContainerIcon(container, eyeIcon, collapsedIconImage, expandedIconImage);
                 // Determine the toggle link within the container.
                 const toggleLink = container.querySelector('.toggle-link') ||
                     container.querySelector('a.reference.download.internal');
@@ -459,13 +476,13 @@ function initializeJsphinxFeatures() {
                         toggleLink.click();
                         // Wait a short time for the toggle action to complete, then update the icon.
                         setTimeout(() => {
-                            updateContainerIcon(container, eyeIcon, collapsedIcon, expandedIcon);
+                            updateContainerIcon(container, eyeIcon, collapsedIconImage, expandedIconImage);
                         }, 100);
                     });
                     // Also update the icon when the toggle link is clicked.
                     toggleLink.addEventListener('click', function () {
                         setTimeout(() => {
-                            updateContainerIcon(container, eyeIcon, collapsedIcon, expandedIcon);
+                            updateContainerIcon(container, eyeIcon, collapsedIconImage, expandedIconImage);
                         }, 100);
                     });
                 }
@@ -480,7 +497,7 @@ function initializeJsphinxFeatures() {
                 copyIcon.style.top = '5px';
                 copyIcon.style.right = '30px'; // Positioned to the left of the eye icon
                 copyIcon.style.cursor = 'pointer';
-                copyIcon.innerHTML = copyIconSymbol;
+                copyIcon.innerHTML = copyIconImage;
                 copyIcon.addEventListener('click', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
@@ -488,7 +505,7 @@ function initializeJsphinxFeatures() {
                     if (visibleCode) {
                         navigator.clipboard.writeText(visibleCode.textContent).then(function () {
                             const original = copyIcon.innerHTML;
-                            copyIcon.innerHTML = '✅';
+                            copyIcon.innerHTML = checkIconImage;
                             setTimeout(() => {
                                 copyIcon.innerHTML = original;
                             }, 2000);

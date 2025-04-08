@@ -37,6 +37,7 @@ Write better docs. Stay concise. Never miss a detail.
 .. _Sphinx: https://github.com/sphinx-doc/sphinx
 .. _PrismJS: https://github.com/PrismJS/prism
 .. _pytest: https://github.com/pytest-dev/pytest/
+.. _iconify.design: https://iconify.design/
 
 .. Themes
 
@@ -496,6 +497,11 @@ root). This is how ``test_docs.py`` could look:
     @pytest.mark.parametrize("file_path", py_files)
     def test_dynamic_files(file_path):
         execute_file(file_path)
+
+Credits
+=======
+Soms of the icons used have been taken from the amazing `iconify.design`_ (MIT
+licensed).
 
 License
 =======
