@@ -17,12 +17,19 @@ Release history and notes
   1.0.4 to 1.1.0).
 - All backwards incompatible changes are mentioned in this document.
 
+1.4.2
+-----
+*2025-04-08*
+
+- Fix the code highlighting.
+- Usage `iconify.design` icons for toggling and copy.
+
 1.4.1
 -----
 *2025-04-08*
 
 - Make ``jsphinx-download-replace`` work outside regular environments,
-  such as RevealJS presentation and fix the code highlighting.
+  such as RevealJS presentation.
 - Rework JavaScript code.
 
 1.4.0
