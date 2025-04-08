@@ -40,6 +40,7 @@ themes = [
     "pydata-sphinx-theme",
     "sphinx-book-theme",
     "sphinx-bootstrap-theme",
+    "sphinx-immaterial",
     "sphinx-material",
     "sphinx_rtd_theme",
 ]
