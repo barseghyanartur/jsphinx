@@ -24,6 +24,15 @@
  * @url https://github.com/barseghyanartur/jsphinx
  * @version 1.4.1
  */
+
+function getLangClassFromTargetHref(targetLink) {
+    // Get the file extension and set language class
+    let fileExtension = targetLink.getAttribute('href').split('.').pop();
+    return fileExtension === 'py' ? 'language-python' :
+        fileExtension === 'js' ? 'language-javascript' : 'language-plaintext';
+}
+
+
 function initializeJsphinxFeatures() {
     // ----------------------------------------------------------------------------
     // Inject CSS to show the eye and copy icons only on hover
@@ -73,10 +82,7 @@ function initializeJsphinxFeatures() {
             let contentID = 'additional-content-' + index;
 
             // Get the file extension and set language class
-            let fileExtension = link.getAttribute('href').split('.').pop();
-            let langClass = fileExtension === 'py' ? 'language-python' :
-                fileExtension === 'js' ? 'language-javascript' :
-                    'language-plaintext';
+            let langClass = getLangClassFromTargetHref(link);
 
             // Create a new div for the additional content
             let additionalContentDiv = document.createElement('div');
@@ -114,7 +120,9 @@ function initializeJsphinxFeatures() {
                                 if (xhr.readyState === 4) {
                                     if (xhr.status === 200) {
                                         additionalContent.textContent = xhr.responseText;
+                                        console.log(additionalContent);
                                         Prism.highlightElement(additionalContent);
+                                        console.log(additionalContent);
                                         additionalContentDiv.style.display = 'block';
                                         // Add fetched class
                                         additionalContentDiv.classList.add('fetched');
@@ -319,13 +327,17 @@ function initializeJsphinxFeatures() {
                     const code = document.createElement('code');
                     // Copy language classes from the compact code.
                     const compactCode = compact.querySelector('code');
-                    if (compactCode) {
-                        compactCode.classList.forEach(cls => {
-                            if (cls.startsWith('language-')) {
-                                code.classList.add(cls);
-                            }
-                        });
-                    }
+                    // if (compactCode) {
+                    //     compactCode.classList.forEach(cls => {
+                    //         if (cls.startsWith('language-')) {
+                    //             code.classList.add(cls);
+                    //         }
+                    //     });
+                    // }
+                    // Get the file extension and set language class
+                    let langClass = getLangClassFromTargetHref(link);
+                    code.classList.add(langClass);
+
                     pre.appendChild(code);
                     full.appendChild(pre);
                     compact.parentNode.insertBefore(full, compact.nextSibling);
@@ -341,7 +353,9 @@ function initializeJsphinxFeatures() {
                             if (xhr.readyState === 4) {
                                 if (xhr.status === 200) {
                                     initData.code.textContent = xhr.responseText;
+                                    console.log(initData.code);
                                     Prism.highlightElement(initData.code);
+                                    console.log(initData.code);
                                     initData.full.style.display = 'block';
                                     initData.compact.style.display = 'none';
                                     initData.fetched = true;
