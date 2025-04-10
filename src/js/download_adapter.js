@@ -22,7 +22,7 @@
  *
  * @author Artur Barseghyan (https://github.com/barseghyanartur)
  * @url https://github.com/barseghyanartur/jsphinx
- * @version 1.4.2
+ * @version 1.4.3
  */
 
 function getLangClassFromTargetHref(targetLink) {
