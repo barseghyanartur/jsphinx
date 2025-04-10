@@ -3,6 +3,7 @@ pydata-sphinx-theme
 sphinx
 sphinx-book-theme
 sphinx-bootstrap-theme
+sphinx-immaterial
 sphinx-material
-sphinx_rtd_theme
 sphinx-no-pragma
+sphinx_rtd_theme
