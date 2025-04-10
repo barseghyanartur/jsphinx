@@ -1,5 +1,5 @@
 # Update version ONLY here
-VERSION := 1.4.2
+VERSION := 1.4.3
 SHELL := /bin/bash
 READTHEDOCS_WEBHOOK = https://readthedocs.org/api/v2/webhook/jsphinx/252546/
 # Makefile for project
