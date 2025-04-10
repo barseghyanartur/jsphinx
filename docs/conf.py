@@ -37,11 +37,15 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 html_theme = branch_name
 # html_theme = "sphinx_rtd_theme"
 # html_theme = "alabaster"
+# html_theme = "sphinx_immaterial"
 # html_theme = "sphinx_material"
 # html_theme = "bootstrap"
 # html_theme = "furo"
 # html_theme = "sphinx_book_theme"
 # html_theme = "pydata_sphinx_theme"
+
+if html_theme == "sphinx_immaterial":
+    extensions.append("sphinx_immaterial")
 
 html_static_path = ["_static"]
 

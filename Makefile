@@ -70,7 +70,7 @@ compile-requirements:
 compile-requirements-upgrade:
 	source $(VENV) && python -m piptools compile --all-extras -o docs/requirements.txt pyproject.toml --upgrade
 
-TAGS = sphinx_rtd_theme alabaster sphinx_material bootstrap furo sphinx_book_theme pydata_sphinx_theme
+TAGS = sphinx_rtd_theme alabaster sphinx_immaterial sphinx_material bootstrap furo sphinx_book_theme pydata_sphinx_theme
 
 tags:
 	for tag in $(TAGS); do \
