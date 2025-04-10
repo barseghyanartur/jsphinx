@@ -190,15 +190,19 @@ function initializeJsphinxFeatures() {
                 console.log('codeBlock2');
                 console.log(codeBlock2);
                 const codeBlock1Style = getComputedStyle(codeBlock1);
+                let expanded;
 
                 if (codeBlock1Style.display === 'none') {
                     codeBlock1.style.display = '';
                     codeBlock2.style.display = '';
                     toggleLink.querySelector('em').textContent = 'Hide the full example'; // Update the text within <em>
+                    expanded = true;
                 } else {
                     codeBlock1.style.display = 'none';
                     toggleLink.querySelector('em').textContent = 'Show the full example'; // Update the text within <em>
+                    expanded = false;
                 }
+                return expanded;
             }
 
             // Add toggle links and create a new div.highlight element for each code block
@@ -220,7 +224,14 @@ function initializeJsphinxFeatures() {
                 // Add a click event listener to the link to toggle code blocks
                 toggleLink.addEventListener('click', (event) => {
                     event.preventDefault(); // Prevent the link from navigating
-                    toggleCodeBlocks(originalCodeBlock, newCodeBlock, toggleLink);
+                    const expanded = toggleCodeBlocks(originalCodeBlock, newCodeBlock, toggleLink);
+                    console.log("expanded");
+                    console.log(expanded);
+                    // // Immediately update the eye icon based on the new state.
+                    // const eyeIcon = container.querySelector('.jsphinx-eye-icon');
+                    // if (eyeIcon) {
+                    //     eyeIcon.innerHTML = expanded ? expandedIconImage : collapsedIconImage;
+                    // }
                 });
 
                 // Wrap the link in a <p> element
