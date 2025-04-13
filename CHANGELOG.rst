@@ -17,6 +17,12 @@ Release history and notes
   1.0.4 to 1.1.0).
 - All backwards incompatible changes are mentioned in this document.
 
+1.4.3
+-----
+*2025-04-13*
+
+- Fix overlapping icons.
+
 1.4.2
 -----
 *2025-04-08*
