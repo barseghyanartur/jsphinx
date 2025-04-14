@@ -47,6 +47,7 @@ Write better docs. Stay concise. Never miss a detail.
 .. _sphinx-book-theme: https://pypi.org/project/sphinx-book-theme/
 .. _sphinx-bootstrap-theme: https://pypi.org/project/sphinx-bootstrap-theme/
 .. _sphinx-material: https://github.com/bashtage/sphinx-material
+.. _sphinx-immaterial: https://github.com/jbms/sphinx-immaterial
 .. _sphinx-rtd-theme: https://github.com/readthedocs/sphinx_rtd_theme
 
 .. Project
@@ -61,6 +62,7 @@ Write better docs. Stay concise. Never miss a detail.
 .. _sphinx-book-theme demo: https://jsphinx.readthedocs.io/en/sphinx_book_theme/examples.html
 .. _sphinx-bootstrap demo: https://jsphinx.readthedocs.io/en/bootstrap/examples.html
 .. _sphinx-material demo: https://jsphinx.readthedocs.io/en/sphinx_material/examples.html
+.. _sphinx-immaterial demo: https://jsphinx.readthedocs.io/en/sphinx_immaterial/examples.html
 .. _sphinx-rtd-theme demo: https://jsphinx.readthedocs.io/en/sphinx_rtd_theme/examples.html
 .. _faker-file documentation: https://faker-file.readthedocs.io/en/latest/creating_pdf.html#building-pdfs-with-text-using-reportlab
 .. _jsphinx-download demo: https://jsphinx.readthedocs.io/en/sphinx_rtd_theme/examples.html#jsphinx-download-directive-usage
@@ -102,6 +104,7 @@ page, click on any ``See the full example`` link to see how it works.
 - `sphinx-book-theme demo`_
 - `sphinx-bootstrap demo`_
 - `sphinx-material demo`_
+- `sphinx-immaterial demo`_
 - `sphinx-rtd-theme demo`_
 - `faker-file documentation`_
 
@@ -354,6 +357,7 @@ Themes
 - `sphinx-book-theme`_ (key: ``sphinx_book_theme``, `sphinx-book-theme demo`_)
 - `sphinx-bootstrap-theme`_ (key: ``bootstrap``, `sphinx-bootstrap demo`_)
 - `sphinx-material`_ (key: ``sphinx_material``, `sphinx-material demo`_)
+- `sphinx-immaterial`_ (key: ``sphinx_immaterial``, `sphinx-immaterial demo`_)
 - `sphinx-rtd-theme`_ (key: ``sphinx_rtd_theme``, `sphinx-rtd-theme demo`_)
 
 Installation
@@ -449,6 +453,7 @@ as follows (pick one):
    html_theme = "pydata_sphinx_theme"
    html_theme = "sphinx_book_theme"
    html_theme = "sphinx_material"
+   html_theme = "sphinx_immaterial"
    html_theme = "sphinx_rtd_theme"
 
 Finally, make sure to specify correct path to the desired theme:
@@ -461,6 +466,14 @@ Finally, make sure to specify correct path to the desired theme:
        # ...
        f"https://cdn.jsdelivr.net/gh/barseghyanartur/jsphinx/src/css/{html_theme}.css",
    ]
+
+Only for `sphinx-immaterial`_, you need to add the following:
+
+*Filename: conf.py*
+
+.. code-block:: python
+
+    extensions.append("sphinx_immaterial")
 
 Testing your documentation
 ==========================
