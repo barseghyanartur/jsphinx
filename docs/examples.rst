@@ -372,7 +372,7 @@ See the following full functional snippet for generating a ``DOCX`` file.
 
 ----
 
-The documentation snippet, the above (`Example 1`_) code was rendered from:
+The documentation snippet, the above (`Example 9`_) code was rendered from:
 
 *Filename: example.rst*
 
@@ -407,7 +407,7 @@ See the example below for ``max_nb_chars`` tweak:
 
 ----
 
-The documentation snippet, the above (`Example 2`_) code was rendered from:
+The documentation snippet, the above (`Example 10`_) code was rendered from:
 
 *Filename: example.rst*
 
