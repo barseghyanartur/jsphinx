@@ -21,6 +21,8 @@ Release history and notes
 -----
 *2025-04-16*
 
+- Working copy functionality for ``jsphinx-toggle-emphasis``
+  and ``jsphinx-toggle-emphasis-replace``.
 - Minor styling improvements and fixes in themes.
 
 1.4.3
