@@ -17,6 +17,12 @@ Release history and notes
   1.0.4 to 1.1.0).
 - All backwards incompatible changes are mentioned in this document.
 
+1.4.4
+-----
+*2025-04-16*
+
+- Minor styling fixes in themes.
+
 1.4.3
 -----
 *2025-04-13*
