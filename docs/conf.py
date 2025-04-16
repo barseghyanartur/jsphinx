@@ -72,3 +72,6 @@ html_js_files = [
 #     0,
 #     "//cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js",
 # )
+
+# -- Override the standard bottom text for HTML output -------------------------------------------------
+# html_show_sphinx = False
