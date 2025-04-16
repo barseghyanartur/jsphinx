@@ -511,13 +511,13 @@ function initializeJsphinxFeatures() {
                         // Wait a short time for the toggle action to complete, then update the icon.
                         setTimeout(() => {
                             updateContainerIcon(container, eyeIcon, collapsedIconImage, expandedIconImage);
-                        }, 100);
+                        }, 200);
                     });
                     // Also update the icon when the toggle link is clicked.
                     toggleLink.addEventListener('click', function () {
                         setTimeout(() => {
                             updateContainerIcon(container, eyeIcon, collapsedIconImage, expandedIconImage);
-                        }, 100);
+                        }, 200);
                     });
                 }
                 container.appendChild(eyeIcon);
