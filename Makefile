@@ -1,5 +1,5 @@
 # Update version ONLY here
-VERSION := 1.4.3
+VERSION := 1.4.4
 SHELL := /bin/bash
 READTHEDOCS_WEBHOOK = https://readthedocs.org/api/v2/webhook/jsphinx/252546/
 # Makefile for project
@@ -7,6 +7,12 @@ VENV := ~/.virtualenvs/jsphinx/bin/activate
 
 # Build documentation using Sphinx and zip it
 build_docs:
+	source $(VENV) && sphinx-build -n -a -b html docs builddocs
+	cd builddocs && zip -r ../builddocs.zip . -x ".*" && cd ..
+
+# Rebuild documentation using Sphinx and zip it
+rebuild_docs:
+	rm -rf builddocs
 	source $(VENV) && sphinx-build -n -a -b html docs builddocs
 	cd builddocs && zip -r ../builddocs.zip . -x ".*" && cd ..
 

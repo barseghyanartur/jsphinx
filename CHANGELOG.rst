@@ -17,6 +17,14 @@ Release history and notes
   1.0.4 to 1.1.0).
 - All backwards incompatible changes are mentioned in this document.
 
+1.4.4
+-----
+*2025-04-16*
+
+- Working copy functionality for ``jsphinx-toggle-emphasis``
+  and ``jsphinx-toggle-emphasis-replace``.
+- Minor styling improvements and fixes in themes.
+
 1.4.3
 -----
 *2025-04-13*

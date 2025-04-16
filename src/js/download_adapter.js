@@ -22,7 +22,7 @@
  *
  * @author Artur Barseghyan (https://github.com/barseghyanartur)
  * @url https://github.com/barseghyanartur/jsphinx
- * @version 1.4.3
+ * @version 1.4.4
  */
 
 function getLangClassFromTargetHref(targetLink) {
@@ -43,6 +43,46 @@ function initializeJsphinxFeatures() {
     const copyIconImage = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M16 4h2a2 2 0 0 1 2 2v4m1 4H11"/><path d="m15 10l-4 4l4 4"/></g></svg>';
     // Checkbox icon
     const checkIconImage = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 6L9 17l-5-5"/></svg>';
+
+    // ----------------------------------------------------------------------------
+    // Attach copy functionality to block
+    // ----------------------------------------------------------------------------
+    function attachCopyToBlock(highlightDiv) {
+      // only one per block
+      if (highlightDiv.querySelector('.jsphinx-copy-icon')) return;
+
+      // make sure the block can host an absolute child
+      if (window.getComputedStyle(highlightDiv).position === 'static') {
+        highlightDiv.style.position = 'relative';
+      }
+
+      const copyIcon = document.createElement('span');
+      copyIcon.classList.add('jsphinx-copy-icon');
+      Object.assign(copyIcon.style, {
+        position: 'absolute',
+        top: '5px',
+        right: '5px',
+        cursor: 'pointer',
+        // opacity: 0,             // will fade in on hover
+        // transition: 'opacity 0.3s ease',
+        zIndex: 9999,
+      });
+      copyIcon.innerHTML = copyIconImage;
+
+      copyIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const codeOrPre = findVisibleCodeElement(highlightDiv) || highlightDiv.querySelector('pre');
+        if (!codeOrPre) return;
+        navigator.clipboard.writeText(codeOrPre.textContent).then(() => {
+          const orig = copyIcon.innerHTML;
+          copyIcon.innerHTML = checkIconImage;
+          setTimeout(() => copyIcon.innerHTML = orig, 2000);
+        });
+      });
+
+      highlightDiv.appendChild(copyIcon);
+    }
 
     // ----------------------------------------------------------------------------
     // Inject CSS to show the eye and copy icons only on hover
@@ -130,9 +170,7 @@ function initializeJsphinxFeatures() {
                                 if (xhr.readyState === 4) {
                                     if (xhr.status === 200) {
                                         additionalContent.textContent = xhr.responseText;
-                                        console.log(additionalContent);
                                         Prism.highlightElement(additionalContent);
-                                        console.log(additionalContent);
                                         additionalContentDiv.style.display = 'block';
                                         // Add fetched class
                                         additionalContentDiv.classList.add('fetched');
@@ -185,10 +223,6 @@ function initializeJsphinxFeatures() {
 
             // Function to toggle visibility of code blocks
             function toggleCodeBlocks(codeBlock1, codeBlock2, toggleLink) {
-                console.log('codeBlock1');
-                console.log(codeBlock1);
-                console.log('codeBlock2');
-                console.log(codeBlock2);
                 const codeBlock1Style = getComputedStyle(codeBlock1);
                 let expanded;
 
@@ -225,13 +259,10 @@ function initializeJsphinxFeatures() {
                 toggleLink.addEventListener('click', (event) => {
                     event.preventDefault(); // Prevent the link from navigating
                     const expanded = toggleCodeBlocks(originalCodeBlock, newCodeBlock, toggleLink);
-                    console.log("expanded");
-                    console.log(expanded);
-                    // // Immediately update the eye icon based on the new state.
-                    // const eyeIcon = container.querySelector('.jsphinx-eye-icon');
-                    // if (eyeIcon) {
-                    //     eyeIcon.innerHTML = expanded ? expandedIconImage : collapsedIconImage;
-                    // }
+                    // if we've just shown the full example, ensure it has its own copy icon
+                    if (expanded) {
+                      attachCopyToBlock(originalCodeBlock);
+                    }
                 });
 
                 // Wrap the link in a <p> element
@@ -348,13 +379,6 @@ function initializeJsphinxFeatures() {
                     const code = document.createElement('code');
                     // Copy language classes from the compact code.
                     const compactCode = compact.querySelector('code');
-                    // if (compactCode) {
-                    //     compactCode.classList.forEach(cls => {
-                    //         if (cls.startsWith('language-')) {
-                    //             code.classList.add(cls);
-                    //         }
-                    //     });
-                    // }
                     // Get the file extension and set language class
                     let langClass = getLangClassFromTargetHref(link);
                     code.classList.add(langClass);
@@ -374,9 +398,7 @@ function initializeJsphinxFeatures() {
                             if (xhr.readyState === 4) {
                                 if (xhr.status === 200) {
                                     initData.code.textContent = xhr.responseText;
-                                    console.log(initData.code);
                                     Prism.highlightElement(initData.code);
-                                    console.log(initData.code);
                                     initData.full.style.display = 'block';
                                     initData.compact.style.display = 'none';
                                     initData.fetched = true;
@@ -413,8 +435,9 @@ function initializeJsphinxFeatures() {
         const preElements = container.querySelectorAll('pre');
         for (let i = 0; i < preElements.length; i++) {
             if (window.getComputedStyle(preElements[i]).display !== 'none') {
+                // Try to copy from a <code> if present, otherwise from the <pre> itself
                 const code = preElements[i].querySelector('code');
-                if (code) return code;
+                return code || preElements[i];
             }
         }
         return null;
