@@ -21,7 +21,7 @@ Release history and notes
 -----
 *2025-04-16*
 
-- Minor styling fixes in themes.
+- Minor styling improvements and fixes in themes.
 
 1.4.3
 -----
