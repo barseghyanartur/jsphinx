@@ -72,6 +72,7 @@ Write better docs. Stay concise. Never miss a detail.
 .. Additionally
 
 .. _sphinx-no-pragma: https://sphinx-no-pragma.readthedocs.io
+.. _fake.py: https://fakepy.readthedocs.io
 
 ----
 
@@ -152,28 +153,25 @@ specify which parts of the code to show. That's what is used to keep the
 primary focus on the most important parts of the code, reducing cognitive
 load for the reader.
 
-Consider the following code example:
+Consider the following code example (`fake.py`_ is used for the demo purposes):
 
 *Filename: examples/simple/snippet_1.py*
 
 .. code-block:: python
+    :name: test_snippet_jd_1
 
-   import os
+    import os
 
-   # Required imports
-   from faker import Faker
-   from faker_file.providers.docx_file import DocxFileProvider
+    # Required imports
+    from fake import FAKER
 
-   FAKER = Faker()  # Initialize Faker
-   FAKER.add_provider(DocxFileProvider)  # Register DocxFileProvider
+    # Generate DOCX file
+    docx_file = FAKER.docx_file()
 
-   # Generate DOCX file
-   docx_file = FAKER.docx_file()
-
-   # Test things out
-   print(docx_file)
-   print(docx_file.data["filename"])
-   assert os.path.exists(docx_file.data["filename"])
+    # Test things out
+    print(docx_file)
+    print(docx_file.data["filename"])
+    assert os.path.exists(docx_file.data["filename"])
 
 See the following documentation snippet:
 
@@ -182,19 +180,17 @@ See the following documentation snippet:
 .. code-block:: rst
 
     .. literalinclude:: examples/simple/snippet_1.py
-       :language: python
-       :lines: 3-11
+        :language: python
+        :lines: 3-7
+        :name: test_snippet_jd_1_literalinclude
 
 The above mentioned snippet will be rendered as follows:
 
 .. code-block:: python
+    :name: test_snippet_jd_1_rendered
 
     # Required imports
-    from faker import Faker
-    from faker_file.providers.docx_file import DocxFileProvider
-
-    FAKER = Faker()  # Initialize Faker
-    FAKER.add_provider(DocxFileProvider)  # Register DocxFileProvider
+    from fake import FAKER
 
     # Generate DOCX file
     docx_file = FAKER.docx_file()
@@ -256,7 +252,8 @@ under ``.. container:: jsphinx-download`` container as shown below:
 
         .. literalinclude:: examples/simple/snippet_1.py
            :language: python
-           :lines: 3-11
+           :lines: 3-7
+           :name: test_snippet_1_jd_literalinclude
 
         *See the full example*
         :download:`here <examples/simple/snippet_1.py>`
@@ -278,7 +275,8 @@ Consider the following documentation snippet:
 
         .. literalinclude:: examples/simple/snippet_1.py
             :language: python
-            :lines: 3-11
+            :lines: 3-7
+            :name: test_snippet_jdr_2_literalinclude
 
         *Toggle the full example*
         :download:`here <examples/simple/snippet_1.py>`
@@ -297,7 +295,8 @@ which is particularly useful for highlighting specific lines of code within
 the code block. This helps to draw attention to most important  parts of the
 code and helps the reader to understand the code.
 
-Consider the following documentation snippet:
+Consider the following documentation snippet (`fake.py`_ is used for the 
+demo purposes):
 
 *Filename: example.rst*
 
@@ -306,16 +305,14 @@ Consider the following documentation snippet:
     .. container:: jsphinx-toggle-emphasis
 
         .. code-block:: python
-            :emphasize-lines: 3,6,8
+            :emphasize-lines: 3-5
+            :name: test_snippet_jte_3
 
-            from faker import Faker
-            # Import the file provider we want to use
-            from faker_file.providers.txt_file import TxtFileProvider
-
-            FAKER = Faker()  # Initialise Faker instance
-            FAKER.add_provider(TxtFileProvider)  # Register the file provider
+            from fake import FAKER
 
             txt_file = FAKER.txt_file()  # Generate a TXT file
+            pdf_file = FAKER.pdf_file()  # Generate a PDF file
+            png_file = FAKER.png_file()  # Generate a PNG file
 
 *See the* `jsphinx-toggle-emphasis demo`_ *to see how it's rendered.*
 
@@ -334,16 +331,14 @@ that it replaces the compact code snippet with a full one.
     .. container:: jsphinx-toggle-emphasis-replace
 
         .. code-block:: python
-            :emphasize-lines: 3,6,8
+            :emphasize-lines: 3-5
+            :name: test_snippet_jter_4
 
-            from faker import Faker
-            # Import the file provider we want to use
-            from faker_file.providers.txt_file import TxtFileProvider
-
-            FAKER = Faker()  # Initialise Faker instance
-            FAKER.add_provider(TxtFileProvider)  # Register the file provider
+            from fake import FAKER
 
             txt_file = FAKER.txt_file()  # Generate a TXT file
+            pdf_file = FAKER.pdf_file()  # Generate a PDF file
+            png_file = FAKER.png_file()  # Generate a PNG file
 
 Themes
 ======
