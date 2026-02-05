@@ -56,8 +56,10 @@ dev = [
 ]
 test = [
     "Pillow",
+    "fake.py",
     "faker-file",
     "pytest",
+    "pytest-codeblock",
     "python-docx",
     "selenium",
     "get-chromedriver-py",
