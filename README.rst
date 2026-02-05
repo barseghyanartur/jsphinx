@@ -295,7 +295,7 @@ which is particularly useful for highlighting specific lines of code within
 the code block. This helps to draw attention to most important  parts of the
 code and helps the reader to understand the code.
 
-Consider the following documentation snippet (`fake.py`_ is used for the 
+Consider the following documentation snippet (`fake.py`_ is used for the
 demo purposes):
 
 *Filename: example.rst*
