@@ -50,7 +50,7 @@ dev = [
     "doc8",
     "ipython",
     "isort",
-    "pip-tools",
+    "uv",
     "ruff",
     "twine",
 ]

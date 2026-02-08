@@ -71,10 +71,10 @@ clean:
 	rm -rf dist/
 
 compile-requirements:
-	source $(VENV) && python -m piptools compile --all-extras -o docs/requirements.txt pyproject.toml
+	source $(VENV) && uv pip compile --all-extras -o docs/requirements.txt pyproject.toml
 
 compile-requirements-upgrade:
-	source $(VENV) && python -m piptools compile --all-extras -o docs/requirements.txt pyproject.toml --upgrade
+	source $(VENV) && uv pip compile --all-extras -o docs/requirements.txt pyproject.toml --upgrade
 
 TAGS = sphinx_rtd_theme alabaster sphinx_immaterial sphinx_material bootstrap furo sphinx_book_theme pydata_sphinx_theme
 
