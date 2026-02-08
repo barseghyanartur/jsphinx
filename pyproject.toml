@@ -133,6 +133,12 @@ target-version = "py39"
 known-first-party = []
 known-third-party = []
 
+[tool.ruff.format]
+# Ensure it uses the same style as Black
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+
 [tool.doc8]
 ignore-path = [
     "docs/requirements.txt",

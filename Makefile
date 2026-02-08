@@ -26,8 +26,11 @@ doc8:
 	source $(VENV) && doc8
 
 # Run ruff on the codebase
+# Sorts imports and fixes lint errors
+# Rewraps long lines and fixes indentation (the Black replacement)
 ruff:
 	source $(VENV) && ruff check . --fix
+	source $(VENV) && ruff format .
 
 # Serve the built docs on port 5001
 serve_docs:

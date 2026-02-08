@@ -177,9 +177,9 @@ the contents of each key file.
             continue
 
         # Compute include path relative to output_dir
-        include_path = os.path.relpath(
-            filepath, output_dir
-        ).replace(os.sep, "/")
+        include_path = os.path.relpath(filepath, output_dir).replace(
+            os.sep, "/"
+        )
         title = rel_path
         underline = "-" * len(title)
         lang = detect_language(filepath)
