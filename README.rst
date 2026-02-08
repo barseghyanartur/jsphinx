@@ -159,18 +159,15 @@ Consider the following code example (`fake.py`_ is used for the demo purposes):
 
 .. code-block:: python
 
-    import os
-
     # Required imports
     from fake import FAKER
 
     # Generate DOCX file
     docx_file = FAKER.docx_file()
 
-    # Test things out
-    print(docx_file)
-    print(docx_file.data["filename"])
-    assert os.path.exists(docx_file.data["filename"])
+    # Tests
+    assert docx_file.data["storage"].exists(docx_file)
+    assert len(docx_file.data["content"]) > 0
 
 See the following documentation snippet:
 
@@ -180,7 +177,7 @@ See the following documentation snippet:
 
     .. literalinclude:: examples/simple/snippet_1.py
         :language: python
-        :lines: 3-7
+        :lines: 1-5
 
 The above mentioned snippet will be rendered as follows:
 
@@ -249,7 +246,7 @@ under ``.. container:: jsphinx-download`` container as shown below:
 
         .. literalinclude:: examples/simple/snippet_1.py
            :language: python
-           :lines: 3-7
+           :lines: 1-5
 
         *See the full example*
         :download:`here <examples/simple/snippet_1.py>`
@@ -271,7 +268,7 @@ Consider the following documentation snippet:
 
         .. literalinclude:: examples/simple/snippet_1.py
             :language: python
-            :lines: 3-7
+            :lines: 1-5
 
         *Toggle the full example*
         :download:`here <examples/simple/snippet_1.py>`

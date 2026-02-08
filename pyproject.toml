@@ -55,12 +55,10 @@ dev = [
     "twine",
 ]
 test = [
-    "Pillow",
     "fake.py",
-    "faker-file",
     "pytest",
     "pytest-codeblock",
-    "python-docx",
+    "pytest-cov",
     "selenium",
     "get-chromedriver-py",
 ]
@@ -140,6 +138,41 @@ target-version = "py310"
 ignore-path = [
     "docs/requirements.txt",
     "src/jssphinx.egg-info/SOURCES.txt",
+]
+
+[tool.pytest.ini_options]
+addopts = [
+    "-ra",
+    "-vvv",
+    "-q",
+    "--cov=.",
+    "--ignore=.tox",
+    "--ignore=requirements",
+    "--ignore=release",
+    "--ignore=tmp",
+    "--cov-report=html",
+    "--cov-report=term",
+    "--cov-report=annotate",
+    "--cov-append",
+    "--capture=no",
+]
+#testpaths = [
+#    "**/test*.py",
+#    "**/*.rst",
+#    "**/*.md",
+#]
+pythonpath = [
+#    "src",
+#    "examples/simple",
+]
+norecursedirs = [".git"]
+DJANGO_SETTINGS_MODULE = "django_settings"
+
+markers = [
+    "slow: mark a test that takes a long time to run.",
+    "codeblock: pytest-codeblock markers",
+    "documentation: mark test as a documentation test",
+    "fakepy: mark test as a fake.py test",
 ]
 
 [tool.pytest-codeblock]
