@@ -141,3 +141,6 @@ ignore-path = [
     "docs/requirements.txt",
     "src/jssphinx.egg-info/SOURCES.txt",
 ]
+
+[tool.pytest-codeblock]
+test_nameless_codeblocks = true

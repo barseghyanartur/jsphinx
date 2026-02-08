@@ -13,7 +13,6 @@ See the following full functional snippet for generating a ``DOCX`` file.
     .. literalinclude:: examples/simple/snippet_1.py
         :language: python
         :lines: 3-7
-        :name: test_snippet_1
 
     *See the full example*
     :download:`here <examples/simple/snippet_1.py>`
@@ -33,7 +32,6 @@ The documentation snippet, the above (`Example 1`_) code was rendered from:
         .. literalinclude:: examples/simple/snippet_1.py
             :language: python
             :lines: 3-7
-            :name: test_snippet_1_raw
 
         *See the full example*
         :download:`here <examples/simple/snippet_1.py>`
@@ -50,7 +48,6 @@ See the example below for ``nb_pages`` tweak:
     .. literalinclude:: examples/simple/snippet_2.py
         :language: python
         :lines: 4-5
-        :name: test_snippet_2
 
     *See the full example*
     :download:`here <examples/simple/snippet_2.py>`
@@ -70,7 +67,6 @@ The documentation snippet, the above (`Example 2`_) code was rendered from:
         .. literalinclude:: examples/simple/snippet_2.py
             :language: python
             :lines: 4-5
-            :name: test_snippet_2_raw
 
         *See the full example*
         :download:`here <examples/simple/snippet_2.py>`
@@ -87,7 +83,6 @@ See the example below for ``texts`` tweak:
     .. literalinclude:: examples/simple/snippet_3.py
         :language: python
         :lines: 4-
-        :name: test_snippet_3
 
     *See the full example*
     :download:`here <examples/simple/snippet_3.py>`
@@ -107,7 +102,6 @@ The documentation snippet, the above (`Example 3`_) code was rendered from:
         .. literalinclude:: examples/simple/snippet_3.py
             :language: python
             :lines: 4-
-            :name: test_snippet_3_raw
 
         *See the full example*
         :download:`here <examples/simple/snippet_3.py>`
@@ -126,7 +120,6 @@ examples:
     .. literalinclude:: examples/simple/snippet_4.py
         :language: python
         :lines: 1-27
-        :name: test_snippet_4
 
     *See the full example*
     :download:`here <examples/simple/snippet_4.py>`
@@ -148,7 +141,6 @@ The documentation snippet, the above (`Example 4`_) code was rendered from:
         .. literalinclude:: examples/simple/snippet_4.py
             :language: python
             :lines: 1-27
-            :name: test_snippet_4_raw
 
         *See the full example*
         :download:`here <examples/simple/snippet_4.py>`
@@ -167,7 +159,6 @@ Generate a TXT file.
 
     .. code-block:: python
         :emphasize-lines: 3
-        :name: test_snippet_5
 
         from fake import FAKER
 
@@ -198,7 +189,6 @@ The documentation snippet, the above (`Example 5`_) code was rendered from:
 
         .. code-block:: python
             :emphasize-lines: 3
-            :name: test_snippet_5_raw
 
             from fake import FAKER
 
@@ -226,7 +216,6 @@ You could increase the file size by passing `nb_chars` parameter.
 
     .. code-block:: python
         :emphasize-lines: 7
-        :name: test_snippet_6
 
         from fake import FAKER
 
@@ -247,7 +236,6 @@ The documentation snippet, the above (`Example 6`_) code was rendered from:
 
         .. code-block:: python
             :emphasize-lines: 7
-            :name: test_snippet_6_raw
 
             from fake import FAKER
 
@@ -271,7 +259,6 @@ Generate a TXT file.
 
     .. code-block:: python
         :emphasize-lines: 3-4,6,8
-        :name: test_snippet_7
 
         from faker import Faker
         # Import the file provider we want to use
@@ -303,7 +290,6 @@ The documentation snippet, the above (`Example 7`_) code was rendered from:
 
         .. code-block:: python
             :emphasize-lines: 3-6,6,8
-            :name: test_snippet_7_raw
 
             from faker import Faker
             # Import the file provider we want to use
@@ -332,7 +318,6 @@ You could get just bytes back without physically creating the file.
 
     .. code-block:: python
         :emphasize-lines: 7
-        :name: test_snippet_8
 
         from faker import Faker
         from faker_file.providers.txt_file import TxtFileProvider
@@ -356,7 +341,6 @@ The documentation snippet, the above (`Example 8`_) code was rendered from:
 
         .. code-block:: python
             :emphasize-lines: 7
-            :name: test_snippet_8_raw
 
             from faker import Faker
             from faker_file.providers.txt_file import TxtFileProvider
@@ -379,7 +363,6 @@ See the following full functional snippet for generating a ``DOCX`` file.
     .. literalinclude:: examples/simple/snippet_1.py
         :language: python
         :lines: 3-11
-        :name: test_snippet_9
 
     *Toggle the full example*
     :download:`here <examples/simple/snippet_1.py>`
@@ -399,7 +382,6 @@ The documentation snippet, the above (`Example 9`_) code was rendered from:
         .. literalinclude:: examples/simple/snippet_1.py
             :language: python
             :lines: 3-11
-            :name: test_snippet_9_raw
 
         *Toggle the full example*
         :download:`here <examples/simple/snippet_1.py>`
@@ -416,7 +398,6 @@ See the example below for ``max_nb_chars`` tweak:
     .. literalinclude:: examples/simple/snippet_2.py
         :language: python
         :lines: 8-
-        :name: test_snippet_10
 
     *Toggle the full example*
     :download:`here <examples/simple/snippet_2.py>`
@@ -436,7 +417,6 @@ The documentation snippet, the above (`Example 10`_) code was rendered from:
         .. literalinclude:: examples/simple/snippet_2.py
             :language: python
             :lines: 8-
-            :name: test_snippet_10_raw
 
         *Toggle the full example*
         :download:`here <examples/simple/snippet_2.py>`

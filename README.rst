@@ -158,7 +158,6 @@ Consider the following code example (`fake.py`_ is used for the demo purposes):
 *Filename: examples/simple/snippet_1.py*
 
 .. code-block:: python
-    :name: test_snippet_jd_1
 
     import os
 
@@ -182,12 +181,10 @@ See the following documentation snippet:
     .. literalinclude:: examples/simple/snippet_1.py
         :language: python
         :lines: 3-7
-        :name: test_snippet_jd_1_literalinclude
 
 The above mentioned snippet will be rendered as follows:
 
 .. code-block:: python
-    :name: test_snippet_jd_1_rendered
 
     # Required imports
     from fake import FAKER
@@ -253,7 +250,6 @@ under ``.. container:: jsphinx-download`` container as shown below:
         .. literalinclude:: examples/simple/snippet_1.py
            :language: python
            :lines: 3-7
-           :name: test_snippet_1_jd_literalinclude
 
         *See the full example*
         :download:`here <examples/simple/snippet_1.py>`
@@ -276,7 +272,6 @@ Consider the following documentation snippet:
         .. literalinclude:: examples/simple/snippet_1.py
             :language: python
             :lines: 3-7
-            :name: test_snippet_jdr_2_literalinclude
 
         *Toggle the full example*
         :download:`here <examples/simple/snippet_1.py>`
@@ -306,7 +301,6 @@ demo purposes):
 
         .. code-block:: python
             :emphasize-lines: 3-5
-            :name: test_snippet_jte_3
 
             from fake import FAKER
 
@@ -332,7 +326,6 @@ that it replaces the compact code snippet with a full one.
 
         .. code-block:: python
             :emphasize-lines: 3-5
-            :name: test_snippet_jter_4
 
             from fake import FAKER
 
@@ -455,6 +448,7 @@ Finally, make sure to specify correct path to the desired theme:
 
 *Filename: conf.py*
 
+.. pytestfixture: html_theme
 .. code-block:: python
 
    html_css_files = [
@@ -466,6 +460,7 @@ Only for `sphinx-immaterial`_, you need to add the following:
 
 *Filename: conf.py*
 
+.. pytestfixture: extensions
 .. code-block:: python
 
     extensions.append("sphinx_immaterial")
