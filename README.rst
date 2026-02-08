@@ -28,6 +28,10 @@ Write better docs. Stay concise. Never miss a detail.
     :target: http://jsphinx.readthedocs.io/
     :alt: Documentation Status
 
+.. image:: https://img.shields.io/badge/docs-llms.txt-blue
+    :target: http://jsphinx.readthedocs.io/en/latest/llms.txt
+    :alt: llms.txt - documentation for LLMs
+
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg
    :target: https://github.com/barseghyanartur/jsphinx/#License
    :alt: MIT

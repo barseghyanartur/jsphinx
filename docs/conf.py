@@ -25,6 +25,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.viewcode",
     "sphinx_no_pragma",
+    "sphinx_llms_txt_link",
 ]
 pygments_style = "sphinx"
 templates_path = ["_templates"]
