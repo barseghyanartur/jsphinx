@@ -71,6 +71,7 @@ Write better docs. Stay concise. Never miss a detail.
 
 .. Additionally
 
+.. _pytest-codeblock: https://pytest-codeblock.readthedocs.io
 .. _sphinx-no-pragma: https://sphinx-no-pragma.readthedocs.io
 .. _fake.py: https://fakepy.readthedocs.io
 
@@ -465,38 +466,16 @@ Only for `sphinx-immaterial`_, you need to add the following:
 Testing your documentation
 ==========================
 
-All code snippets of this repository can be tested with `pytest`_ as follows:
+All code snippets of this repository can be tested with `pytest`_ (using 
+`pytest-codeblock`_ plugin) as follows:
 
 .. code-block:: sh
 
     pytest
 
-The `pytest`_ test-runner finds tests in the ``test_docs.py`` module,
-which is responsible for dynamical execution of Python files located in the
-``examples/simple/`` directory (``docs/examples/simple`` from the project
-root). This is how ``test_docs.py`` could look:
-
-*Filename: test_docs.py*
-
-.. code-block:: python
-
-    from pathlib import Path
-    import pytest
-
-    # Walk through the directory and all subdirectories for .py files
-    example_dir = Path("docs/examples/simple")
-    py_files = sorted([str(p) for p in example_dir.rglob("*.py")])
-
-    def execute_file(file_path):
-        """Dynamic test function."""
-        global_vars = {}
-        with open(file_path, "r") as f:
-            code = f.read()
-        exec(code, global_vars)
-
-    @pytest.mark.parametrize("file_path", py_files)
-    def test_dynamic_files(file_path):
-        execute_file(file_path)
+The `pytest-codeblock`_ will automatically discover all code blocks in
+the documentation and run them as tests. This way you can ensure that all 
+your code examples are functional and up-to-date.
 
 Credits
 =======
