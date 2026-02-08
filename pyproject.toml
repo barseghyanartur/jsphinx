@@ -36,9 +36,10 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-all = ["jssphinx[themes,dev,test]"]
+all = ["jssphinx[themes,dev,test,build]"]
 themes = [
     "sphinx-no-pragma",
+    "sphinx-llms-txt-link",
     "furo",
     "pydata-sphinx-theme",
     "sphinx-book-theme",
@@ -48,14 +49,11 @@ themes = [
     "sphinx_rtd_theme",
 ]
 dev = [
-    "black",
     "detect-secrets",
     "doc8",
     "ipython",
-    "isort",
     "uv",
     "ruff",
-    "twine",
 ]
 test = [
     "fake.py",
@@ -64,6 +62,11 @@ test = [
     "pytest-cov",
     "selenium",
     "get-chromedriver-py",
+]
+build = [
+    "build",
+    "twine",
+    "wheel",
 ]
 
 # Build system information below.
