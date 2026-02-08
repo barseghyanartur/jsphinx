@@ -7,6 +7,8 @@ VENV := ~/.virtualenvs/jsphinx/bin/activate
 
 # Build documentation using Sphinx and zip it
 build_docs:
+	source $(VENV) && python scripts/generate_project_source_tree.py
+	source $(VENV) && sphinx-build -n -b text docs builddocs
 	source $(VENV) && sphinx-build -n -a -b html docs builddocs
 	cd builddocs && zip -r ../builddocs.zip . -x ".*" && cd ..
 
