@@ -466,7 +466,7 @@ Only for `sphinx-immaterial`_, you need to add the following:
 Testing your documentation
 ==========================
 
-All code snippets of this repository can be tested with `pytest`_ (using 
+All code snippets of this repository can be tested with `pytest`_ (using
 `pytest-codeblock`_ plugin) as follows:
 
 .. code-block:: sh
@@ -474,7 +474,7 @@ All code snippets of this repository can be tested with `pytest`_ (using
     pytest
 
 The `pytest-codeblock`_ will automatically discover all code blocks in
-the documentation and run them as tests. This way you can ensure that all 
+the documentation and run them as tests. This way you can ensure that all
 your code examples are functional and up-to-date.
 
 Credits
