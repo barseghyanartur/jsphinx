@@ -20,7 +20,9 @@ def build_tree(
     """
     if max_depth < 0:
         return ""
-    entries = sorted(path.iterdir(), key=lambda p: (p.is_file(), p.name.lower()))
+    entries = sorted(
+        path.iterdir(), key=lambda p: (p.is_file(), p.name.lower())
+    )
     lines = []
     for i, entry in enumerate(entries):
         rel_path = entry.relative_to(root).as_posix()
@@ -31,7 +33,9 @@ def build_tree(
         if (
             not include_all
             and whitelist_dirs
-            and not any(rel_path.startswith(w.rstrip("/")) for w in whitelist_dirs)
+            and not any(
+                rel_path.startswith(w.rstrip("/")) for w in whitelist_dirs
+            )
         ):
             continue
         connector = "└── " if i == len(entries) - 1 else "├── "
@@ -166,12 +170,16 @@ the contents of each key file.
         if (
             not include_all
             and whitelist_dirs
-            and not any(rel_path.startswith(w.rstrip("/")) for w in whitelist_dirs)
+            and not any(
+                rel_path.startswith(w.rstrip("/")) for w in whitelist_dirs
+            )
         ):
             continue
 
         # Compute include path relative to output_dir
-        include_path = os.path.relpath(filepath, output_dir).replace(os.sep, "/")
+        include_path = os.path.relpath(
+            filepath, output_dir
+        ).replace(os.sep, "/")
         title = rel_path
         underline = "-" * len(title)
         lang = detect_language(filepath)
