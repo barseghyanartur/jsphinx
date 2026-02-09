@@ -41,6 +41,7 @@ the contents of each key file.
    │   ├── readme.rst
    │   ├── requirements.in
    │   ├── requirements.txt
+   │   ├── source_tree.rst
    │   ├── test_docs.py
    │   ├── test_theme.py
    ├── examples
@@ -122,6 +123,13 @@ docs/readme.rst
 .. literalinclude:: readme.rst
    :language: rst
    :caption: docs/readme.rst
+
+docs/source_tree.rst
+--------------------
+
+.. literalinclude:: source_tree.rst
+   :language: rst
+   :caption: docs/source_tree.rst
 
 docs/test_docs.py
 -----------------

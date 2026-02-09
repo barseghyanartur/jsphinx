@@ -1,7 +1,12 @@
 Examples
 ========
-*In the examples below, the `fake.py`_ package is used for demonstration 
-purposes.*
+
+.. References
+
+.. _fake.py: https://fakepy.readthedocs.io
+
+In the examples below, the `fake.py`_ package is used for demonstration 
+purposes.
 
 ``jsphinx-download`` directive usage
 ------------------------------------
