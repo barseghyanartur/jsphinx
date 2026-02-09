@@ -1,5 +1,8 @@
 Examples
 ========
+*In the examples below, the `fake.py`_ package is used for demonstration 
+purposes.*
+
 ``jsphinx-download`` directive usage
 ------------------------------------
 
@@ -347,7 +350,7 @@ See the following full functional snippet for generating a ``DOCX`` file.
 
     .. literalinclude:: examples/simple/snippet_1.py
         :language: python
-        :lines: 3-7
+        :lines: 1-5
 
     *Toggle the full example*
     :download:`here <examples/simple/snippet_1.py>`
@@ -366,7 +369,7 @@ The documentation snippet, the above (`Example 9`_) code was rendered from:
 
         .. literalinclude:: examples/simple/snippet_1.py
             :language: python
-            :lines: 3-7
+            :lines: 1-5
 
         *Toggle the full example*
         :download:`here <examples/simple/snippet_1.py>`
