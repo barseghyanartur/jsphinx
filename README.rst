@@ -29,7 +29,7 @@ Write better docs. Stay concise. Never miss a detail.
     :alt: Documentation Status
 
 .. image:: https://img.shields.io/badge/docs-llms.txt-blue
-    :target: http://jsphinx.readthedocs.io/en/latest/llms.txt
+    :target: http://jsphinx.readthedocs.io/en/sphinx_rtd_theme/llms.txt
     :alt: llms.txt - documentation for LLMs
 
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg

@@ -12,7 +12,7 @@ See the following full functional snippet for generating a ``DOCX`` file.
 
     .. literalinclude:: examples/simple/snippet_1.py
         :language: python
-        :lines: 3-7
+        :lines: 1-5
 
     *See the full example*
     :download:`here <examples/simple/snippet_1.py>`
@@ -31,7 +31,7 @@ The documentation snippet, the above (`Example 1`_) code was rendered from:
 
         .. literalinclude:: examples/simple/snippet_1.py
             :language: python
-            :lines: 3-7
+            :lines: 1-5
 
         *See the full example*
         :download:`here <examples/simple/snippet_1.py>`
