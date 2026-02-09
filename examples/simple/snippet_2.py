@@ -1,9 +1,9 @@
 # Required imports
-from faker import Faker
-from faker_file.providers.docx_file import DocxFileProvider
+from fake import FAKER
 
-FAKER = Faker()  # Initialize Faker
-FAKER.add_provider(DocxFileProvider)  # Register DocxFileProvider
+# Generate DOCX file of 100 pages
+docx_file = FAKER.docx_file(nb_pages=100)
 
-# Generate DOCX file of 20,000 characters
-docx_file = FAKER.docx_file(max_nb_chars=20_000)
+# Tests
+assert docx_file.data["storage"].exists(docx_file)
+assert len(docx_file.data["content"]) > 0

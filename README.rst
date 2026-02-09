@@ -28,6 +28,10 @@ Write better docs. Stay concise. Never miss a detail.
     :target: http://jsphinx.readthedocs.io/
     :alt: Documentation Status
 
+.. image:: https://img.shields.io/badge/docs-llms.txt-blue
+    :target: http://jsphinx.readthedocs.io/en/latest/llms.txt
+    :alt: llms.txt - documentation for LLMs
+
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg
    :target: https://github.com/barseghyanartur/jsphinx/#License
    :alt: MIT
@@ -71,7 +75,9 @@ Write better docs. Stay concise. Never miss a detail.
 
 .. Additionally
 
+.. _pytest-codeblock: https://pytest-codeblock.readthedocs.io
 .. _sphinx-no-pragma: https://sphinx-no-pragma.readthedocs.io
+.. _fake.py: https://fakepy.readthedocs.io
 
 ----
 
@@ -152,28 +158,21 @@ specify which parts of the code to show. That's what is used to keep the
 primary focus on the most important parts of the code, reducing cognitive
 load for the reader.
 
-Consider the following code example:
+Consider the following code example (`fake.py`_ is used for the demo purposes):
 
 *Filename: examples/simple/snippet_1.py*
 
 .. code-block:: python
 
-   import os
+    # Required imports
+    from fake import FAKER
 
-   # Required imports
-   from faker import Faker
-   from faker_file.providers.docx_file import DocxFileProvider
+    # Generate DOCX file
+    docx_file = FAKER.docx_file()
 
-   FAKER = Faker()  # Initialize Faker
-   FAKER.add_provider(DocxFileProvider)  # Register DocxFileProvider
-
-   # Generate DOCX file
-   docx_file = FAKER.docx_file()
-
-   # Test things out
-   print(docx_file)
-   print(docx_file.data["filename"])
-   assert os.path.exists(docx_file.data["filename"])
+    # Tests
+    assert docx_file.data["storage"].exists(docx_file)
+    assert len(docx_file.data["content"]) > 0
 
 See the following documentation snippet:
 
@@ -182,19 +181,15 @@ See the following documentation snippet:
 .. code-block:: rst
 
     .. literalinclude:: examples/simple/snippet_1.py
-       :language: python
-       :lines: 3-11
+        :language: python
+        :lines: 1-5
 
 The above mentioned snippet will be rendered as follows:
 
 .. code-block:: python
 
     # Required imports
-    from faker import Faker
-    from faker_file.providers.docx_file import DocxFileProvider
-
-    FAKER = Faker()  # Initialize Faker
-    FAKER.add_provider(DocxFileProvider)  # Register DocxFileProvider
+    from fake import FAKER
 
     # Generate DOCX file
     docx_file = FAKER.docx_file()
@@ -256,7 +251,7 @@ under ``.. container:: jsphinx-download`` container as shown below:
 
         .. literalinclude:: examples/simple/snippet_1.py
            :language: python
-           :lines: 3-11
+           :lines: 1-5
 
         *See the full example*
         :download:`here <examples/simple/snippet_1.py>`
@@ -278,7 +273,7 @@ Consider the following documentation snippet:
 
         .. literalinclude:: examples/simple/snippet_1.py
             :language: python
-            :lines: 3-11
+            :lines: 1-5
 
         *Toggle the full example*
         :download:`here <examples/simple/snippet_1.py>`
@@ -297,7 +292,8 @@ which is particularly useful for highlighting specific lines of code within
 the code block. This helps to draw attention to most important  parts of the
 code and helps the reader to understand the code.
 
-Consider the following documentation snippet:
+Consider the following documentation snippet (`fake.py`_ is used for the
+demo purposes):
 
 *Filename: example.rst*
 
@@ -306,16 +302,13 @@ Consider the following documentation snippet:
     .. container:: jsphinx-toggle-emphasis
 
         .. code-block:: python
-            :emphasize-lines: 3,6,8
+            :emphasize-lines: 3-5
 
-            from faker import Faker
-            # Import the file provider we want to use
-            from faker_file.providers.txt_file import TxtFileProvider
-
-            FAKER = Faker()  # Initialise Faker instance
-            FAKER.add_provider(TxtFileProvider)  # Register the file provider
+            from fake import FAKER
 
             txt_file = FAKER.txt_file()  # Generate a TXT file
+            pdf_file = FAKER.pdf_file()  # Generate a PDF file
+            png_file = FAKER.png_file()  # Generate a PNG file
 
 *See the* `jsphinx-toggle-emphasis demo`_ *to see how it's rendered.*
 
@@ -334,16 +327,13 @@ that it replaces the compact code snippet with a full one.
     .. container:: jsphinx-toggle-emphasis-replace
 
         .. code-block:: python
-            :emphasize-lines: 3,6,8
+            :emphasize-lines: 3-5
 
-            from faker import Faker
-            # Import the file provider we want to use
-            from faker_file.providers.txt_file import TxtFileProvider
-
-            FAKER = Faker()  # Initialise Faker instance
-            FAKER.add_provider(TxtFileProvider)  # Register the file provider
+            from fake import FAKER
 
             txt_file = FAKER.txt_file()  # Generate a TXT file
+            pdf_file = FAKER.pdf_file()  # Generate a PDF file
+            png_file = FAKER.png_file()  # Generate a PNG file
 
 Themes
 ======
@@ -460,6 +450,7 @@ Finally, make sure to specify correct path to the desired theme:
 
 *Filename: conf.py*
 
+.. pytestfixture: html_theme
 .. code-block:: python
 
    html_css_files = [
@@ -471,6 +462,7 @@ Only for `sphinx-immaterial`_, you need to add the following:
 
 *Filename: conf.py*
 
+.. pytestfixture: extensions
 .. code-block:: python
 
     extensions.append("sphinx_immaterial")
@@ -478,38 +470,16 @@ Only for `sphinx-immaterial`_, you need to add the following:
 Testing your documentation
 ==========================
 
-All code snippets of this repository can be tested with `pytest`_ as follows:
+All code snippets of this repository can be tested with `pytest`_ (using
+`pytest-codeblock`_ plugin) as follows:
 
 .. code-block:: sh
 
     pytest
 
-The `pytest`_ test-runner finds tests in the ``test_docs.py`` module,
-which is responsible for dynamical execution of Python files located in the
-``examples/simple/`` directory (``docs/examples/simple`` from the project
-root). This is how ``test_docs.py`` could look:
-
-*Filename: test_docs.py*
-
-.. code-block:: python
-
-    from pathlib import Path
-    import pytest
-
-    # Walk through the directory and all subdirectories for .py files
-    example_dir = Path("docs/examples/simple")
-    py_files = sorted([str(p) for p in example_dir.rglob("*.py")])
-
-    def execute_file(file_path):
-        """Dynamic test function."""
-        global_vars = {}
-        with open(file_path, "r") as f:
-            code = f.read()
-        exec(code, global_vars)
-
-    @pytest.mark.parametrize("file_path", py_files)
-    def test_dynamic_files(file_path):
-        execute_file(file_path)
+The `pytest-codeblock`_ will automatically discover all code blocks in
+the documentation and run them as tests. This way you can ensure that all
+your code examples are functional and up-to-date.
 
 Credits
 =======

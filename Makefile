@@ -7,6 +7,8 @@ VENV := ~/.virtualenvs/jsphinx/bin/activate
 
 # Build documentation using Sphinx and zip it
 build_docs:
+	source $(VENV) && python scripts/generate_project_source_tree.py
+	source $(VENV) && sphinx-build -n -b text docs builddocs
 	source $(VENV) && sphinx-build -n -a -b html docs builddocs
 	cd builddocs && zip -r ../builddocs.zip . -x ".*" && cd ..
 
@@ -19,20 +21,16 @@ rebuild_docs:
 pre-commit:
 	pre-commit run --all-files
 
-# Format code using Black
-black:
-	source $(VENV) && black .
-
-# Sort imports using isort
-isort:
-	source $(VENV) && isort . --overwrite-in-place
-
+# Run doc8 on the codebase
 doc8:
 	source $(VENV) && doc8
 
 # Run ruff on the codebase
+# Sorts imports and fixes lint errors
+# Rewraps long lines and fixes indentation (the Black replacement)
 ruff:
-	source $(VENV) && ruff .
+	source $(VENV) && ruff check . --fix
+	source $(VENV) && ruff format .
 
 # Serve the built docs on port 5001
 serve_docs:
@@ -71,10 +69,10 @@ clean:
 	rm -rf dist/
 
 compile-requirements:
-	source $(VENV) && python -m piptools compile --all-extras -o docs/requirements.txt pyproject.toml
+	source $(VENV) && uv pip compile --all-extras -o docs/requirements.txt pyproject.toml
 
 compile-requirements-upgrade:
-	source $(VENV) && python -m piptools compile --all-extras -o docs/requirements.txt pyproject.toml --upgrade
+	source $(VENV) && uv pip compile --all-extras -o docs/requirements.txt pyproject.toml --upgrade
 
 TAGS = sphinx_rtd_theme alabaster sphinx_immaterial sphinx_material bootstrap furo sphinx_book_theme pydata_sphinx_theme
 
