@@ -49,8 +49,6 @@ the contents of each key file.
    │       ├── snippet_2.py
    │       ├── snippet_3.py
    │       └── snippet_4.py
-   ├── scripts
-   │   └── generate_project_source_tree.py
    ├── src
    │   ├── css
    │   │   ├── alabaster.css
@@ -237,13 +235,6 @@ pyproject.toml
 .. literalinclude:: ../pyproject.toml
    :language: toml
    :caption: pyproject.toml
-
-scripts/generate_project_source_tree.py
----------------------------------------
-
-.. literalinclude:: ../scripts/generate_project_source_tree.py
-   :language: python
-   :caption: scripts/generate_project_source_tree.py
 
 src/js/download_adapter.js
 --------------------------
