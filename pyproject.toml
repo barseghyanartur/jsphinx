@@ -40,6 +40,7 @@ all = ["jssphinx[themes,dev,test,build]"]
 themes = [
     "sphinx-no-pragma",
     "sphinx-llms-txt-link",
+    "sphinx-source-tree",
     "furo",
     "pydata-sphinx-theme",
     "sphinx-book-theme",
