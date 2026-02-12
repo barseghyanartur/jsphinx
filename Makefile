@@ -6,14 +6,14 @@ READTHEDOCS_WEBHOOK = https://readthedocs.org/api/v2/webhook/jsphinx/252546/
 VENV := ~/.virtualenvs/jsphinx/bin/activate
 
 # Build documentation using Sphinx and zip it
-build_docs:
-	source $(VENV) && python scripts/generate_project_source_tree.py
+build-docs:
+	source $(VENV) && sphinx-source-tree
 	source $(VENV) && sphinx-build -n -b text docs builddocs
 	source $(VENV) && sphinx-build -n -a -b html docs builddocs
 	cd builddocs && zip -r ../builddocs.zip . -x ".*" && cd ..
 
 # Rebuild documentation using Sphinx and zip it
-rebuild_docs:
+rebuild-docs:
 	rm -rf builddocs
 	source $(VENV) && sphinx-build -n -a -b html docs builddocs
 	cd builddocs && zip -r ../builddocs.zip . -x ".*" && cd ..
@@ -33,7 +33,7 @@ ruff:
 	source $(VENV) && ruff format .
 
 # Serve the built docs on port 5001
-serve_docs:
+serve-docs:
 	source $(VENV) && cd builddocs && python -m http.server 5001
 
 # Install the project
