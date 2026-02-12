@@ -1,16 +1,14 @@
 Project source-tree
 ===================
 
-Below is the layout of our project (to 10 levels), followed by
+Below is the layout of the project (to 10 levels), followed by
 the contents of each key file.
 
-.. code-block:: bash
+.. code-block:: text
    :caption: Project directory layout
 
    jsphinx/
-
    ├── docs
-   │   ├── __pycache__
    │   ├── _static
    │   │   ├── scripts
    │   │   │   └── download_adapter.js
@@ -43,7 +41,7 @@ the contents of each key file.
    │   ├── requirements.txt
    │   ├── source_tree.rst
    │   ├── test_docs.py
-   │   ├── test_theme.py
+   │   └── test_theme.py
    ├── examples
    │   └── simple
    │       ├── __init__.py
@@ -65,15 +63,61 @@ the contents of each key file.
    │   │   └── sphinx_rtd_theme.css
    │   ├── js
    │   │   └── download_adapter.js
-   │   ├── jsphinx
-   │   │   ├── __init__.py
-   │   │   └── cdn.py
-   │   └── jssphinx.egg-info
-   │       ├── dependency_links.txt
-   │       ├── PKG-INFO
-   │       ├── requires.txt
-   │       ├── SOURCES.txt
-   │       └── top_level.txt
+   │   └── jsphinx
+   │       ├── __init__.py
+   │       └── cdn.py
+   ├── .pre-commit-config.yaml
+   ├── .pre-commit-hooks.yaml
+   ├── .readthedocs.yaml
+   ├── CHANGELOG.rst
+   ├── conftest.py
+   ├── LICENSE
+   ├── Makefile
+   ├── package.json
+   ├── pyproject.toml
+   └── README.rst
+
+.pre-commit-config.yaml
+-----------------------
+
+.. literalinclude:: ../.pre-commit-config.yaml
+   :language: yaml
+   :caption: .pre-commit-config.yaml
+
+.pre-commit-hooks.yaml
+----------------------
+
+.. literalinclude:: ../.pre-commit-hooks.yaml
+   :language: yaml
+   :caption: .pre-commit-hooks.yaml
+
+.readthedocs.yaml
+-----------------
+
+.. literalinclude:: ../.readthedocs.yaml
+   :language: yaml
+   :caption: .readthedocs.yaml
+
+CHANGELOG.rst
+-------------
+
+.. literalinclude:: ../CHANGELOG.rst
+   :language: rst
+   :caption: CHANGELOG.rst
+
+README.rst
+----------
+
+.. literalinclude:: ../README.rst
+   :language: rst
+   :caption: README.rst
+
+conftest.py
+-----------
+
+.. literalinclude:: ../conftest.py
+   :language: python
+   :caption: conftest.py
 
 docs/changelog.rst
 ------------------
@@ -179,6 +223,20 @@ examples/simple/snippet_4.py
 .. literalinclude:: ../examples/simple/snippet_4.py
    :language: python
    :caption: examples/simple/snippet_4.py
+
+package.json
+------------
+
+.. literalinclude:: ../package.json
+   :language: json
+   :caption: package.json
+
+pyproject.toml
+--------------
+
+.. literalinclude:: ../pyproject.toml
+   :language: toml
+   :caption: pyproject.toml
 
 scripts/generate_project_source_tree.py
 ---------------------------------------
